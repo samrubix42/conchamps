@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/techldjy/gravx.smartadvagency.com/
+    - export DEPLOYPATH=/home4/mobiyqdc/test.brandcreatr.com/
     - /bin/cp -R * $DEPLOYPATH 
