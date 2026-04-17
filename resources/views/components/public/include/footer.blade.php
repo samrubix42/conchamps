@@ -18,7 +18,7 @@ new class extends Component
                         <div class="single-footer-caption mb-30">
                             <!-- logo -->
                             <div class="footer-logo">
-                                <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                                <a href="index.html"><img src="{{ asset('Concrete-Champs-dark.png') }}" style="height: 40px;" alt=""></a>
                             </div>
                             <div class="footer-tittle">
                                 <div class="footer-pera">

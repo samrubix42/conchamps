@@ -146,25 +146,25 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
                 <div class="rounded-2xl border border-slate-200 bg-white p-6">
                     <p class="text-4xl md:text-5xl font-headline font-semibold text-slate-900">1.2M</p>
-                    <p class="mt-1 text-lg font-headline text-[#2A2872]">SQ FT</p>
+                    <p class="mt-1 text-lg font-headline text-[#5347BB]">SQ FT</p>
                     <p class="mt-4 text-xs uppercase tracking-[0.2em] text-slate-500">Built With Quality</p>
                 </div>
 
                 <div class="rounded-2xl border border-slate-200 bg-white p-6">
                     <p class="text-4xl md:text-5xl font-headline font-semibold text-slate-900">450+</p>
-                    <p class="mt-1 text-lg font-headline text-[#2A2872]">Projects</p>
+                    <p class="mt-1 text-lg font-headline text-[#5347BB]">Projects</p>
                     <p class="mt-4 text-xs uppercase tracking-[0.2em] text-slate-500">Delivered On Time</p>
                 </div>
 
                 <div class="rounded-2xl border border-slate-200 bg-white p-6">
                     <p class="text-4xl md:text-5xl font-headline font-semibold text-slate-900">98%</p>
-                    <p class="mt-1 text-lg font-headline text-[#2A2872]">Repeat</p>
+                    <p class="mt-1 text-lg font-headline text-[#5347BB]">Repeat</p>
                     <p class="mt-4 text-xs uppercase tracking-[0.2em] text-slate-500">Client Retention</p>
                 </div>
 
                 <div class="rounded-2xl border border-slate-200 bg-white p-6">
                     <p class="text-4xl md:text-5xl font-headline font-semibold text-slate-900">24/7</p>
-                    <p class="mt-1 text-lg font-headline text-[#2A2872]">Support</p>
+                    <p class="mt-1 text-lg font-headline text-[#5347BB]">Support</p>
                     <p class="mt-4 text-xs uppercase tracking-[0.2em] text-slate-500">Site Coordination</p>
                 </div>
             </div>

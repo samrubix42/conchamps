@@ -72,9 +72,7 @@
                              <h4><a href="services_details.html">Engineering techniques & implementation</a></h4>
                              <a href="services_details.html" class="more-btn">Read More <i class="ti-plus"></i></a>
                          </div>
-                         <div class="service-icon">
-                             <img src="assets/img/icon/services_icon1.png" alt="">
-                         </div>
+                        
                      </div>
                  </div>
                  <div class="col-xl-4 col-lg-4 col-md-6">
@@ -86,9 +84,7 @@
                              <h4><a href="services_details.html">Engineering techniques & implementation</a></h4>
                              <a href="services_details.html" class="more-btn">Read More <i class="ti-plus"></i></a>
                          </div>
-                         <div class="service-icon">
-                             <img src="assets/img/icon/services_icon1.png" alt="">
-                         </div>
+                        
                      </div>
                  </div>
                  <div class="col-xl-4 col-lg-4 col-md-6">
@@ -100,9 +96,7 @@
                              <h4><a href="services_details.htmlaa">Engineering techniques & implementation</a></h4>
                              <a href="services_details.html" class="more-btn">Read More <i class="ti-plus"></i></a>
                          </div>
-                         <div class="service-icon">
-                             <img src="assets/img/icon/services_icon1.png" alt="">
-                         </div>
+                        
                      </div>
                  </div>
              </div>

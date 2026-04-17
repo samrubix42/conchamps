@@ -42,9 +42,9 @@ new class extends Component
                             <div class="col-xl-2 col-lg-2 col-md-1">
                                 <div class="logo">
                                     <!-- logo-1 -->
-                                    <a href="index.html" class="big-logo"><img src="assets/img/logo/logo.png" alt=""></a>
+                                    <a href="index.html" class="big-logo"><img src="{{ asset('Concrete-Champs-dark.png') }}" style="height: 50px;" alt=""></a>
                                     <!-- logo-2 -->
-                                    <a href="index.html" class="small-logo"><img src="assets/img/logo/loder-logo.png" alt=""></a>
+                                    <a href="index.html" class="small-logo"><img src="{{ asset('Concrete-Champs-dark.png') }}" style="height: 30px;" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-8 col-lg-8 col-md-8">
