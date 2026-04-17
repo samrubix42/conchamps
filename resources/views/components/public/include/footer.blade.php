@@ -8,89 +8,75 @@ new class extends Component
 };
 ?>
 
-<footer>
-    <!-- Footer Start-->
-    <div class="footer-main">
-        <div class="footer-area footer-padding">
-            <div class="container">
-                <div class="row  justify-content-between">
-                    <div class="col-lg-4 col-md-4 col-sm-8">
-                        <div class="single-footer-caption mb-30">
-                            <!-- logo -->
-                            <div class="footer-logo">
-                                <a href="index.html"><img src="{{ asset('Concrete-Champs-dark.png') }}" style="height: 40px;" alt=""></a>
-                            </div>
-                            <div class="footer-tittle">
-                                <div class="footer-pera">
-                                    <p class="info1">Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-sm-5">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Quick Links</h4>
-                                <ul>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Services</a></li>
-                                    <li><a href="#">Projects</a></li>
-                                    <li><a href="#">Contact Us</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-7">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Contact</h4>
-                                <div class="footer-pera">
-                                    <p class="info1">198 West 21th Street, Suite 721 New York,NY 10010</p>
-                                </div>
-                                <ul>
-                                    <li><a href="#">Phone: +95 (0) 123 456 789</a></li>
-                                    <li><a href="#">Cell: +95 (0) 123 456 789</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-8">
-                        <div class="single-footer-caption mb-50">
-                            <!-- Form -->
-                            <div class="footer-form">
-                                <div id="mc_embed_signup">
-                                    <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative mail_part" novalidate="true">
-                                        <input type="email" name="EMAIL" id="newsletter-form-email" placeholder=" Email Address " class="placeholder hide-on-focus" onfocus="this.placeholder = ''" onblur="this.placeholder = ' Email Address '">
-                                        <div class="form-icon">
-                                            <button type="submit" name="submit" id="newsletter-submit" class="email_icon newsletter-submit button-contactForm">
-                                                SIGN UP
-                                            </button>
-                                        </div>
-                                        <div class="mt-10 info"></div>
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- Map -->
-                            <div class="map-footer">
-                                <img src="assets/img/gallery/map-footer.png" alt="">
-                            </div>
-                        </div>
-                    </div>
+<footer class="border-t border-slate-200 bg-gradient-to-b from-white to-slate-50">
+    <div class="container-custom py-10 sm:py-12">
+        <div class="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 lg:p-7 flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-10">
+            <div>
+                <p class="text-xs uppercase tracking-[0.2em] text-slate-500">Need Expert Guidance?</p>
+                <p class="mt-1 text-xl sm:text-2xl font-headline uppercase text-slate-900">Let's Discuss Your Project</p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3 sm:items-center">
+                <a href="tel:+18007878201" class="inline-flex items-center gap-2 rounded-lg border border-slate-200 px-4 py-2.5 text-sm text-slate-700 hover:text-secondary hover:border-secondary transition-colors">
+                    <i class="ri-phone-line"></i> +1 (800) 787-8201
+                </a>
+                <button class="btn-primary !rounded-lg !px-5 !py-2.5 !text-xs uppercase tracking-[0.08em]">Get A Quote</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+            <div class="sm:col-span-2 lg:col-span-1">
+                <a href="{{ url('/') }}" class="inline-flex items-center mb-5">
+                    <img src="{{ asset('Concrete-Champs-white.png') }}" alt="Concrete Champs" class="h-11 md:h-12" />
+                </a>
+                <p class="text-slate-600 text-sm leading-7 max-w-xs">
+                    Modern structural engineering and construction delivery focused on safety, speed, and long-term quality.
+                </p>
+                <div class="mt-5 flex items-center gap-3 text-xl">
+                    <a href="#" class="h-9 w-9 rounded-full border border-slate-200 inline-flex items-center justify-center text-slate-600 hover:text-secondary hover:border-secondary transition-colors"><i class="ri-linkedin-fill"></i></a>
+                    <a href="#" class="h-9 w-9 rounded-full border border-slate-200 inline-flex items-center justify-center text-slate-600 hover:text-secondary hover:border-secondary transition-colors"><i class="ri-instagram-line"></i></a>
+                    <a href="#" class="h-9 w-9 rounded-full border border-slate-200 inline-flex items-center justify-center text-slate-600 hover:text-secondary hover:border-secondary transition-colors"><i class="ri-youtube-fill"></i></a>
                 </div>
-                <!-- Copy-Right -->
-                <div class="row align-items-center">
-                    <div class="col-xl-12 ">
-                        <div class="footer-copy-right">
-                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;<script>
-                                    document.write(new Date().getFullYear());
-                                </script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                        </div>
-                    </div>
+            </div>
+
+            <div>
+                <h6 class="font-headline text-lg uppercase tracking-[0.1em] text-slate-900 mb-4">Quick Links</h6>
+                <ul class="space-y-3 text-sm">
+                    <li><a class="text-slate-600 hover:text-secondary transition-colors inline-flex items-center gap-2" href="#"><i class="ri-arrow-right-s-line"></i>Home</a></li>
+                    <li><a class="text-slate-600 hover:text-secondary transition-colors inline-flex items-center gap-2" href="#"><i class="ri-arrow-right-s-line"></i>About</a></li>
+                    <li><a class="text-slate-600 hover:text-secondary transition-colors inline-flex items-center gap-2" href="#"><i class="ri-arrow-right-s-line"></i>Projects</a></li>
+                    <li><a class="text-slate-600 hover:text-secondary transition-colors inline-flex items-center gap-2" href="#"><i class="ri-arrow-right-s-line"></i>Services</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h6 class="font-headline text-lg uppercase tracking-[0.1em] text-slate-900 mb-4">Contact</h6>
+                <ul class="space-y-3 text-sm text-slate-600">
+                    <li class="inline-flex items-start gap-2"><i class="ri-map-pin-2-line mt-0.5 text-secondary"></i><span>1200 Industrial Way, New York, NY</span></li>
+                    <li class="inline-flex items-center gap-2"><i class="ri-phone-line text-secondary"></i><span>+1 (800) 787-8201</span></li>
+                    <li class="inline-flex items-center gap-2"><i class="ri-mail-line text-secondary"></i><span>hello@concretechamps.com</span></li>
+                </ul>
+            </div>
+
+            <div>
+                <h6 class="font-headline text-lg uppercase tracking-[0.1em] text-slate-900 mb-4">Newsletter</h6>
+                <p class="text-sm text-slate-600 leading-6 mb-4">Get monthly updates on new projects and capabilities.</p>
+                <div class="rounded-xl border border-slate-200 bg-slate-50 p-1.5 flex items-center">
+                    <input type="email" placeholder="Your email" class="w-full px-3 py-2 bg-transparent text-sm text-slate-900 placeholder:text-slate-500 focus:outline-none" />
+                    <button class="h-10 w-10 rounded-lg bg-secondary text-white inline-flex items-center justify-center">
+                        <i class="ri-send-plane-line"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Footer End-->
+
+    <div class="border-t border-slate-200 bg-white">
+        <div class="container-custom py-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm">
+            <p class="text-slate-500">&copy; {{ date('Y') }} Concrete Champs. All rights reserved.</p>
+            <div class="flex items-center gap-5">
+                <a href="#" class="text-slate-500 hover:text-secondary transition-colors">Privacy Policy</a>
+                <a href="#" class="text-slate-500 hover:text-secondary transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </div>
 </footer>

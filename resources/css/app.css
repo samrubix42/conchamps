@@ -125,7 +125,25 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ===============================
-   🔘 BUTTONS
+   �️ LOGO BACKGROUND
+================================= */
+.logo-bg {
+   
+    background-size: 100%;
+    background-position: center 60%;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+}
+
+@media (min-width: 768px) {
+    .logo-bg {
+        background-size: 50%;
+         background-position: center 80%;
+    }
+}
+
+/* ===============================
+   �🔘 BUTTONS
 ================================= */
 .btn-primary {
     @apply inline-flex items-center justify-center gap-2 bg-secondary text-white px-6 sm:px-7 py-3.5 rounded-xl font-semibold tracking-wide 
