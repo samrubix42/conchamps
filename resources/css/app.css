@@ -1,11 +1,326 @@
 @import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap');
 
+/* ===============================
+   📂 SOURCE FILES
+================================= */
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
+/* ===============================
+   🎨 THEME (INDIGO CONSTRUCTION)
+================================= */
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-headline: 'Oswald', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* BRAND */
+    --color-primary: #0f172a;
+    --color-secondary: #2A2872;   /* MAIN COLOR */
+    --color-accent: #4F46E5;      /* lighter indigo */
+
+    /* BACKGROUND */
+    --color-background: #f8fafc;
+    --color-surface: #ffffff;
+    --color-surface-2: #eef2f7;
+
+    /* TEXT */
+    --color-on-primary: #ffffff;
+    --color-on-surface: #0f172a;
+    --color-muted: #64748b;
+
+    /* UI */
+    --color-border: #dbe3ed;
+}
+
+/* ===============================
+   🌍 GLOBAL
+================================= */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    @apply bg-background text-on-surface font-body antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @apply font-headline tracking-tight;
+}
+
+/* ===============================
+   📦 LAYOUT
+================================= */
+.container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.section {
+    @apply py-16 md:py-20 lg:py-24;
+}
+
+/* Subtle premium background */
+.site-shell {
+    background:
+        radial-gradient(circle at 8% 0%, rgba(42, 40, 114, 0.08), transparent 28%),
+        radial-gradient(circle at 90% 85%, rgba(15, 23, 42, 0.05), transparent 34%),
+        #f8fafc;
+}
+
+.header-wrap {
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(12px);
+}
+
+.topbar-soft {
+    background:
+        linear-gradient(90deg, rgba(42, 40, 114, 0.06), rgba(79, 70, 229, 0.03));
+}
+
+.nav-link-pro {
+    @apply relative text-primary/90 font-medium text-[15px] transition-colors duration-300 hover:text-secondary;
+}
+
+.nav-link-pro::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 2px;
+    border-radius: 999px;
+    background: #2a2872;
+    transition: width 0.25s ease;
+}
+
+.nav-link-pro:hover::after {
+    width: 100%;
+}
+
+.footer-shell {
+    background:
+        linear-gradient(180deg, #ffffff, #f5f8fd);
+}
+
+.cta-shell {
+    background:
+        linear-gradient(125deg, #10162b 0%, #1d2450 60%, #242a5c 100%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 26px 60px rgba(15, 23, 42, 0.24);
+}
+
+.cta-kicker {
+    @apply inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-[11px] uppercase tracking-[0.16em] font-semibold;
+    background: rgba(255, 255, 255, 0.13);
+    color: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cta-point {
+    @apply rounded-xl px-4 py-3 text-sm;
+    background: rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* ===============================
+   🔘 BUTTONS
+================================= */
+.btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-secondary text-white px-6 sm:px-7 py-3.5 rounded-xl font-semibold tracking-wide 
+           transition-all duration-300 hover:-translate-y-0.5 
+           hover:shadow-[0_12px_30px_rgba(42,40,114,0.25)];
+}
+
+.btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 border border-border bg-white 
+           text-primary px-6 sm:px-7 py-3.5 rounded-xl font-semibold tracking-wide 
+           transition-all duration-300 hover:bg-surface-2;
+}
+
+/* ===============================
+   🧱 CARDS
+================================= */
+.card {
+    @apply bg-white border border-border rounded-2xl p-6 md:p-7 lg:p-8 
+           transition-all duration-300 hover:-translate-y-1 
+           hover:shadow-[0_16px_40px_rgba(15,23,42,0.08)];
+}
+
+.card-icon {
+    @apply w-12 h-12 md:w-14 md:h-14 rounded-xl bg-surface-2 
+           text-secondary border border-border flex items-center 
+           justify-center text-2xl mb-5 transition-all duration-300;
+}
+
+.card:hover .card-icon {
+    @apply bg-secondary text-white;
+}
+
+/* ===============================
+   🎯 HERO
+================================= */
+.hero-overlay {
+    background:
+        linear-gradient(120deg, rgba(7, 10, 22, 0.62), rgba(7, 10, 22, 0.26)),
+        radial-gradient(circle at 32% 28%, rgba(42, 40, 114, 0.28), transparent 62%);
+}
+
+.hero-glass {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    backdrop-filter: blur(10px);
+}
+
+.hero-btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 border border-white/45 bg-white/8 text-white px-6 sm:px-7 py-3.5 rounded-xl font-semibold tracking-wide transition-all duration-300 hover:bg-white/18;
+}
+
+.hero-nav-btn {
+    @apply h-9 w-9 rounded-full text-white inline-flex items-center justify-center transition-all duration-300;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.26);
+    backdrop-filter: blur(8px);
+}
+
+.hero-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Hero animations */
+.hero-title-line {
+    animation: heroRise 0.8s ease both;
+}
+.hero-title-line.delay-1 { animation-delay: 0.1s; }
+.hero-title-line.delay-2 { animation-delay: 0.2s; }
+.hero-title-line.delay-3 { animation-delay: 0.3s; }
+
+/* ===============================
+   📊 STATS
+================================= */
+.stat-number {
+    @apply text-4xl md:text-5xl lg:text-6xl font-headline font-semibold text-primary;
+}
+
+.stat-highlight {
+    @apply text-secondary text-xl md:text-2xl lg:text-3xl;
+}
+
+.stat-label {
+    @apply text-muted uppercase tracking-[0.24em] text-xs;
+}
+
+.stats-surface {
+    background:
+        radial-gradient(circle at 50% 0%, rgba(42, 40, 114, 0.08), transparent 38%),
+        linear-gradient(180deg, #edf2f8, #e8edf5);
+}
+
+.stats-card {
+    @apply relative bg-white/90 border border-white rounded-2xl p-6 sm:p-7 transition-all duration-300;
+    box-shadow: 0 16px 35px rgba(15, 23, 42, 0.08);
+    backdrop-filter: blur(4px);
+}
+
+.stats-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 1rem;
+    pointer-events: none;
+    background: linear-gradient(130deg, rgba(255,255,255,0.75), transparent 70%);
+}
+
+.stats-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+}
+
+/* ===============================
+   🧩 GRID BACKGROUND
+================================= */
+.blueprint-grid {
+    background-image:
+        linear-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+    background-size: 34px 34px;
+}
+
+/* ===============================
+   ✨ EFFECTS
+================================= */
+
+/* Gradient Text */
+.gradient-text {
+    background: linear-gradient(135deg, #2A2872, #4F46E5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Glow */
+.glow-primary {
+    box-shadow: 0 10px 30px rgba(42, 40, 114, 0.2);
+}
+
+/* ===============================
+   🎬 ANIMATIONS
+================================= */
+.fade-up {
+    @apply opacity-0 translate-y-5;
+    animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroRise {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+        filter: blur(2px);
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+/* ===============================
+   🎯 COMPONENTS
+================================= */
+.project-category-chip {
+    @apply inline-flex items-center gap-1 rounded-full bg-white 
+           text-primary px-3 py-1 text-[11px] uppercase tracking-[0.16em] 
+           font-semibold border border-border;
+}
+
+.testimonial-dot {
+    @apply h-2.5 w-2.5 rounded-full bg-gray-300 transition-all duration-300;
+}
+
+.testimonial-dot.active {
+    @apply w-6 bg-secondary;
+}
+
+/* ===============================
+   📱 SCROLLBAR
+================================= */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #edf2f8;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2A2872;
+    border-radius: 10px;
 }
