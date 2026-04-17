@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="light">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="light no-scrollbar">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +15,7 @@
     <!-- Alpine.js -->
 
 </head>
-<body class="site-shell antialiased font-body min-h-screen flex flex-col text-on-surface">
+<body class="site-shell no-scrollbar antialiased font-body min-h-screen flex flex-col text-on-surface">
     <livewire:public.include.header2 />
 
     <main class="flex-grow pt-16 md:pt-[110px]">

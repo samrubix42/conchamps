@@ -2,116 +2,171 @@
     <section
         x-data="{
             activeSlide: 0,
+            interval: 6000,
+            autoTimer: null,
             slides: [
                 {
-                    image: 'https://images.unsplash.com/photo-1541888086422-482bc6db1ce0?q=80&w=2070&auto=format&fit=crop',
+                    image: '{{ asset('building/construction-site-sunset.webp') }}',
                     subtitle: 'Engineered for Strength',
-                    title1: 'BUILD SMART',
-                    highlight: 'BUILD BOLD',
-                    title2: 'BUILD MODERN'
+                    title: 'Build Smart Infrastructure For The Future',
+                    desc: 'From concept to completion, we deliver high-performance construction with precision, speed, and reliability.'
                 },
                 {
-                    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2071&auto=format&fit=crop',
+                    image: '{{ asset('building/beautiful-view-construction-site-city-sunset.webp') }}',
                     subtitle: 'Precision Construction',
-                    title1: 'FROM PLAN',
-                    highlight: 'TO STRUCTURE',
-                    title2: 'WITHOUT DELAY'
+                    title: 'Modern Projects Delivered On Time',
+                    desc: 'We combine structural expertise and field-ready execution to reduce risk and accelerate delivery.'
+                },
+                {
+                    image: '{{ asset('building/illustration-construction-site.webp') }}',
+                    subtitle: 'Execution Excellence',
+                    title: 'Reliable Teams. Measurable Project Outcomes.',
+                    desc: 'Our construction specialists turn designs into durable, high-quality assets with transparent delivery workflows.'
                 }
             ],
+            startAuto() {
+                this.stopAuto();
+                this.autoTimer = setInterval(() => {
+                    this.next();
+                }, this.interval);
+            },
+            stopAuto() {
+                if (this.autoTimer) clearInterval(this.autoTimer);
+            },
+            next() {
+                this.activeSlide = (this.activeSlide + 1) % this.slides.length;
+            },
+            prev() {
+                this.activeSlide = (this.activeSlide - 1 + this.slides.length) % this.slides.length;
+            },
+            goTo(i) {
+                this.activeSlide = i;
+            },
             init() {
-                setInterval(() => {
-                    this.activeSlide = (this.activeSlide + 1) % this.slides.length;
-                }, 6000);
+                this.startAuto();
             }
         }"
-        class="relative min-h-[92vh] sm:min-h-screen flex items-center overflow-hidden"
+        @mouseenter="stopAuto()"
+        @mouseleave="startAuto()"
+        class="relative min-h-[90vh] lg:min-h-[92vh] overflow-hidden"
     >
         <template x-for="(slide, index) in slides" :key="index">
-            <div class="absolute inset-0 transition-opacity duration-1000" :class="activeSlide === index ? 'opacity-100' : 'opacity-0 z-[-1]'">
-                <img :src="slide.image" class="w-full h-full object-cover transition-transform duration-[9000ms] ease-linear" :class="activeSlide === index ? 'scale-110' : 'scale-100'" alt="Hero background" />
-                <div class="absolute inset-0 hero-overlay"></div>
+            <div class="absolute inset-0 transition-opacity duration-700" :class="activeSlide === index ? 'opacity-100' : 'opacity-0'">
+                <img
+                    :src="slide.image"
+                    alt="Hero background"
+                    class="h-full w-full object-cover transition-transform duration-[7000ms] ease-out"
+                    :class="activeSlide === index ? 'scale-105' : 'scale-100'"
+                />
+                <div class="absolute inset-0 bg-gradient-to-r from-slate-950/75 via-slate-950/45 to-slate-950/20"></div>
             </div>
         </template>
 
-        <div class="container-custom relative z-10 pt-28 sm:pt-32 pb-16 sm:pb-20">
-            <template x-for="(slide, index) in slides" :key="`content-${index}`">
-                <div
-                    x-show="activeSlide === index"
-                    x-transition:enter="transition ease-out duration-700"
-                    x-transition:enter-start="opacity-0 translate-y-8"
-                    x-transition:enter-end="opacity-100 translate-y-0"
-                    class="max-w-5xl mx-auto text-center px-4 sm:px-6"
-                >
-                    <span class="hero-glass inline-flex items-center gap-2 text-white px-4 py-1.5 rounded-full text-[11px] sm:text-xs uppercase tracking-[0.16em] font-semibold">
-                        <i class="ri-compasses-2-line"></i>
-                        <span x-text="slide.subtitle"></span>
-                    </span>
+        <div class="container-custom relative z-10 flex min-h-[90vh] lg:min-h-[92vh] items-center py-24">
+            <div class="max-w-3xl">
+                <template x-for="(slide, index) in slides" :key="`content-${index}`">
+                    <div
+                        x-show="activeSlide === index"
+                        x-transition:enter="transition ease-out duration-500"
+                        x-transition:enter-start="opacity-0 translate-y-4"
+                        x-transition:enter-end="opacity-100 translate-y-0"
+                        class="space-y-6"
+                    >
+                        <span class="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-[11px] sm:text-xs uppercase tracking-[0.16em] font-semibold text-white">
+                            <i class="ri-compasses-2-line"></i>
+                            <span x-text="slide.subtitle"></span>
+                        </span>
 
-                    <h1 class="mt-5 uppercase leading-[0.95] text-white drop-shadow-[0_8px_20px_rgba(2,6,23,0.35)]">
-                        <span class="hero-title-line delay-1 block text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-semibold" x-text="slide.title1"></span>
-                        <span class="hero-title-line delay-2 block text-4xl sm:text-5xl md:text-7xl lg:text-[5.3rem] gradient-text font-semibold py-1" x-text="slide.highlight"></span>
-                        <span class="hero-title-line delay-3 block text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-semibold" x-text="slide.title2"></span>
-                    </h1>
+                        <h1 class="text-white text-4xl sm:text-5xl lg:text-7xl leading-[0.95] uppercase">
+                            <span x-text="slide.title"></span>
+                        </h1>
 
-                    <p class="mt-6 text-sm sm:text-base md:text-lg text-white/85 max-w-2xl mx-auto">
-                        We help developers, architects, and contractors ship landmark projects faster with stronger engineering systems.
-                    </p>
+                        <p class="max-w-2xl text-white/85 text-sm sm:text-base lg:text-lg leading-7" x-text="slide.desc"></p>
 
-                    <div class="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-                        <button class="btn-primary">
-                            <i class="ri-hammer-line"></i>
-                            Explore Services
-                        </button>
-                        <button class="btn-secondary hero-btn-ghost">
-                            <i class="ri-building-3-line"></i>
-                            View Projects
-                        </button>
+                        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-1">
+                            <button class="btn-primary">
+                                <i class="ri-hammer-line"></i>
+                                Explore Services
+                            </button>
+                            <button class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/45 bg-white/10 px-6 sm:px-7 py-3.5 font-semibold tracking-wide text-white transition-all duration-300 hover:bg-white/20">
+                                <i class="ri-building-3-line"></i>
+                                View Projects
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </template>
-        </div>
-
-        <div class="absolute inset-x-0 bottom-7 z-20">
-            <div class="container-custom flex items-center justify-center gap-2 mb-4">
-                <button @click="activeSlide = (activeSlide - 1 + slides.length) % slides.length" class="hero-nav-btn"><i class="ri-arrow-left-s-line"></i></button>
-                <template x-for="(slide, idx) in slides" :key="`hero-dot-${idx}`">
-                    <button
-                        @click="activeSlide = idx"
-                        class="h-2.5 rounded-full transition-all duration-300"
-                        :class="activeSlide === idx ? 'w-8 bg-secondary' : 'w-2.5 bg-white/60'"
-                    ></button>
                 </template>
-                <button @click="activeSlide = (activeSlide + 1) % slides.length" class="hero-nav-btn"><i class="ri-arrow-right-s-line"></i></button>
             </div>
         </div>
 
-        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 text-center text-white/75">
-            <i class="ri-mouse-line text-xl"></i>
-            <p class="text-[11px] uppercase tracking-[0.16em] mt-1">Scroll</p>
+        <div class="absolute inset-x-0 bottom-6 z-20">
+            <div class="container-custom">
+                <div class="flex items-center justify-between gap-4">
+                    <div class="flex items-center gap-2">
+                        <button @click="prev()" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/30 bg-black/25 text-white backdrop-blur hover:bg-black/35 transition-colors">
+                            <i class="ri-arrow-left-s-line text-lg"></i>
+                        </button>
+                        <button @click="next()" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/30 bg-black/25 text-white backdrop-blur hover:bg-black/35 transition-colors">
+                            <i class="ri-arrow-right-s-line text-lg"></i>
+                        </button>
+                    </div>
+
+                    <div class="hidden md:flex items-center gap-2">
+                        <template x-for="(slide, idx) in slides" :key="`thumb-${idx}`">
+                            <button
+                                @click="goTo(idx)"
+                                class="overflow-hidden rounded-lg border transition-all duration-300"
+                                :class="activeSlide === idx ? 'border-white w-20 h-12' : 'border-white/30 w-14 h-10 opacity-80 hover:opacity-100'"
+                            >
+                                <img :src="slide.image" alt="Slide thumb" class="h-full w-full object-cover" />
+                            </button>
+                        </template>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <template x-for="(slide, idx) in slides" :key="`dot-${idx}`">
+                            <button
+                                @click="goTo(idx)"
+                                class="h-2.5 rounded-full transition-all duration-300"
+                                :class="activeSlide === idx ? 'w-8 bg-white' : 'w-2.5 bg-white/45 hover:bg-white/70'"
+                            ></button>
+                        </template>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="section stats-surface border-y border-border blueprint-grid">
-        <div class="container-custom grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            <div class="stats-card">
-                <div class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-secondary/10 text-secondary mb-3"><i class="ri-building-4-line"></i></div>
-                <p class="stat-number">1.2M <span class="stat-highlight">SQ FT</span></p>
-                <p class="stat-label mt-3">Built With Quality</p>
+    <section class="section bg-white border-y border-slate-200">
+        <div class="container-custom">
+            <div class="mb-8 sm:mb-10 text-center">
+                <p class="text-xs sm:text-sm uppercase tracking-[0.18em] text-slate-500">By The Numbers</p>
+                <h2 class="mt-2 text-3xl sm:text-4xl lg:text-5xl uppercase text-slate-900">Our Impact</h2>
             </div>
-            <div class="stats-card">
-                <div class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-secondary/10 text-secondary mb-3"><i class="ri-hammer-line"></i></div>
-                <p class="stat-number">450+ <span class="stat-highlight">Projects</span></p>
-                <p class="stat-label mt-3">Delivered On Time</p>
-            </div>
-            <div class="stats-card">
-                <div class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-secondary/10 text-secondary mb-3"><i class="ri-award-line"></i></div>
-                <p class="stat-number">98% <span class="stat-highlight">Repeat</span></p>
-                <p class="stat-label mt-3">Client Retention</p>
-            </div>
-            <div class="stats-card">
-                <div class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-secondary/10 text-secondary mb-3"><i class="ri-customer-service-2-line"></i></div>
-                <p class="stat-number">24/7 <span class="stat-highlight">Support</span></p>
-                <p class="stat-label mt-3">Site Coordination</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+                <div class="rounded-2xl border border-slate-200 bg-white p-6">
+                    <p class="text-4xl md:text-5xl font-headline font-semibold text-slate-900">1.2M</p>
+                    <p class="mt-1 text-lg font-headline text-[#2A2872]">SQ FT</p>
+                    <p class="mt-4 text-xs uppercase tracking-[0.2em] text-slate-500">Built With Quality</p>
+                </div>
+
+                <div class="rounded-2xl border border-slate-200 bg-white p-6">
+                    <p class="text-4xl md:text-5xl font-headline font-semibold text-slate-900">450+</p>
+                    <p class="mt-1 text-lg font-headline text-[#2A2872]">Projects</p>
+                    <p class="mt-4 text-xs uppercase tracking-[0.2em] text-slate-500">Delivered On Time</p>
+                </div>
+
+                <div class="rounded-2xl border border-slate-200 bg-white p-6">
+                    <p class="text-4xl md:text-5xl font-headline font-semibold text-slate-900">98%</p>
+                    <p class="mt-1 text-lg font-headline text-[#2A2872]">Repeat</p>
+                    <p class="mt-4 text-xs uppercase tracking-[0.2em] text-slate-500">Client Retention</p>
+                </div>
+
+                <div class="rounded-2xl border border-slate-200 bg-white p-6">
+                    <p class="text-4xl md:text-5xl font-headline font-semibold text-slate-900">24/7</p>
+                    <p class="mt-1 text-lg font-headline text-[#2A2872]">Support</p>
+                    <p class="mt-4 text-xs uppercase tracking-[0.2em] text-slate-500">Site Coordination</p>
+                </div>
             </div>
         </div>
     </section>
