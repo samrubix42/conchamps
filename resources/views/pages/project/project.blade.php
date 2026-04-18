@@ -222,8 +222,8 @@
                         <p class="mt-4 text-white/80 text-sm sm:text-base leading-7">Share your scope and target timeline. We will provide a delivery roadmap and budget guidance.</p>
                     </div>
                     <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                        <a href="{{ route('contact') }}" wire:navigate class="btn-primary w-full sm:w-auto !bg-white !text-zinc-800 !border-0 hover:!bg-zinc-100"><i class="ri-send-plane-line !text-zinc-800"></i> Contact Us</a>
-                        <a href="{{ route('about') }}" wire:navigate class="btn-secondary w-full sm:w-auto !bg-white !text-zinc-800 !border-white hover:!bg-zinc-100"><i class="ri-team-line !text-zinc-800"></i> About Team</a>
+                        <a href="{{ route('contact') }}" wire:navigate class="btn-primary w-full sm:w-auto !py-2.5  !bg-white !text-zinc-800 !border-0 hover:!bg-zinc-100"><i class="ri-send-plane-line !text-zinc-800"></i> Contact Us</a>
+                        <a href="{{ route('about') }}" wire:navigate class="btn-secondary w-full sm:w-auto !py-2.5 !bg-white !text-zinc-800 !border-white hover:!bg-zinc-100"><i class="ri-team-line !text-zinc-800"></i> About Team</a>
                     </div>
                 </div>
             </div>
