@@ -32,6 +32,8 @@ return [
     'component_namespaces' => [
         'layouts' => resource_path('views/layouts'),
         'pages' => resource_path('views/pages'),
+        'admin' => resource_path('views/admin'),
+        'auth' => resource_path('views/auth'),
     ],
 
     /*
@@ -194,7 +196,7 @@ return [
 
     'navigate' => [
         'show_progress_bar' => true,
-        'progress_bar_color' => '#2299dd',
+        'progress_bar_color' => '#21255a',
     ],
 
     /*
