@@ -20,7 +20,7 @@
             activeFilter: 'all',
             isSwitching: false,
             filters: [
-                { label: 'All Projects', value: 'all' },
+                { label: 'All', value: 'all' },
                 { label: 'Commercial', value: 'commercial' },
                 { label: 'Industrial', value: 'industrial' },
                 { label: 'Infrastructure', value: 'infrastructure' }
