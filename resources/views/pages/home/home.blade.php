@@ -48,7 +48,7 @@
         }"
         @mouseenter="stopAuto()"
         @mouseleave="startAuto()"
-        class="relative min-h-[90vh] lg:min-h-[92vh] overflow-hidden"
+        class="relative min-h-[82vh] sm:min-h-[88vh] lg:min-h-[92vh] overflow-hidden"
     >
         <template x-for="(slide, index) in slides" :key="index">
             <div class="absolute inset-0 transition-opacity duration-700" :class="activeSlide === index ? 'opacity-100' : 'opacity-0'">
@@ -62,7 +62,7 @@
             </div>
         </template>
 
-        <div class="container-custom relative z-10 flex min-h-[90vh] lg:min-h-[92vh] items-center py-24">
+        <div class="container-custom relative z-10 flex min-h-[82vh] sm:min-h-[88vh] lg:min-h-[92vh] items-center py-20 sm:py-24">
             <div class="max-w-3xl">
                 <template x-for="(slide, index) in slides" :key="`content-${index}`">
                     <div
@@ -77,18 +77,18 @@
                             <span x-text="slide.subtitle"></span>
                         </span>
 
-                        <h1 class="text-white text-4xl sm:text-5xl lg:text-7xl leading-[0.95] uppercase">
+                        <h1 class="text-white text-3xl sm:text-5xl lg:text-7xl leading-[0.95] uppercase">
                             <span x-text="slide.title"></span>
                         </h1>
 
                         <p class="max-w-2xl text-white/85 text-sm sm:text-base lg:text-lg leading-7" x-text="slide.desc"></p>
 
                         <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-1">
-                            <button class="btn-primary">
+                            <button class="btn-primary w-full sm:w-auto">
                                 <i class="ri-hammer-line"></i>
                                 Explore Services
                             </button>
-                            <button class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/45 bg-white/10 px-6 sm:px-7 py-3.5 font-semibold tracking-wide text-white transition-all duration-300 hover:bg-white/20">
+                            <button class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-white/45 bg-white/10 px-6 sm:px-7 py-3.5 font-semibold tracking-wide text-white transition-all duration-300 hover:bg-white/20">
                                 <i class="ri-building-3-line"></i>
                                 View Projects
                             </button>
@@ -98,9 +98,9 @@
             </div>
         </div>
 
-        <div class="absolute inset-x-0 bottom-6 z-20">
+        <div class="absolute inset-x-0 bottom-4 sm:bottom-6 z-20">
             <div class="container-custom">
-                <div class="flex items-center justify-between gap-4">
+                <div class="flex items-center justify-center md:justify-between gap-5 md:gap-4">
                     <div class="flex items-center gap-2">
                         <button @click="prev()" class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/30 bg-black/25 text-white backdrop-blur hover:bg-black/35 transition-colors">
                             <i class="ri-arrow-left-s-line text-lg"></i>
@@ -144,27 +144,27 @@
                 <h2 class="mt-2 text-3xl sm:text-4xl lg:text-5xl uppercase text-slate-900">Our Impact</h2>
             </div>
 
-            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-                <div class="rounded-2xl shadow shadow-md  border border-slate-300 bg-indigo-200 p-6">
-                    <p class="text-4xl md:text-5xl font-headline font-semibold text-slate-900">1.2M</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+                <div class="rounded-2xl shadow shadow-md  border border-slate-300 bg-indigo-200 p-5 sm:p-6">
+                    <p class="text-3xl sm:text-4xl md:text-5xl font-headline font-semibold text-slate-900">1.2M</p>
                     <p class="mt-1 text-lg font-headline text-[#5347BB]">SQ FT</p>
                     <p class="mt-4 text-xs uppercase tracking-[0.2em] text-slate-500">Built With Quality</p>
                 </div>
 
-                <div class="rounded-2xl shadow shadow-md border border-slate-300 bg-indigo-200 p-6">
-                    <p class="text-4xl md:text-5xl font-headline font-semibold text-slate-900">450+</p>
+                <div class="rounded-2xl shadow shadow-md border border-slate-300 bg-indigo-200 p-5 sm:p-6">
+                    <p class="text-3xl sm:text-4xl md:text-5xl font-headline font-semibold text-slate-900">450+</p>
                     <p class="mt-1 text-lg font-headline text-[#5347BB]">Projects</p>
                     <p class="mt-4 text-xs uppercase tracking-[0.2em] text-slate-500">Delivered On Time</p>
                 </div>
 
-                <div class="rounded-2xl shadow shadow-md border border-slate-300 bg-indigo-200 p-6">
-                    <p class="text-4xl md:text-5xl font-headline font-semibold text-slate-900">98%</p>
+                <div class="rounded-2xl shadow shadow-md border border-slate-300 bg-indigo-200 p-5 sm:p-6">
+                    <p class="text-3xl sm:text-4xl md:text-5xl font-headline font-semibold text-slate-900">98%</p>
                     <p class="mt-1 text-lg font-headline text-[#5347BB]">Repeat</p>
                     <p class="mt-4 text-xs uppercase tracking-[0.2em] text-slate-500">Client Retention</p>
                 </div>
 
-                <div class="rounded-2xl shadow shadow-md border border-slate-300 bg-indigo-200 p-6">
-                    <p class="text-4xl md:text-5xl font-headline font-semibold text-slate-900">24/7</p>
+                <div class="rounded-2xl shadow shadow-md border border-slate-300 bg-indigo-200 p-5 sm:p-6">
+                    <p class="text-3xl sm:text-4xl md:text-5xl font-headline font-semibold text-slate-900">24/7</p>
                     <p class="mt-1 text-lg font-headline text-[#5347BB]">Support</p>
                     <p class="mt-4 text-xs uppercase tracking-[0.2em] text-slate-500">Site Coordination</p>
                 </div>
@@ -287,7 +287,7 @@
                     <p class="hidden lg:block absolute -top-6 left-36 text-[5.5rem] font-headline uppercase tracking-tight text-primary/5 select-none">Gallery</p>
                 </div>
 
-                <div class="flex flex-wrap items-center gap-4 sm:gap-6 text-[11px] sm:text-xs font-medium text-primary/85 lg:justify-end">
+                <div class="flex flex-nowrap lg:flex-wrap overflow-x-auto pb-1 no-scrollbar items-center gap-4 sm:gap-6 text-[11px] sm:text-xs font-medium text-primary/85 lg:justify-end">
                     <template x-for="item in filters" :key="item.value">
                         <button
                             @click="activeFilter = item.value"
@@ -311,7 +311,7 @@
                         class="group bg-[#eceff3]"
                     >
                         <div class="overflow-hidden">
-                            <img :src="project.image" :alt="`${project.title} ${project.category}`" class="w-full h-64 sm:h-60 lg:h-[220px] object-cover transition-transform duration-500 group-hover:scale-[1.04]" />
+                            <img :src="project.image" :alt="`${project.title} ${project.category}`" class="w-full h-56 sm:h-60 lg:h-[220px] object-cover transition-transform duration-500 group-hover:scale-[1.04]" />
                         </div>
                         <div class="px-2.5 py-2.5">
                             <h3 class="text-[22px] leading-6 text-primary font-headline" x-text="project.title"></h3>
@@ -369,7 +369,7 @@
                 <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl uppercase text-primary">What Clients Say</h2>
             </div>
 
-            <div class="relative overflow-hidden rounded-3xl border border-border bg-white shadow-[0_18px_45px_rgba(15,23,42,0.08)] p-6 sm:p-8 md:p-10 lg:p-12 max-w-5xl mx-auto">
+            <div class="relative overflow-hidden rounded-3xl border border-border bg-white shadow-[0_18px_45px_rgba(15,23,42,0.08)] p-5 sm:p-8 md:p-10 lg:p-12 max-w-5xl mx-auto">
                 <div class="absolute -top-20 -right-20 h-56 w-56 rounded-full bg-secondary/10 blur-3xl"></div>
 
                 <div class="relative min-h-[220px] sm:min-h-[190px]">
@@ -382,7 +382,7 @@
                             class="space-y-6 text-center"
                         >
                             <i class="ri-double-quotes-l text-4xl text-secondary/80 block"></i>
-                            <p class="text-primary text-lg sm:text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto">"<span x-text="item.quote"></span>"</p>
+                            <p class="text-primary text-base sm:text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto">"<span x-text="item.quote"></span>"</p>
 
                             <div class="pt-1">
                                 <p class="font-headline text-2xl uppercase text-primary" x-text="item.name"></p>
@@ -420,8 +420,8 @@
                         </p>
 
                         <div class="mt-7 flex flex-col sm:flex-row gap-3 sm:gap-4">
-                            <button class="btn-primary !bg-white !text-zinc-800 !border-0 hover:!bg-zinc-100"><i class="ri-file-list-3-line !text-zinc-800"></i> Request a Bid</button>
-                            <button class="btn-secondary !bg-white !text-zinc-800 !border-white hover:!bg-zinc-100"><i class="ri-customer-service-2-line !text-zinc-800"></i> Talk to Expert</button>
+                            <button class="btn-primary w-full sm:w-auto !bg-white !text-zinc-800 !border-0 hover:!bg-zinc-100"><i class="ri-file-list-3-line !text-zinc-800"></i> Request a Bid</button>
+                            <button class="btn-secondary w-full sm:w-auto !bg-white !text-zinc-800 !border-white hover:!bg-zinc-100"><i class="ri-customer-service-2-line !text-zinc-800"></i> Talk to Expert</button>
                         </div>
                     </div>
 

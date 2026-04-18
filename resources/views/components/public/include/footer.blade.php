@@ -41,10 +41,11 @@ new class extends Component
             <div>
                 <h6 class="font-headline text-lg uppercase tracking-[0.1em] text-slate-900 mb-4">Quick Links</h6>
                 <ul class="space-y-3 text-sm">
-                    <li><a class="text-slate-600 hover:text-secondary transition-colors inline-flex items-center gap-2" href="#"><i class="ri-arrow-right-s-line"></i>Home</a></li>
-                    <li><a class="text-slate-600 hover:text-secondary transition-colors inline-flex items-center gap-2" href="#"><i class="ri-arrow-right-s-line"></i>About</a></li>
-                    <li><a class="text-slate-600 hover:text-secondary transition-colors inline-flex items-center gap-2" href="#"><i class="ri-arrow-right-s-line"></i>Projects</a></li>
+                    <li><a wire:navigate class="text-slate-600 hover:text-secondary transition-colors inline-flex items-center gap-2" href="{{ route('home') }}"><i class="ri-arrow-right-s-line"></i>Home</a></li>
+                    <li><a wire:navigate class="text-slate-600 hover:text-secondary transition-colors inline-flex items-center gap-2" href="{{ route('about') }}"><i class="ri-arrow-right-s-line"></i>About</a></li>
+                    <li><a wire:navigate class="text-slate-600 hover:text-secondary transition-colors inline-flex items-center gap-2" href="{{ route('projects') }}"><i class="ri-arrow-right-s-line"></i>Projects</a></li>
                     <li><a class="text-slate-600 hover:text-secondary transition-colors inline-flex items-center gap-2" href="#"><i class="ri-arrow-right-s-line"></i>Services</a></li>
+                    <li><a wire:navigate class="text-slate-600 hover:text-secondary transition-colors inline-flex items-center gap-2" href="{{ route('contact') }}"><i class="ri-arrow-right-s-line"></i>Contact</a></li>
                 </ul>
             </div>
 
