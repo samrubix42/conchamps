@@ -11,11 +11,19 @@ new class extends Component
 <header
     x-data="{ scrolled: false, mobileMenuOpen: false }"
     x-effect="document.body.classList.toggle('overflow-hidden', mobileMenuOpen)"
-    @scroll.window="scrolled = (window.pageYOffset > 12)"
+    @scroll.window="scrolled = (window.pageYOffset > 24)"
     :class="scrolled ? 'shadow-[0_12px_32px_rgba(15,23,42,0.12)]' : ''"
     class="fixed inset-x-0 top-0 z-[100] transition-all duration-300">
-    <div class="hidden lg:block border-b  bg-[#272944] backdrop-blur">
-        <div class="container-custom h-10 flex items-center justify-between text-[13px] text-slate-600">
+    <div
+        class="hidden lg:block overflow-hidden bg-[#272944] backdrop-blur transition-all duration-300 ease-out"
+        :class="scrolled
+            ? 'max-h-0 opacity-0 -translate-y-2 border-0'
+            : 'max-h-10 opacity-100 translate-y-0 border-b border-white/10'"
+    >
+        <div
+            class="container-custom h-10 flex items-center justify-between text-[13px] text-slate-600 transition-all duration-300"
+            :class="scrolled ? 'opacity-0 -translate-y-2 pointer-events-none' : 'opacity-100 translate-y-0'"
+        >
             <div class="flex items-center gap-6">
                 <a href="tel:+12312345678901" class="inline-flex text-white items-center gap-1.5 hover:text-white transition-colors">
                     <i class="ri-phone-line text-white"></i> +(123) 1234-567-8901
@@ -68,6 +76,7 @@ new class extends Component
 
   <div
     x-show="mobileMenuOpen"
+        x-cloak
     x-transition:enter="transition ease-out duration-300"
     x-transition:enter-start="opacity-0 translate-x-full"
     x-transition:enter-end="opacity-100 translate-x-0"
