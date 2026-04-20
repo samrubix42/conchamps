@@ -24,16 +24,7 @@ new class extends Component
                     ['title' => 'Project', 'uri' => '/admin/projects'],
                 ],
             ],
-            
-            [
-                'title' => 'Users',
-                'icon' => 'ri-user-3-line',
-                'uri' => '/admin/users',
-                'children' => [
-                    ['title' => 'All Users', 'uri' => '/admin/users'],
-                    ['title' => 'Invite User', 'uri' => '/admin/users/invite'],
-                ],
-            ],
+     
             [
                 'title' => 'Sliders',
                 'icon' => 'ri-slideshow-3-line',
