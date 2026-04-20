@@ -32,7 +32,7 @@ new class extends Component
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
             <div class="sm:col-span-2 lg:col-span-1">
                 <a href="{{ url('/') }}" class="inline-flex items-center mb-5">
-                    <img src="{{ $site['logo_url'] }}" alt="{{ $site['project_name'] }}" class="h-11 md:h-12" />
+                    <img src="{{ $site['footer_logo_url'] }}" alt="{{ $site['project_name'] }}" class="h-11 md:h-12" />
                 </a>
                 <p class="text-slate-600 text-sm leading-7 max-w-xs">
                     Modern structural engineering and construction delivery focused on safety, speed, and long-term quality.

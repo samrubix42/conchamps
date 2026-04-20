@@ -104,6 +104,38 @@
 
                     <div class="p-5 grid grid-cols-1 gap-5">
                         <div>
+                            <label class="block text-xs font-medium text-slate-600 mb-1">Header Logo</label>
+                            <input wire:model="header_logo" type="file" accept="image/*" wire:loading.attr="disabled" wire:target="header_logo" class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm file:mr-3 file:rounded file:border-0 file:bg-slate-100 file:px-2 file:py-1 file:text-xs file:font-semibold file:text-slate-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 outline-none">
+                            <p wire:loading wire:target="header_logo" class="mt-1 text-xs font-medium text-blue-600 inline-flex items-center gap-1"><i class="ri-loader-4-line animate-spin"></i>Uploading header logo...</p>
+                            @error('header_logo') <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span> @enderror
+                            <div class="mt-2 h-16 rounded-md border border-dashed border-slate-300 bg-slate-50 flex items-center justify-center overflow-hidden">
+                                @if ($header_logo)
+                                    <img src="{{ $header_logo->temporaryUrl() }}" alt="Header logo preview" class="h-full object-contain">
+                                @elseif ($header_logo_path)
+                                    <img src="{{ asset($header_logo_path) }}" alt="Saved header logo" class="h-full object-contain">
+                                @else
+                                    <span class="text-xs text-slate-400">No header logo selected</span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-medium text-slate-600 mb-1">Footer Logo</label>
+                            <input wire:model="footer_logo" type="file" accept="image/*" wire:loading.attr="disabled" wire:target="footer_logo" class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm file:mr-3 file:rounded file:border-0 file:bg-slate-100 file:px-2 file:py-1 file:text-xs file:font-semibold file:text-slate-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 outline-none">
+                            <p wire:loading wire:target="footer_logo" class="mt-1 text-xs font-medium text-blue-600 inline-flex items-center gap-1"><i class="ri-loader-4-line animate-spin"></i>Uploading footer logo...</p>
+                            @error('footer_logo') <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span> @enderror
+                            <div class="mt-2 h-16 rounded-md border border-dashed border-slate-300 bg-slate-50 flex items-center justify-center overflow-hidden">
+                                @if ($footer_logo)
+                                    <img src="{{ $footer_logo->temporaryUrl() }}" alt="Footer logo preview" class="h-full object-contain">
+                                @elseif ($footer_logo_path)
+                                    <img src="{{ asset($footer_logo_path) }}" alt="Saved footer logo" class="h-full object-contain">
+                                @else
+                                    <span class="text-xs text-slate-400">No footer logo selected</span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div>
                             <label class="block text-xs font-medium text-slate-600 mb-1">Logo</label>
                             <input wire:model="logo" type="file" accept="image/*" wire:loading.attr="disabled" wire:target="logo" class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm file:mr-3 file:rounded file:border-0 file:bg-slate-100 file:px-2 file:py-1 file:text-xs file:font-semibold file:text-slate-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 outline-none">
                             <p wire:loading wire:target="logo" class="mt-1 text-xs font-medium text-blue-600 inline-flex items-center gap-1"><i class="ri-loader-4-line animate-spin"></i>Uploading logo...</p>

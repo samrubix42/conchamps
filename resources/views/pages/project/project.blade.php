@@ -19,56 +19,8 @@
         x-data="{
             activeFilter: 'all',
             isSwitching: false,
-            filters: [
-                { label: 'All', value: 'all' },
-                { label: 'Commercial', value: 'commercial' },
-                { label: 'Industrial', value: 'industrial' },
-                { label: 'Infrastructure', value: 'infrastructure' }
-            ],
-            projects: [
-                {
-                    title: 'Riverside Tower Podium',
-                    category: 'Commercial',
-                    location: 'New York, NY',
-                    filter: 'commercial',
-                    image: '{{ asset('images/project1.png') }}'
-                },
-                {
-                    title: 'Westline Logistics Hub',
-                    category: 'Industrial',
-                    location: 'Newark, NJ',
-                    filter: 'industrial',
-                    image: '{{ asset('images/project2.png') }}'
-                },
-                {
-                    title: 'Northbay Transit Deck',
-                    category: 'Infrastructure',
-                    location: 'Jersey City, NJ',
-                    filter: 'infrastructure',
-                    image: '{{ asset('images/project3.png') }}'
-                },
-                {
-                    title: 'Harborfront Mixed-Use',
-                    category: 'Commercial',
-                    location: 'Brooklyn, NY',
-                    filter: 'commercial',
-                    image: '{{ asset('images/project2.png') }}'
-                },
-                {
-                    title: 'Atlas Manufacturing Plant',
-                    category: 'Industrial',
-                    location: 'Queens, NY',
-                    filter: 'industrial',
-                    image: '{{ asset('images/project3.png') }}'
-                },
-                {
-                    title: 'City Park Structural Works',
-                    category: 'Infrastructure',
-                    location: 'Long Island, NY',
-                    filter: 'infrastructure',
-                    image: '{{ asset('images/project1.png') }}'
-                }
-            ],
+            filters: @js($filters),
+            projects: @js($projects),
             switchFilter(nextFilter) {
                 if (this.isSwitching || this.activeFilter === nextFilter) return;
 
@@ -137,6 +89,10 @@
                     </article>
                 </template>
             </div>
+
+            <div x-show="filteredProjects().length === 0" class="mt-4 rounded-xl border border-dashed border-border bg-white px-5 py-8 text-center text-sm text-muted">
+                No active projects available right now.
+            </div>
         </div>
     </section>
 
@@ -144,16 +100,16 @@
         <div class="container-custom">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
                 <div class="lg:col-span-6 rounded-3xl overflow-hidden border border-border shadow-[0_20px_45px_rgba(15,23,42,0.12)]">
-                    <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1974&auto=format&fit=crop" alt="Featured project" class="w-full h-72 md:h-[440px] object-cover" />
+                    <img src="{{ $featuredProject['image'] ?? 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1974&auto=format&fit=crop' }}" alt="Featured project" class="w-full h-72 md:h-[440px] object-cover" />
                 </div>
 
                 <div class="lg:col-span-6">
                     <span class="inline-flex items-center gap-2 text-secondary text-xs sm:text-sm uppercase tracking-[0.2em] font-semibold">
                         <i class="ri-star-line"></i> Featured Case Study
                     </span>
-                    <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl uppercase text-primary">Metrolink Operations Center</h2>
+                    <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl uppercase text-primary">{{ $featuredProject['title'] ?? 'Metrolink Operations Center' }}</h2>
                     <p class="mt-5 text-sm sm:text-base text-muted leading-7">
-                        A phased delivery involving structural retrofitting, concrete reinforcement, and high-traffic operational constraints. Completed with zero safety incidents and ahead of milestone schedule.
+                        {{ $featuredProject['description'] ?? 'A phased delivery involving structural retrofitting, concrete reinforcement, and high-traffic operational constraints. Completed with zero safety incidents and ahead of milestone schedule.' }}
                     </p>
 
                     <div class="mt-7 grid grid-cols-1 sm:grid-cols-3 gap-4">

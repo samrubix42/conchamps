@@ -15,7 +15,6 @@
         <div class="flex-1 flex items-center gap-6">
             <div class="flex flex-col">
                 <div class="text-sm font-semibold">Dashboard</div>
-                <div class="text-xs opacity-80">Welcome back — here's what's happening</div>
             </div>
 
             <form class="hidden md:flex items-center bg-white border border-blue-100 rounded-full px-3 py-2 w-full max-w-lg">
@@ -25,15 +24,8 @@
         </div>
 
         <div class="flex items-center gap-3">
-            <button x-data class="relative inline-flex items-center justify-center h-10 px-3 rounded-lg bg-white border border-slate-100 hover:shadow-sm" title="New">
-                <i class="ri-add-line text-lg text-indigo-600"></i>
-                <span class="hidden sm:inline-block ml-2 text-sm text-indigo-600 font-medium">New</span>
-            </button>
+            
 
-            <button x-data="{ count: 3 }" class="relative inline-flex items-center justify-center h-10 w-10 rounded-lg hover:bg-slate-100 text-slate-700" aria-label="Notifications">
-                <i class="ri-notification-3-line text-lg"></i>
-                <span x-text="count" x-show="count" class="absolute -top-1 -right-1 inline-flex items-center justify-center text-[10px] font-semibold text-white bg-red-500 h-5 w-5 rounded-full"></span>
-            </button>
 
             <div x-data="{ open: false }" class="relative">
                 <button @click="open = !open" class="h-10 px-3 rounded-full bg-white flex items-center gap-3 text-blue-700" aria-expanded="false">

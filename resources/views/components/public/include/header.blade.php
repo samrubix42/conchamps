@@ -53,7 +53,7 @@ new class extends Component
     <div class=" bg-[#272944] backdrop-blur">
         <nav class="container-custom h-16 md:h-[72px] grid grid-cols-[1fr_auto] lg:grid-cols-[220px_1fr_190px] items-center gap-4">
             <a href="{{ url('/') }}" class="relative z-[120] inline-flex items-center">
-                <img src="{{ $site['logo_url'] }}" alt="{{ $site['project_name'] }}" class="h-8 sm:h-9 md:h-10" />
+                <img src="{{ $site['header_logo_url'] }}" alt="{{ $site['project_name'] }}" class="h-8 sm:h-9 md:h-10" />
             </a>
 
             <div class="hidden lg:flex items-center justify-center gap-2">
@@ -96,7 +96,7 @@ new class extends Component
     <div class="flex items-center justify-between px-6 h-16 border-b border-gray-200">
         
         <!-- Logo -->
-        <img src="{{ $site['logo_url'] }}" class="h-8" />
+        <img src="{{ $site['header_logo_url'] }}" class="h-8" />
 
         <!-- Close Button -->
         <button

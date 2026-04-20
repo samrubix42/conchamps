@@ -16,6 +16,8 @@ new #[Layout('layouts::admin')] class extends Component
     public $whatsapp_number = '';
     public $office_timing = '';
     public $address = '';
+    public $header_logo_path = '';
+    public $footer_logo_path = '';
     public $logo_path = '';
     public $favicon_path = '';
     public $instagram = '';
@@ -24,6 +26,8 @@ new #[Layout('layouts::admin')] class extends Component
     public $facebook = '';
 
     public $logo;
+    public $header_logo;
+    public $footer_logo;
     public $favicon;
 
     public function mount(): void
@@ -35,6 +39,8 @@ new #[Layout('layouts::admin')] class extends Component
             'whatsapp_number',
             'office_timing',
             'address',
+            'header_logo_path',
+            'footer_logo_path',
             'logo_path',
             'favicon_path',
             'instagram',
@@ -59,6 +65,8 @@ new #[Layout('layouts::admin')] class extends Component
             'whatsapp_number' => 'nullable|string|max:30',
             'office_timing' => 'nullable|string|max:255',
             'address' => 'nullable|string|max:1000',
+            'header_logo' => 'nullable|image|max:3072',
+            'footer_logo' => 'nullable|image|max:3072',
             'logo' => 'nullable|image|max:3072',
             'favicon' => 'nullable|image|max:2048',
             'instagram' => 'nullable|url|max:255',
@@ -66,6 +74,26 @@ new #[Layout('layouts::admin')] class extends Component
             'linkedin' => 'nullable|url|max:255',
             'facebook' => 'nullable|url|max:255',
         ]);
+
+        if ($this->header_logo) {
+            $newHeaderLogo = $this->header_logo->store('settings', 'public');
+
+            if ($this->header_logo_path && str_starts_with($this->header_logo_path, 'storage/')) {
+                Storage::disk('public')->delete(substr($this->header_logo_path, 8));
+            }
+
+            $this->header_logo_path = 'storage/' . $newHeaderLogo;
+        }
+
+        if ($this->footer_logo) {
+            $newFooterLogo = $this->footer_logo->store('settings', 'public');
+
+            if ($this->footer_logo_path && str_starts_with($this->footer_logo_path, 'storage/')) {
+                Storage::disk('public')->delete(substr($this->footer_logo_path, 8));
+            }
+
+            $this->footer_logo_path = 'storage/' . $newFooterLogo;
+        }
 
         if ($this->logo) {
             $newLogo = $this->logo->store('settings', 'public');
@@ -94,6 +122,8 @@ new #[Layout('layouts::admin')] class extends Component
             'whatsapp_number' => $this->whatsapp_number,
             'office_timing' => $this->office_timing,
             'address' => $this->address,
+            'header_logo_path' => $this->header_logo_path,
+            'footer_logo_path' => $this->footer_logo_path,
             'logo_path' => $this->logo_path,
             'favicon_path' => $this->favicon_path,
             'instagram' => $this->instagram,
@@ -106,7 +136,19 @@ new #[Layout('layouts::admin')] class extends Component
             Setting::setValue($key, $value ?: null);
         }
 
+        if (! $this->logo_path && $this->header_logo_path) {
+            Setting::setValue('logo_path', $this->header_logo_path);
+            $this->logo_path = $this->header_logo_path;
+        }
+
+        if (! $this->logo_path && $this->footer_logo_path) {
+            Setting::setValue('logo_path', $this->footer_logo_path);
+            $this->logo_path = $this->footer_logo_path;
+        }
+
         $this->logo = null;
+        $this->header_logo = null;
+        $this->footer_logo = null;
         $this->favicon = null;
 
         session()->flash('message', 'Settings updated successfully.');

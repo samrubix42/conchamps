@@ -35,11 +35,6 @@ new class extends Component
                 ],
             ],
             [
-                'title' => 'Settings',
-                'icon' => 'ri-settings-4-line',
-                'uri' => '/admin/settings',
-            ],
-            [
                 'title' => 'Sliders',
                 'icon' => 'ri-slideshow-3-line',
                 'uri' => '/admin/sliders',
@@ -54,6 +49,11 @@ new class extends Component
                 'title' => 'Contacts',
                 'icon' => 'ri-contacts-book-2-line',
                 'uri' => '/admin/contacts',
+            ],
+                 [
+                'title' => 'Settings',
+                'icon' => 'ri-settings-4-line',
+                'uri' => '/admin/settings',
             ],
         ];
 
