@@ -45,5 +45,6 @@
     </div>
 
     @livewireScripts
+    @include('components.toaster')
 </body>
 </html>

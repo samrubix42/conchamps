@@ -10,6 +10,7 @@ Route::livewire('/login', 'auth.login')->middleware('guest')->name('login');
 
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::livewire('/', 'admin::dashboard')->name('admin.dashboard');
+    Route::livewire('/categories', 'admin::category.category-list')->name('admin.categories');
 });
 
 Route::post('/logout', function (\Illuminate\Http\Request $request) {

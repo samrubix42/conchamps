@@ -24,6 +24,7 @@ new class extends Component
                     ['title' => 'Create Project', 'uri' => '/admin/projects/create'],
                 ],
             ],
+            
             [
                 'title' => 'Users',
                 'icon' => 'ri-user-3-line',
@@ -37,6 +38,12 @@ new class extends Component
                 'title' => 'Settings',
                 'icon' => 'ri-settings-4-line',
                 'uri' => '/admin/settings',
+            ],
+            [
+                'title' => 'Categories',
+                'icon' => 'ri-list-check',
+                'uri' => '/admin/categories',
+                
             ],
         ];
 
