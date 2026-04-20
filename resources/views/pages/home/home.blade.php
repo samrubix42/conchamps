@@ -68,11 +68,11 @@
                         <p class="max-w-2xl text-white/85 text-sm sm:text-base lg:text-lg leading-7" x-text="slide.desc"></p>
 
                         <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-1">
-                            <a href="/services" class="btn-primary w-full sm:w-auto inline-flex justify-center">
+                            <a href="{{ route('services') }}" class="btn-primary w-full sm:w-auto inline-flex justify-center">
                                 <i class="ri-hammer-line"></i>
                                 <span>Explore Services</span>
                             </a>
-                            <a href="/projects" class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-white/45 bg-white/10 px-6 sm:px-7 py-3.5 font-semibold tracking-wide text-white transition-all duration-300 hover:bg-white/20">
+                            <a href="{{ route('projects') }}" class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-white/45 bg-white/10 px-6 sm:px-7 py-3.5 font-semibold tracking-wide text-white transition-all duration-300 hover:bg-white/20">
                                 <i class="ri-building-3-line"></i>
                                 <span>View Projects</span>
                             </a>
