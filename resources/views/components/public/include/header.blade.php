@@ -54,7 +54,7 @@ new class extends Component
                 <a href="{{ route('home') }}" wire:navigate class="px-4 py-2 rounded-lg text-[15px] font-medium text-white hover:text-slate-900 hover:bg-white/20 transition-colors">Home</a>
                 <a href="{{ route('about') }}" wire:navigate class="px-4 py-2 rounded-lg text-[15px] font-medium text-white hover:text-slate-900 hover:bg-white/20 transition-colors">About</a>
                 <a href="{{ route('projects') }}" wire:navigate class="px-4 py-2 rounded-lg text-[15px] font-medium text-white hover:text-slate-900 hover:bg-white/20 transition-colors">Projects</a>
-                <a href="#" class="px-4 py-2 rounded-lg text-[15px] font-medium text-white hover:text-slate-900 hover:bg-white/20 transition-colors">Services</a>
+                <a href="{{ route('services') }}" wire:navigate class="px-4 py-2 rounded-lg text-[15px] font-medium text-white hover:text-slate-900 hover:bg-white/20 transition-colors">Services</a>
                 <a href="{{ route('contact') }}" wire:navigate class="px-4 py-2 rounded-lg text-[15px] font-medium text-white hover:text-slate-900 hover:bg-white/20 transition-colors">Contact</a>
             </div>
 
@@ -136,7 +136,7 @@ new class extends Component
                 <i class="ri-arrow-right-up-line text-white"></i>
             </a>
 
-            <a href="#" @click="mobileMenuOpen = false"
+            <a href="{{ route('services') }}" wire:navigate @click="mobileMenuOpen = false"
                class="flex justify-between items-center px-4 py-4 rounded-xl text-xl font-headline uppercase tracking-wide hover:bg-gray-100 transition">
                 Services
                 <i class="ri-arrow-right-up-line text-white"></i>

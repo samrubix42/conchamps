@@ -142,9 +142,20 @@
                         <h2 class="mt-4 text-white text-3xl sm:text-4xl lg:text-5xl uppercase leading-[0.95]">Let's Build A Better Project Outcome</h2>
                         <p class="mt-4 text-white/80 text-sm sm:text-base leading-7">Talk with our team about your project goals and get a practical execution roadmap.</p>
                     </div>
-                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                        <a href="{{ route('projects') }}" wire:navigate class="btn-primary w-full sm:w-auto !py-2.5 !bg-white !text-zinc-800 !border-0 hover:!bg-zinc-100"><i class="ri-building-2-line !text-zinc-800"></i> View Projects</a>
-                        <a href="{{ route('contact') }}" wire:navigate class="btn-secondary w-full sm:w-auto !py-2.5 !bg-white !text-zinc-800 !border-white hover:!bg-zinc-100"><i class="ri-send-plane-line !text-zinc-800"></i> Contact Team</a>
+                    <div class="flex flex-col sm:flex-row gap-2 sm:gap-3">
+
+                        <a href="{{ route('projects') }}" wire:navigate
+                            class="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-white text-zinc-800 border border-zinc-200 hover:bg-zinc-100 transition">
+                            <i class="ri-building-2-line text-base"></i>
+                            <span>View Projects</span>
+                        </a>
+
+                        <a href="{{ route('contact') }}" wire:navigate
+                            class="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-white text-zinc-800 border border-zinc-200 hover:bg-zinc-100 transition">
+                            <i class="ri-send-plane-line text-base"></i>
+                            <span>Contact Team</span>
+                        </a>
+
                     </div>
                 </div>
             </div>
