@@ -1,150 +1,172 @@
-<div x-data="sliderList()" x-init="() => { window.addEventListener('open-slider-modal', () => modalOpen = true); window.addEventListener('close-slider-modal', () => modalOpen = false); }" class="space-y-4">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
 
-    <div class="flex items-center justify-between">
-        <h2 class="text-xl font-semibold">Sliders</h2>
-        <div class="flex items-center gap-2">
-            <button @click="openCreate()" class="inline-flex items-center gap-2 rounded-full bg-indigo-600 text-white px-4 py-2 text-sm shadow">
-                <i class="ri-add-line"></i>
-                New Slider
-            </button>
-        </div>
+    <div class="mb-6">
+        <h1 class="text-xl font-semibold text-slate-900">
+            Slider List
+        </h1>
+        <p class="mt-1 text-sm text-slate-500">
+            Manage homepage sliders and action links.
+        </p>
     </div>
 
-    <div class="bg-white border border-slate-200 rounded-lg overflow-hidden">
-        <table class="w-full text-left">
-            <thead class="bg-slate-50">
-                <tr>
-                    <th class="px-4 py-3 text-sm font-medium">Badge</th>
-                    <th class="px-4 py-3 text-sm font-medium">Title</th>
-                    <th class="px-4 py-3 text-sm font-medium">Image</th>
-                    <th class="px-4 py-3 text-sm font-medium">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (\App\Models\Slider::all() as $slider)
-                    <tr class="border-t">
-                        <td class="px-4 py-3 text-sm">{{ $slider->badge_name }}</td>
-                        <td class="px-4 py-3 text-sm">{{ $slider->title }}</td>
-                        <td class="px-4 py-3 text-sm">
-                            @if($slider->image_path)
-                                <img src="{{ asset($slider->image_path) }}" alt="" class="h-12 w-24 object-cover rounded" />
-                            @else
-                                —
-                            @endif
-                        </td>
-                        <td class="px-4 py-3 text-sm">
-                            <div class="flex items-center gap-2">
-                                <button @click="openEdit({{ $slider->id }})" class="px-3 py-1 rounded bg-yellow-100 text-yellow-800 text-sm">Edit</button>
-                                <button @click="confirmDelete({{ $slider->id }})" class="px-3 py-1 rounded bg-red-100 text-red-700 text-sm">Delete</button>
-                            </div>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Modal -->
-    <div x-show="modalOpen" x-cloak class="fixed inset-0 z-50 flex items-center justify-center">
-        <div class="absolute inset-0 bg-black/40" @click="modalOpen = false"></div>
-        <div class="bg-white rounded-lg shadow-lg w-full max-w-2xl z-50 p-6">
-            <h3 class="text-lg font-semibold mb-4" x-text="editingId ? 'Edit Slider' : 'Create Slider'"></h3>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                    <label class="block text-sm text-slate-600">Badge</label>
-                    <input wire:model.defer="badge_name" class="mt-1 w-full rounded border px-3 py-2" />
-                </div>
-                <div>
-                    <label class="block text-sm text-slate-600">Image path</label>
-                    <input wire:model.defer="image_path" class="mt-1 w-full rounded border px-3 py-2" placeholder="public/images/hero.jpg" />
-                </div>
-                <div class="sm:col-span-2">
-                    <label class="block text-sm text-slate-600">Title</label>
-                    <input wire:model.defer="title" class="mt-1 w-full rounded border px-3 py-2" />
-                </div>
-                <div class="sm:col-span-2">
-                    <label class="block text-sm text-slate-600">Description</label>
-                    <textarea wire:model.defer="description" rows="3" class="mt-1 w-full rounded border px-3 py-2"></textarea>
-                </div>
-                <div>
-                    <label class="block text-sm text-slate-600">Button 1 text</label>
-                    <input wire:model.defer="button1_text" class="mt-1 w-full rounded border px-3 py-2" />
-                </div>
-                <div>
-                    <label class="block text-sm text-slate-600">Button 1 link</label>
-                    <input wire:model.defer="button1_link" class="mt-1 w-full rounded border px-3 py-2" />
-                </div>
-                <div>
-                    <label class="block text-sm text-slate-600">Button 2 text</label>
-                    <input wire:model.defer="button2_text" class="mt-1 w-full rounded border px-3 py-2" />
-                </div>
-                <div>
-                    <label class="block text-sm text-slate-600">Button 2 link</label>
-                    <input wire:model.defer="button2_link" class="mt-1 w-full rounded border px-3 py-2" />
+    <div class="space-y-4">
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div class="w-full sm:max-w-xs">
+                <label class="block text-xs font-medium text-slate-500 mb-1">
+                    Search Sliders
+                </label>
+                <div class="relative">
+                    <span class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400 text-sm">
+                        <i class="ri-search-line"></i>
+                    </span>
+                    <input
+                        type="text"
+                        wire:model.live="search"
+                        placeholder="Search by badge or title..."
+                        class="block w-full rounded-md border border-slate-300 bg-white pl-9 pr-3 py-2 text-sm
+                               text-slate-700 placeholder:text-slate-400
+                               focus:border-blue-500 focus:ring-2 focus:ring-blue-500/40 outline-none">
                 </div>
             </div>
 
-            <div class="mt-4 flex items-center justify-end gap-2">
-                <button @click="modalOpen = false" class="px-4 py-2 rounded border">Cancel</button>
-                <button @click="save()" class="px-4 py-2 rounded bg-indigo-600 text-white">Save</button>
+            <div class="flex sm:justify-end">
+                <button
+                    @click="$dispatch('open-modal');$wire.resetForm()"
+                    class="inline-flex items-center gap-2 rounded-md bg-blue-600
+                           px-4 py-2 text-sm font-medium text-white shadow-sm
+                           hover:bg-blue-500 focus:outline-none focus:ring-2
+                           focus:ring-blue-500/60 focus:ring-offset-1">
+                    <i class="ri-add-line text-base"></i>
+                    <span>Add Slider</span>
+                </button>
             </div>
         </div>
-    </div>
 
-    <!-- Delete confirmation -->
-    <div x-show="deleteConfirm" x-cloak class="fixed inset-0 z-50 flex items-center justify-center">
-        <div class="absolute inset-0 bg-black/40" @click="deleteConfirm = false"></div>
-        <div class="bg-white rounded-lg shadow-lg w-full max-w-md z-50 p-6">
-            <h3 class="text-lg font-semibold">Delete slider?</h3>
-            <p class="mt-2 text-sm text-slate-600">This action cannot be undone. Are you sure you want to delete this slider?</p>
-            <div class="mt-4 flex justify-end gap-2">
-                <button @click="deleteConfirm = false" class="px-4 py-2 rounded border">Cancel</button>
-                <button @click="confirmDeleteNow()" class="px-4 py-2 rounded bg-red-600 text-white">Delete</button>
+        <div class="hidden sm:block overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-slate-200 text-sm">
+                    <thead class="bg-slate-50">
+                        <tr class="text-left text-xs font-semibold uppercase tracking-wider text-slate-500">
+                            <th class="px-4 py-3 w-12">#</th>
+                            <th class="px-4 py-3">Badge</th>
+                            <th class="px-4 py-3">Title</th>
+                            <th class="px-4 py-3">Image</th>
+                            <th class="px-4 py-3 text-right w-40">Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="divide-y divide-slate-100 bg-white">
+                        @forelse($this->getSlidersProperty() as $slider)
+                            <tr wire:key="slider-{{ $slider->id }}" class="hover:bg-slate-50/80">
+                                <td class="px-4 py-3 text-slate-500">
+                                    {{ $loop->iteration }}
+                                </td>
+                                <td class="px-4 py-3 font-medium text-slate-800">
+                                    {{ $slider->badge_name }}
+                                </td>
+                                <td class="px-4 py-3 text-slate-600">
+                                    {{ $slider->title }}
+                                </td>
+                                <td class="px-4 py-3">
+                                    @if($slider->image_path)
+                                        <img src="{{ asset($slider->image_path) }}" alt="{{ $slider->title }}" class="h-12 w-32 object-cover rounded" />
+                                    @else
+                                        <span class="text-slate-400">-</span>
+                                    @endif
+                                </td>
+                                <td class="px-4 py-3">
+                                    <div class="flex items-center justify-end gap-2">
+                                        <button
+                                            @click="
+                                                $dispatch('open-modal');
+                                                $wire.openEditModal({{ $slider->id }})
+                                            "
+                                            class="inline-flex items-center gap-1 rounded-md border border-slate-200 px-2.5 py-1.5
+                                                   text-xs font-medium text-slate-700 hover:bg-slate-100">
+                                            <i class="ri-edit-line text-sm"></i>
+                                            Edit
+                                        </button>
+
+                                        <button
+                                            @click="
+                                                $dispatch('open-delete-modal');
+                                                $wire.confirmDelete({{ $slider->id }})
+                                            "
+                                            wire:confirm="Are you sure?"
+                                            class="inline-flex items-center gap-1 rounded-md border border-rose-200 px-2.5 py-1.5
+                                                   text-xs font-medium text-rose-600 hover:bg-rose-50">
+                                            <i class="ri-delete-bin-6-line text-sm"></i>
+                                            Delete
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="5" class="px-4 py-8 text-center text-sm text-slate-500">
+                                    No sliders found.
+                                </td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
             </div>
         </div>
-    </div>
 
+        <div class="space-y-3 sm:hidden">
+            @forelse($this->getSlidersProperty() as $slider)
+                <div wire:key="slider-card-{{ $slider->id }}" class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                    <div class="flex items-start justify-between gap-3">
+                        <div>
+                            <p class="text-sm font-semibold text-slate-900">
+                                {{ $slider->title }}
+                            </p>
+                            <p class="mt-0.5 text-[11px] text-slate-500 break-all">
+                                {{ $slider->badge_name }}
+                            </p>
+                        </div>
+                        @if($slider->image_path)
+                            <img src="{{ asset($slider->image_path) }}" alt="{{ $slider->title }}" class="h-10 w-20 object-cover rounded" />
+                        @endif
+                    </div>
+
+                    <div class="mt-4 flex items-center justify-end gap-2">
+                        <button
+                            @click="
+                                $dispatch('open-modal');
+                                $wire.openEditModal({{ $slider->id }})
+                            "
+                            class="inline-flex items-center gap-1 rounded-md border border-slate-200 px-2.5 py-1.5
+                                   text-xs font-medium text-slate-700 hover:bg-slate-100">
+                            <i class="ri-edit-line text-sm"></i>
+                            Edit
+                        </button>
+
+                        <button
+                            @click="
+                                $dispatch('open-delete-modal');
+                                $wire.confirmDelete({{ $slider->id }})
+                            "
+                            wire:confirm="Are you sure?"
+                            class="inline-flex items-center gap-1 rounded-md border border-rose-200 px-2.5 py-1.5
+                                   text-xs font-medium text-rose-600 hover:bg-rose-50">
+                            <i class="ri-delete-bin-6-line text-sm"></i>
+                            Delete
+                        </button>
+                    </div>
+                </div>
+            @empty
+                <div class="rounded-xl border border-dashed border-slate-200 bg-slate-50 px-4 py-6 text-center text-sm text-slate-500">
+                    No sliders found.
+                </div>
+            @endforelse
+        </div>
+
+        <div class="mt-3 flex justify-end">
+            {{ $this->getSlidersProperty()->links() }}
+        </div>
+
+        @include('admin.slider-list.slider-modal')
+        @include('admin.slider-list.delete')
+    </div>
 </div>
-
-<script>
-function sliderList(){
-    return {
-        modalOpen: false,
-        deleteConfirm: false,
-        editingId: null,
-        badge_name: '',
-        image_path: '',
-        title: '',
-        description: '',
-        button1_text: '',
-        button1_link: '',
-        button2_text: '',
-        button2_link: '',
-        openCreate(){
-            this.getLivewire().call('create');
-        },
-        getLivewire(){
-            let root = document.currentScript ? document.currentScript.closest('[wire\:id]') : document.querySelector('[wire\:id]');
-            if(!root) root = document.querySelector('[wire\:id]');
-            return window.livewire.find(root.getAttribute('wire:id'));
-        },
-        openEdit(id){
-            this.editingId = id;
-            // ask Livewire to load the model into properties and open modal
-            this.getLivewire().call('edit', id);
-        },
-        save(){
-            this.getLivewire().call('save');
-        },
-        confirmDelete(id){
-            this.editingId = id;
-            this.deleteConfirm = true;
-        },
-        confirmDeleteNow(){
-            this.getLivewire().call('delete', this.editingId);
-            this.deleteConfirm = false;
-        }
-    }
-}
-</script>

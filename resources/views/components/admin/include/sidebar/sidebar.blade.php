@@ -2,9 +2,8 @@
     <div class="flex flex-col h-full">
         <div class="p-4 border-b border-slate-100 flex items-center gap-3">
             <a href="{{ url('/') }}" class="inline-flex items-center gap-3">
-                <img src="{{ asset('Concrete-Champs-dark.png') }}" alt="logo" class="h-8" />
+                <img src="{{ asset('Concrete-Champs-white.png') }}" alt="logo" class="h-8" />
             </a>
-            <span class="font-semibold text-slate-800 hidden lg:inline-block" x-show="!sidebarCollapsed">Concrete Champs</span>
         </div>
 
         <nav class="flex-1 overflow-y-auto p-2 space-y-1">

@@ -45,6 +45,12 @@ new class extends Component
                 'uri' => '/admin/categories',
                 
             ],
+            [
+                'title' => 'Sliders',
+                'icon' => 'ri-slideshow-3-line',
+                'uri' => '/admin/sliders',
+                
+            ],
         ];
 
         // mark active states
