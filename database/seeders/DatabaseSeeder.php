@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             LoginUserSeeder::class,
             SliderSeeder::class,
+            TestimonialSeeder::class,
         ]);
     }
 }

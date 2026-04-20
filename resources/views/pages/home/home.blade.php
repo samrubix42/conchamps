@@ -4,27 +4,9 @@
             activeSlide: 0,
             interval: 6000,
             autoTimer: null,
-            slides: [
-                {
-                    image: '{{ asset('building/construction-site-sunset.webp') }}',
-                    subtitle: 'Engineered for Strength',
-                    title: 'Build Smart Infrastructure For The Future',
-                    desc: 'From concept to completion, we deliver high-performance construction with precision, speed, and reliability.'
-                },
-                {
-                    image: '{{ asset('building/beautiful-view-construction-site-city-sunset.webp') }}',
-                    subtitle: 'Precision Construction',
-                    title: 'Modern Projects Delivered On Time',
-                    desc: 'We combine structural expertise and field-ready execution to reduce risk and accelerate delivery.'
-                },
-                {
-                    image: '{{ asset('building/illustration-construction-site.webp') }}',
-                    subtitle: 'Execution Excellence',
-                    title: 'Reliable Teams. Measurable Project Outcomes.',
-                    desc: 'Our construction specialists turn designs into durable, high-quality assets with transparent delivery workflows.'
-                }
-            ],
+            slides: @js($heroSlides),
             startAuto() {
+                if (this.slides.length <= 1) return;
                 this.stopAuto();
                 this.autoTimer = setInterval(() => {
                     this.next();
@@ -34,9 +16,11 @@
                 if (this.autoTimer) clearInterval(this.autoTimer);
             },
             next() {
+                if (this.slides.length === 0) return;
                 this.activeSlide = (this.activeSlide + 1) % this.slides.length;
             },
             prev() {
+                if (this.slides.length === 0) return;
                 this.activeSlide = (this.activeSlide - 1 + this.slides.length) % this.slides.length;
             },
             goTo(i) {
@@ -84,14 +68,14 @@
                         <p class="max-w-2xl text-white/85 text-sm sm:text-base lg:text-lg leading-7" x-text="slide.desc"></p>
 
                         <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-1">
-                            <button class="btn-primary w-full sm:w-auto">
+                            <a href="/services" class="btn-primary w-full sm:w-auto inline-flex justify-center">
                                 <i class="ri-hammer-line"></i>
-                                Explore Services
-                            </button>
-                            <button class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-white/45 bg-white/10 px-6 sm:px-7 py-3.5 font-semibold tracking-wide text-white transition-all duration-300 hover:bg-white/20">
+                                <span>Explore Services</span>
+                            </a>
+                            <a href="/projects" class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-white/45 bg-white/10 px-6 sm:px-7 py-3.5 font-semibold tracking-wide text-white transition-all duration-300 hover:bg-white/20">
                                 <i class="ri-building-3-line"></i>
-                                View Projects
-                            </button>
+                                <span>View Projects</span>
+                            </a>
                         </div>
                     </div>
                 </template>
@@ -137,7 +121,7 @@
     </section>
 
     <section class="section bg-white border-y border-slate-200 relative">
-        <div class="absolute inset-0 pointer-events-none logo-bg" style="background-image: url('{{ asset('Concrete-Champs-white.png') }}');"></div>
+        <div class="absolute inset-0 pointer-events-none logo-bg" style="background-image: url('/Concrete-Champs-white.png');"></div>
         <div class="container-custom">
             <div class="mb-8 sm:mb-10  text-center">
                 <p class="text-xs sm:text-sm uppercase tracking-[0.18em] text-slate-500">By The Numbers</p>
@@ -327,36 +311,17 @@
         class="section bg-surface"
         x-data="{
             current: 0,
-            testimonials: [
-                {
-                    quote: 'Concrete Champs brought technical clarity from day one. We cut rework dramatically and still accelerated delivery.',
-                    name: 'Ariana Walsh',
-                    role: 'Project Director, Horizon Developments',
-                    company: 'Horizon Developments',
-                    initials: 'AW'
-                },
-                {
-                    quote: 'Their site team communicates fast, documents every change, and executes with almost zero surprises.',
-                    name: 'Mark Rios',
-                    role: 'Operations Lead, Northline Infrastructure',
-                    company: 'Northline Infrastructure',
-                    initials: 'MR'
-                },
-                {
-                    quote: 'The quality benchmark they maintain has become our internal standard across all new projects.',
-                    name: 'Janelle Brooks',
-                    role: 'Senior Architect, Axis Studio',
-                    company: 'Axis Studio',
-                    initials: 'JB'
-                }
-            ],
+            testimonials: @js($testimonials),
             next() {
+                if (this.testimonials.length === 0) return;
                 this.current = (this.current + 1) % this.testimonials.length;
             },
             prev() {
+                if (this.testimonials.length === 0) return;
                 this.current = (this.current - 1 + this.testimonials.length) % this.testimonials.length;
             },
             init() {
+                if (this.testimonials.length <= 1) return;
                 setInterval(() => this.next(), 5000);
             }
         }"
@@ -386,7 +351,7 @@
 
                             <div class="pt-1">
                                 <p class="font-headline text-2xl uppercase text-primary" x-text="item.name"></p>
-                                <p class="text-sm text-muted mt-1 inline-flex items-center gap-2"><i class="ri-briefcase-4-line text-secondary"></i><span x-text="item.role"></span></p>
+                                <p class="text-sm text-muted mt-1 inline-flex items-center gap-2"><i class="ri-briefcase-4-line text-secondary"></i><span x-text="item.company ? (item.role + ', ' + item.company) : item.role"></span></p>
                             </div>
                         </div>
                     </template>

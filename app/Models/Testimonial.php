@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Slider extends Model
+class Testimonial extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'badge_name',
-        'image_path',
-        'title',
-        'description',
+        'name',
+        'role',
+        'company',
+        'quote',
+        'status',
     ];
 }
-

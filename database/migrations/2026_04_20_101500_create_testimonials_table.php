@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sliders', function (Blueprint $table) {
+        Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
-            $table->string('badge_name');
-            $table->string('image_path');
-            $table->string('title');
-            $table->string('description')->nullable();
+            $table->string('name');
+            $table->string('role');
+            $table->string('company')->nullable();
+            $table->text('quote');
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sliders');
+        Schema::dropIfExists('testimonials');
     }
 };

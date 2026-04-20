@@ -1,7 +1,7 @@
 <div class="bg-background text-on-surface font-body overflow-x-hidden">
     <section class="relative overflow-hidden min-h-[44vh] sm:min-h-[50vh] flex items-center">
         <img src="{{ asset('building/beautiful-view-construction-site-city-sunset.webp') }}" alt="Contact Concrete Champs" class="absolute inset-0 h-full w-full object-cover" />
-        <div class="absolute inset-0 bg-gradient-to-r from-slate-950/82 via-slate-950/60 to-slate-950/32"></div>
+        <div class="absolute inset-0 bg-linear-to-r from-slate-950/82 via-slate-950/60 to-slate-950/32"></div>
 
         <div class="container-custom relative z-10 py-20 md:py-24">
             <p class="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs uppercase tracking-[0.16em] font-semibold text-white">
@@ -50,38 +50,45 @@
                     </span>
                     <h2 class="mt-3 text-3xl sm:text-4xl uppercase text-primary">Request A Consultation</h2>
 
-                    <form class="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <form wire:submit="save" class="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <label class="text-xs uppercase tracking-[0.14em] text-muted">Full Name</label>
-                            <input type="text" class="mt-2 w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-primary placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-secondary/35" placeholder="Jane Cooper" />
+                            <input wire:model.defer="name" type="text" class="mt-2 w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-primary placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-secondary/35" placeholder="Jane Cooper" />
+                            @error('name') <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span> @enderror
                         </div>
                         <div>
                             <label class="text-xs uppercase tracking-[0.14em] text-muted">Company</label>
-                            <input type="text" class="mt-2 w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-primary placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-secondary/35" placeholder="Northline Infrastructure" />
+                            <input wire:model.defer="company" type="text" class="mt-2 w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-primary placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-secondary/35" placeholder="Northline Infrastructure" />
+                            @error('company') <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span> @enderror
                         </div>
                         <div>
                             <label class="text-xs uppercase tracking-[0.14em] text-muted">Email</label>
-                            <input type="email" class="mt-2 w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-primary placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-secondary/35" placeholder="you@company.com" />
+                            <input wire:model.defer="email" type="email" class="mt-2 w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-primary placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-secondary/35" placeholder="you@company.com" />
+                            @error('email') <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span> @enderror
                         </div>
                         <div>
                             <label class="text-xs uppercase tracking-[0.14em] text-muted">Phone</label>
-                            <input type="tel" class="mt-2 w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-primary placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-secondary/35" placeholder="+1 (555) 123-4567" />
+                            <input wire:model.defer="phone" type="tel" class="mt-2 w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-primary placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-secondary/35" placeholder="+1 (555) 123-4567" />
+                            @error('phone') <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span> @enderror
                         </div>
                         <div class="sm:col-span-2">
                             <label class="text-xs uppercase tracking-[0.14em] text-muted">Project Type</label>
-                            <select class="mt-2 w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-primary focus:outline-none focus:ring-2 focus:ring-secondary/35">
+                            <select wire:model.defer="project_type" class="mt-2 w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-primary focus:outline-none focus:ring-2 focus:ring-secondary/35">
+                                <option value="">Select project type</option>
                                 <option>Commercial Build</option>
                                 <option>Industrial Facility</option>
                                 <option>Structural Engineering</option>
                                 <option>Renovation & Retrofit</option>
                             </select>
+                            @error('project_type') <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span> @enderror
                         </div>
                         <div class="sm:col-span-2">
                             <label class="text-xs uppercase tracking-[0.14em] text-muted">Message</label>
-                            <textarea rows="5" class="mt-2 w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-primary placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-secondary/35" placeholder="Tell us about timeline, location, and goals."></textarea>
+                            <textarea wire:model.defer="message" rows="5" class="mt-2 w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-primary placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-secondary/35" placeholder="Tell us about timeline, location, and goals."></textarea>
+                            @error('message') <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span> @enderror
                         </div>
                         <div class="sm:col-span-2">
-                            <button type="button" class="btn-primary w-full sm:w-auto">
+                            <button type="submit" wire:loading.attr="disabled" wire:target="save" class="btn-primary w-full sm:w-auto disabled:opacity-70">
                                 <i class="ri-send-plane-line"></i> Send Request
                             </button>
                         </div>

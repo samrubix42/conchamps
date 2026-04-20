@@ -16,10 +16,6 @@ new #[Layout('layouts::admin')] class extends Component
     public $image;
     public $title = '';
     public $description = '';
-    public $button1_text = '';
-    public $button1_link = '';
-    public $button2_text = '';
-    public $button2_link = '';
     public $sliderId = null;
     public $deleteId = null;
 
@@ -32,10 +28,6 @@ new #[Layout('layouts::admin')] class extends Component
             'image' => $this->sliderId ? 'nullable|image|max:3072' : 'required|image|max:3072',
             'title' => 'required|string|max:255',
             'description' => 'nullable|string|max:1000',
-            'button1_text' => 'nullable|string|max:255',
-            'button1_link' => 'nullable|string|max:1024',
-            'button2_text' => 'nullable|string|max:255',
-            'button2_link' => 'nullable|string|max:1024',
         ];
     }
 
@@ -59,10 +51,6 @@ new #[Layout('layouts::admin')] class extends Component
             'image',
             'title',
             'description',
-            'button1_text',
-            'button1_link',
-            'button2_text',
-            'button2_link',
             'sliderId',
         ]);
         $this->resetValidation();
@@ -76,10 +64,6 @@ new #[Layout('layouts::admin')] class extends Component
         $this->image_path = $slider->image_path;
         $this->title = $slider->title;
         $this->description = $slider->description;
-        $this->button1_text = $slider->button1_text;
-        $this->button1_link = $slider->button1_link;
-        $this->button2_text = $slider->button2_text;
-        $this->button2_link = $slider->button2_link;
 
         $this->dispatch('open-modal');
     }

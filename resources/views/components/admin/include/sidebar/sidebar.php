@@ -51,6 +51,16 @@ new class extends Component
                 'uri' => '/admin/sliders',
                 
             ],
+            [
+                'title' => 'Testimonials',
+                'icon' => 'ri-chat-quote-line',
+                'uri' => '/admin/testimonials',
+            ],
+            [
+                'title' => 'Contacts',
+                'icon' => 'ri-contacts-book-2-line',
+                'uri' => '/admin/contacts',
+            ],
         ];
 
         // mark active states

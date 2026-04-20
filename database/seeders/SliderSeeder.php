@@ -14,24 +14,22 @@ class SliderSeeder extends Seeder
     {
         $sliders = [
             [
-                'badge_name' => 'Featured Project',
-                'image_path' => 'Concrete-Champs-dark.png',
-                'title' => 'Build Better Spaces With Conchamps',
-                'description' => 'Trusted construction solutions with quality, speed, and modern execution standards.',
-                'button1_text' => 'View Projects',
-                'button1_link' => '/projects',
-                'button2_text' => 'Contact Us',
-                'button2_link' => '/contact',
+                'badge_name' => 'Engineered for Strength',
+                'image_path' => 'building/construction-site-sunset.webp',
+                'title' => 'Build Smart Infrastructure For The Future',
+                'description' => 'From concept to completion, we deliver high-performance construction with precision, speed, and reliability.',
             ],
             [
-                'badge_name' => 'New Launch',
-                'image_path' => 'Concrete-Champs-white.png',
-                'title' => 'Modern Engineering For Every Structure',
-                'description' => 'From residential to commercial projects, we deliver reliable and future-ready results.',
-                'button1_text' => 'Get Quote',
-                'button1_link' => '/contact',
-                'button2_text' => 'About Company',
-                'button2_link' => '/about',
+                'badge_name' => 'Precision Construction',
+                'image_path' => 'building/beautiful-view-construction-site-city-sunset.webp',
+                'title' => 'Modern Projects Delivered On Time',
+                'description' => 'We combine structural expertise and field-ready execution to reduce risk and accelerate delivery.',
+            ],
+            [
+                'badge_name' => 'Execution Excellence',
+                'image_path' => 'building/illustration-construction-site.webp',
+                'title' => 'Reliable Teams. Measurable Project Outcomes.',
+                'description' => 'Our construction specialists turn designs into durable, high-quality assets with transparent delivery workflows.',
             ],
         ];
 
