@@ -36,6 +36,12 @@
                         @error('whatsapp_number') <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span> @enderror
                     </div>
 
+                    <div>
+                        <label class="block text-xs font-medium text-slate-600 mb-1">Office Timing</label>
+                        <input wire:model.defer="office_timing" type="text" class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 outline-none" placeholder="Mon - Sat, 8:00 AM - 5:30 PM">
+                        @error('office_timing') <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span> @enderror
+                    </div>
+
                     <div class="sm:col-span-2 lg:col-span-3">
                         <label class="block text-xs font-medium text-slate-600 mb-1">Address</label>
                         <textarea wire:model.defer="address" rows="2" class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30 outline-none" placeholder="Project office address"></textarea>

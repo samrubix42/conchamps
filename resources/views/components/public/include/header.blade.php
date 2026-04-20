@@ -1,10 +1,16 @@
 <?php
 
 use Livewire\Component;
+use App\Helpers\SettingHelper;
 
 new class extends Component
 {
-    //
+    public array $site = [];
+
+    public function mount(): void
+    {
+        $this->site = SettingHelper::websiteDefaults();
+    }
 };
 ?>
 
@@ -25,21 +31,21 @@ new class extends Component
             :class="scrolled ? 'opacity-0 -translate-y-2 pointer-events-none' : 'opacity-100 translate-y-0'"
         >
             <div class="flex items-center gap-6">
-                <a href="tel:+12312345678901" class="inline-flex text-white items-center gap-1.5 hover:text-white transition-colors">
-                    <i class="ri-phone-line text-white"></i> +(123) 1234-567-8901
+                <a href="tel:{{ $site['phone_tel'] }}" class="inline-flex text-white items-center gap-1.5 hover:text-white transition-colors">
+                    <i class="ri-phone-line text-white"></i> {{ $site['phone_number'] }}
                 </a>
-                <a href="mailto:info@domain.com" class="inline-flex text-white items-center gap-1.5 hover:text-white transition-colors">
-                    <i class="ri-mail-line text-white"></i> info@domain.com
+                <a href="mailto:{{ $site['email'] }}" class="inline-flex text-white items-center gap-1.5 hover:text-white transition-colors">
+                    <i class="ri-mail-line text-white"></i> {{ $site['email'] }}
                 </a>
                 <span class="inline-flex items-center text-white gap-1.5">
-                    <i class="ri-time-line text-white"></i> Mon - Sat 8:00 - 17:30
+                    <i class="ri-time-line text-white"></i> {{ $site['office_timing'] }}
                 </span>
             </div>
 
             <div class="flex items-center gap-3 text-white text-base">
-                <a href="#" class="hover:text-white transition-colors"><i class="ri-twitter-x-line"></i></a>
-                <a href="#" class="hover:text-white transition-colors"><i class="ri-facebook-fill"></i></a>
-                <a href="#" class="hover:text-white transition-colors"><i class="ri-linkedin-fill"></i></a>
+                <a href="{{ $site['x'] }}" target="_blank" class="hover:text-white transition-colors"><i class="ri-twitter-x-line"></i></a>
+                <a href="{{ $site['facebook'] }}" target="_blank" class="hover:text-white transition-colors"><i class="ri-facebook-fill"></i></a>
+                <a href="{{ $site['linkedin'] }}" target="_blank" class="hover:text-white transition-colors"><i class="ri-linkedin-fill"></i></a>
             </div>
         </div>
     </div>
@@ -47,7 +53,7 @@ new class extends Component
     <div class=" bg-[#272944] backdrop-blur">
         <nav class="container-custom h-16 md:h-[72px] grid grid-cols-[1fr_auto] lg:grid-cols-[220px_1fr_190px] items-center gap-4">
             <a href="{{ url('/') }}" class="relative z-[120] inline-flex items-center">
-                <img src="{{ asset('Concrete-Champs-dark.png') }}" alt="Concrete Champs" class="h-8 sm:h-9 md:h-10" />
+                <img src="{{ $site['logo_url'] }}" alt="{{ $site['project_name'] }}" class="h-8 sm:h-9 md:h-10" />
             </a>
 
             <div class="hidden lg:flex items-center justify-center gap-2">
@@ -90,7 +96,7 @@ new class extends Component
     <div class="flex items-center justify-between px-6 h-16 border-b border-gray-200">
         
         <!-- Logo -->
-        <img src="{{ asset('Concrete-Champs-white.png') }}" class="h-8" />
+        <img src="{{ $site['logo_url'] }}" class="h-8" />
 
         <!-- Close Button -->
         <button
@@ -107,10 +113,10 @@ new class extends Component
         <!-- Contact -->
         <div class="text-sm text-gray-500 space-y-1">
             <p class="flex items-center gap-2">
-                <i class="ri-phone-line text-white"></i> +(123) 1234-567-8901
+                <i class="ri-phone-line text-white"></i> {{ $site['phone_number'] }}
             </p>
             <p class="flex items-center gap-2">
-                <i class="ri-mail-line text-white"></i> info@domain.com
+                <i class="ri-mail-line text-white"></i> {{ $site['email'] }}
             </p>
         </div>
 
@@ -162,9 +168,9 @@ new class extends Component
     <div class="px-6 py-4 border-t border-gray-200 flex justify-between items-center text-sm">
         <span class="text-gray-500 uppercase tracking-widest">Follow</span>
         <div class="flex gap-4 text-lg">
-            <a href="#" class="hover:text-white"><i class="ri-linkedin-fill"></i></a>
-            <a href="#" class="hover:text-white"><i class="ri-instagram-line"></i></a>
-            <a href="#" class="hover:text-white"><i class="ri-youtube-fill"></i></a>
+            <a href="{{ $site['linkedin'] }}" target="_blank" class="hover:text-white"><i class="ri-linkedin-fill"></i></a>
+            <a href="{{ $site['instagram'] }}" target="_blank" class="hover:text-white"><i class="ri-instagram-line"></i></a>
+            <a href="{{ $site['facebook'] }}" target="_blank" class="hover:text-white"><i class="ri-youtube-fill"></i></a>
         </div>
     </div>
 

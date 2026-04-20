@@ -13,6 +13,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::livewire('/', 'admin::dashboard')->name('admin.dashboard');
     Route::livewire('/settings', 'admin::setting')->name('admin.settings');
     Route::livewire('/categories', 'admin::category.category-list')->name('admin.categories');
+    Route::livewire('/projects', 'admin::project-list')->name('admin.projects');
     Route::livewire('/sliders', 'admin::slider-list')->name('admin.sliders');
     Route::livewire('/testimonials', 'admin::testimonial-list')->name('admin.testimonials');
     Route::livewire('/contacts', 'admin::contactlist')->name('admin.contacts');

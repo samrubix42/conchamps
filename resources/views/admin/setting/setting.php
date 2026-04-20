@@ -14,6 +14,7 @@ new #[Layout('layouts::admin')] class extends Component
     public $email = '';
     public $phone_number = '';
     public $whatsapp_number = '';
+    public $office_timing = '';
     public $address = '';
     public $logo_path = '';
     public $favicon_path = '';
@@ -32,6 +33,7 @@ new #[Layout('layouts::admin')] class extends Component
             'email',
             'phone_number',
             'whatsapp_number',
+            'office_timing',
             'address',
             'logo_path',
             'favicon_path',
@@ -55,6 +57,7 @@ new #[Layout('layouts::admin')] class extends Component
             'email' => 'required|email|max:255',
             'phone_number' => 'nullable|string|max:30',
             'whatsapp_number' => 'nullable|string|max:30',
+            'office_timing' => 'nullable|string|max:255',
             'address' => 'nullable|string|max:1000',
             'logo' => 'nullable|image|max:3072',
             'favicon' => 'nullable|image|max:2048',
@@ -89,6 +92,7 @@ new #[Layout('layouts::admin')] class extends Component
             'email' => $this->email,
             'phone_number' => $this->phone_number,
             'whatsapp_number' => $this->whatsapp_number,
+            'office_timing' => $this->office_timing,
             'address' => $this->address,
             'logo_path' => $this->logo_path,
             'favicon_path' => $this->favicon_path,

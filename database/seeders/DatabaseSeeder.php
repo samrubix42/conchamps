@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             LoginUserSeeder::class,
             SliderSeeder::class,
             TestimonialSeeder::class,
+            ProjectSeeder::class,
         ]);
     }
 }

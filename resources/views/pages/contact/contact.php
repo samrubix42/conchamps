@@ -2,6 +2,7 @@
 
 use Livewire\Component;
 use App\Models\Contact;
+use App\Helpers\SettingHelper;
 
 new class extends Component
 {
@@ -11,6 +12,12 @@ new class extends Component
     public $phone = '';
     public $project_type = '';
     public $message = '';
+    public array $site = [];
+
+    public function mount(): void
+    {
+        $this->site = SettingHelper::websiteDefaults();
+    }
 
     public function save(): void
     {

@@ -20,8 +20,8 @@ new class extends Component
                 'icon' => 'ri-folder-3-line',
                 'uri' => '/admin/projects',
                 'children' => [
-                    ['title' => 'All Projects', 'uri' => '/admin/projects'],
-                    ['title' => 'Create Project', 'uri' => '/admin/projects/create'],
+                    ['title' => 'Category', 'uri' => '/admin/categories'],
+                    ['title' => 'Project', 'uri' => '/admin/projects'],
                 ],
             ],
             
@@ -38,12 +38,6 @@ new class extends Component
                 'title' => 'Settings',
                 'icon' => 'ri-settings-4-line',
                 'uri' => '/admin/settings',
-            ],
-            [
-                'title' => 'Categories',
-                'icon' => 'ri-list-check',
-                'uri' => '/admin/categories',
-                
             ],
             [
                 'title' => 'Sliders',

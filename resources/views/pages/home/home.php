@@ -3,14 +3,18 @@
 use Livewire\Component;
 use App\Models\Slider;
 use App\Models\Testimonial;
+use App\Helpers\SettingHelper;
 
 new class extends Component
 {
     public array $heroSlides = [];
     public array $testimonials = [];
+    public string $brandLogoUrl = '';
 
     public function mount(): void
     {
+        $this->brandLogoUrl = SettingHelper::asset('logo_path', 'Concrete-Champs-white.png');
+
         $this->heroSlides = Slider::query()
             ->orderBy('id')
             ->get()

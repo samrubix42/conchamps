@@ -121,7 +121,7 @@
     </section>
 
     <section class="section bg-white border-y border-slate-200 relative">
-        <div class="absolute inset-0 pointer-events-none logo-bg" style="background-image: url('/Concrete-Champs-white.png');"></div>
+        <div class="absolute inset-0 pointer-events-none logo-bg" style="background-image: url('{{ $brandLogoUrl }}');"></div>
         <div class="container-custom">
             <div class="mb-8 sm:mb-10  text-center">
                 <p class="text-xs sm:text-sm uppercase tracking-[0.18em] text-slate-500">By The Numbers</p>

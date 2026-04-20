@@ -20,22 +20,22 @@
                 <div class="rounded-2xl border border-border bg-surface p-5 sm:p-6">
                     <i class="ri-phone-line text-2xl text-secondary"></i>
                     <h3 class="mt-3 text-xl sm:text-2xl uppercase text-primary">Call</h3>
-                    <p class="mt-2 text-sm text-muted">+1 (800) 787-8201</p>
+                    <p class="mt-2 text-sm text-muted">{{ $site['phone_number'] }}</p>
                 </div>
                 <div class="rounded-2xl border border-border bg-surface p-5 sm:p-6">
                     <i class="ri-mail-line text-2xl text-secondary"></i>
                     <h3 class="mt-3 text-xl sm:text-2xl uppercase text-primary">Email</h3>
-                    <p class="mt-2 text-sm text-muted">hello@concretechamps.com</p>
+                    <p class="mt-2 text-sm text-muted">{{ $site['email'] }}</p>
                 </div>
                 <div class="rounded-2xl border border-border bg-surface p-5 sm:p-6">
                     <i class="ri-map-pin-2-line text-2xl text-secondary"></i>
                     <h3 class="mt-3 text-xl sm:text-2xl uppercase text-primary">Office</h3>
-                    <p class="mt-2 text-sm text-muted">1200 Industrial Way, New York, NY</p>
+                    <p class="mt-2 text-sm text-muted">{{ $site['address'] }}</p>
                 </div>
                 <div class="rounded-2xl border border-border bg-surface p-5 sm:p-6">
                     <i class="ri-time-line text-2xl text-secondary"></i>
                     <h3 class="mt-3 text-xl sm:text-2xl uppercase text-primary">Hours</h3>
-                    <p class="mt-2 text-sm text-muted">Mon - Sat, 8:00 AM - 5:30 PM</p>
+                    <p class="mt-2 text-sm text-muted">{{ $site['office_timing'] }}</p>
                 </div>
             </div>
         </div>
@@ -101,14 +101,14 @@
                         <div class="p-6">
                             <h3 class="text-xl sm:text-2xl uppercase text-primary">Visit Our Office</h3>
                             <p class="mt-3 text-sm text-muted leading-7">Meet our estimators and engineering leads for an in-depth scope conversation.</p>
-                            <p class="mt-4 inline-flex items-center gap-2 text-sm text-primary"><i class="ri-map-pin-2-line text-secondary"></i> 1200 Industrial Way, New York, NY</p>
+                            <p class="mt-4 inline-flex items-center gap-2 text-sm text-primary"><i class="ri-map-pin-2-line text-secondary"></i> {{ $site['address'] }}</p>
                         </div>
                     </div>
 
                     <div class="rounded-3xl border border-border bg-white p-6 shadow-[0_16px_40px_rgba(15,23,42,0.06)]">
                         <h3 class="text-xl sm:text-2xl uppercase text-primary">Emergency Site Support</h3>
                         <p class="mt-3 text-sm text-muted leading-7">Need urgent site coordination? Our rapid-response team is available for critical project interventions.</p>
-                        <a href="tel:+18007878201" class="mt-5 inline-flex items-center gap-2 text-secondary font-semibold">
+                        <a href="tel:{{ $site['phone_tel'] }}" class="mt-5 inline-flex items-center gap-2 text-secondary font-semibold">
                             <i class="ri-phone-line"></i> Call Priority Line
                         </a>
                     </div>
