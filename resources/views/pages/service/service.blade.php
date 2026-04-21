@@ -1,3 +1,6 @@
+@section('meta_title', 'Services')
+@section('meta_description', 'Explore Concrete Champs service offerings, including structural engineering, concrete works, BIM coordination, site planning, renovation, and QA/QC supervision.')
+
 <div class="bg-background text-on-surface font-body overflow-x-hidden">
     <section class="relative overflow-hidden min-h-[46vh] sm:min-h-[56vh] flex items-center">
         <img src="{{ asset('building/beautiful-view-construction-site-city-sunset.webp') }}" alt="Concrete Champs Services" class="absolute inset-0 h-full w-full object-cover" />

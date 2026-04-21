@@ -4,6 +4,9 @@ use Livewire\Component;
 
 new class extends Component
 {
+    public string $title = 'Services';
+    public string $meta_title = 'Services';
+    public string $meta_description = 'Our services include structural engineering, concrete works, BIM coordination, site planning, renovation, and QA/QC supervision.';
     public array $services = [
         [
             'icon' => 'ri-building-4-line',
@@ -64,4 +67,13 @@ new class extends Component
         'Infrastructure & Utility',
         'Residential High-Rise',
     ];
+
+    public function layoutData(): array
+    {
+        return [
+            'title' => $this->title,
+            'meta_title' => $this->meta_title,
+            'meta_description' => $this->meta_description,
+        ];
+    }
 };

@@ -1,3 +1,6 @@
+@section('meta_title', 'Home')
+@section('meta_description', 'Concrete Champs is a construction and structural engineering partner delivering practical building and execution solutions.')
+
 <div class="bg-background text-on-surface font-body overflow-x-hidden">
     <section
         x-data="{

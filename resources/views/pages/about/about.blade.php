@@ -1,3 +1,6 @@
+@section('meta_title', 'About Concrete Champs')
+@section('meta_description', 'Learn about Concrete Champs and our engineering-led approach to building safe, reliable, and efficient structures.')
+
 <div class="bg-background text-on-surface font-body overflow-x-hidden">
     <section class="relative overflow-hidden min-h-[46vh] sm:min-h-[52vh] flex items-center">
         <img src="{{ asset('building/construction-site-sunset.webp') }}" alt="About Concrete Champs" class="absolute inset-0 h-full w-full object-cover" />

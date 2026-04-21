@@ -6,6 +6,9 @@ use App\Models\Category;
 
 new class extends Component
 {
+    public string $title = 'Projects';
+    public string $meta_title = 'Projects';
+    public string $meta_description = 'Explore our projects portfolio featuring commercial, industrial, and institutional construction work completed with technical precision.';
     public array $filters = [];
     public array $projects = [];
     public ?array $featuredProject = null;
@@ -55,5 +58,14 @@ new class extends Component
         $this->filters = $categoryFilters;
 
         $this->featuredProject = $this->projects[0] ?? null;
+    }
+
+    public function layoutData(): array
+    {
+        return [
+            'title' => $this->title,
+            'meta_title' => $this->meta_title,
+            'meta_description' => $this->meta_description,
+        ];
     }
 };

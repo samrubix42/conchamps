@@ -9,6 +9,9 @@ use App\Helpers\SettingHelper;
 
 new class extends Component
 {
+    public string $title = 'Home';
+    public string $meta_title = 'Home';
+    public string $meta_description = 'Concrete Champs is a construction and structural engineering partner delivering practical building, retrofit, and site execution solutions.';
     public array $heroSlides = [];
     public array $testimonials = [];
     public array $projectFilters = [];
@@ -89,5 +92,14 @@ new class extends Component
         ]);
 
         $this->projectFilters = $filters;
+    }
+
+    public function layoutData(): array
+    {
+        return [
+            'title' => $this->title,
+            'meta_title' => $this->meta_title,
+            'meta_description' => $this->meta_description,
+        ];
     }
 };

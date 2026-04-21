@@ -6,6 +6,9 @@ use App\Helpers\SettingHelper;
 
 new class extends Component
 {
+    public string $title = 'Contact';
+    public string $meta_title = 'Contact';
+    public string $meta_description = 'Contact Concrete Champs for engineering consultations, project inquiries, and construction support across your next building project.';
     public $name = '';
     public $company = '';
     public $email = '';
@@ -17,6 +20,15 @@ new class extends Component
     public function mount(): void
     {
         $this->site = SettingHelper::websiteDefaults();
+    }
+
+    public function layoutData(): array
+    {
+        return [
+            'title' => $this->title,
+            'meta_title' => $this->meta_title,
+            'meta_description' => $this->meta_description,
+        ];
     }
 
     public function save(): void

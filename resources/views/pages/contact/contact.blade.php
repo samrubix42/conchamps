@@ -1,3 +1,6 @@
+@section('meta_title', 'Contact')
+@section('meta_description', "Contact Concrete Champs for engineering consultations, project inquiries, and construction support for your next build.")
+
 <div class="bg-background text-on-surface font-body overflow-x-hidden">
     <section class="relative overflow-hidden min-h-[44vh] sm:min-h-[50vh] flex items-center">
         <img src="{{ asset('building/beautiful-view-construction-site-city-sunset.webp') }}" alt="Contact Concrete Champs" class="absolute inset-0 h-full w-full object-cover" />

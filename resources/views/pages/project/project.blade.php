@@ -1,3 +1,6 @@
+@section('meta_title', 'Projects')
+@section('meta_description', 'Browse the Concrete Champs project portfolio, showcasing industrial, commercial, and infrastructure work executed with structural precision.')
+
 <div class="bg-background text-on-surface font-body overflow-x-hidden">
     <section class="relative overflow-hidden min-h-[46vh] sm:min-h-[52vh] flex items-center">
         <img src="{{ asset('building/illustration-construction-site.webp') }}" alt="Concrete Champs Projects" class="absolute inset-0 h-full w-full object-cover" />

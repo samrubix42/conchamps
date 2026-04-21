@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $title ?? 'Concrete Champs' }} | Architectural Precision</title>
+    <title>@hasSection('meta_title')@yield('meta_title')@elseif(isset($meta_title)){{ $meta_title }}@elseif(isset($title)){{ $title }}@else Concrete Champs @endif | Architectural Precision</title>
+    <meta name="description" content="@hasSection('meta_description')@yield('meta_description')@elseif(isset($meta_description)){{ $meta_description }}@else Concrete Champs delivers structural engineering and construction services with practical execution, quality, and client-focused delivery. @endif">
 
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
