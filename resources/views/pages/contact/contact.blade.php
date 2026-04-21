@@ -50,6 +50,13 @@
                     </span>
                     <h2 class="mt-3 text-3xl sm:text-4xl uppercase text-primary">Request A Consultation</h2>
 
+                    @if (session('message'))
+                        <div class="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-700 inline-flex items-start gap-3">
+                            <i class="ri-checkbox-circle-line mt-0.5 text-lg text-emerald-600"></i>
+                            <span>{{ session('message') }}</span>
+                        </div>
+                    @endif
+
                     <form wire:submit="save" class="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <label class="text-xs uppercase tracking-[0.14em] text-muted">Full Name</label>
@@ -89,8 +96,15 @@
                         </div>
                         <div class="sm:col-span-2">
                             <button type="submit" wire:loading.attr="disabled" wire:target="save" class="btn-primary w-full sm:w-auto disabled:opacity-70">
-                                <i class="ri-send-plane-line"></i> Send Request
+                                <i wire:loading.remove wire:target="save" class="ri-send-plane-line"></i>
+                                <i wire:loading wire:target="save" class="ri-loader-4-line animate-spin"></i>
+                                <span wire:loading.remove wire:target="save">Send Request</span>
+                                <span wire:loading wire:target="save">Sending...</span>
                             </button>
+                            <p wire:loading wire:target="save" class="mt-3 inline-flex items-center gap-2 text-sm text-secondary">
+                                <i class="ri-loader-4-line animate-spin"></i>
+                                <span>Submitting your inquiry, please wait...</span>
+                            </p>
                         </div>
                     </form>
                 </div>

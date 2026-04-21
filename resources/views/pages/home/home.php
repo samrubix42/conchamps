@@ -1,6 +1,8 @@
 <?php
 
 use Livewire\Component;
+use App\Models\Project;
+use App\Models\Category;
 use App\Models\Slider;
 use App\Models\Testimonial;
 use App\Helpers\SettingHelper;
@@ -9,6 +11,8 @@ new class extends Component
 {
     public array $heroSlides = [];
     public array $testimonials = [];
+    public array $projectFilters = [];
+    public array $projects = [];
     public string $brandLogoUrl = '';
 
     public function mount(): void
@@ -46,5 +50,44 @@ new class extends Component
                 ];
             })
             ->toArray();
+
+        $activeCategories = Category::query()
+            ->where('status', 1)
+            ->get(['id', 'title', 'slug']);
+
+        $rows = Project::query()
+            ->with('category')
+            ->where('status', 1)
+            ->whereIn('category_id', $activeCategories->pluck('id'))
+            ->latest('id')
+            ->limit(6)
+            ->get();
+
+        $this->projects = $rows->map(function (Project $project) {
+            return [
+                'title' => $project->title,
+                'category' => $project->category?->title ?? 'General',
+                'location' => $project->address ?: 'Location not specified',
+                'filter' => $project->category?->slug ?? 'general',
+                'image' => $project->image_path ? asset($project->image_path) : asset('images/project1.png'),
+            ];
+        })->toArray();
+
+        $filters = $activeCategories
+            ->filter(fn (Category $category) => $rows->contains('category_id', $category->id))
+            ->sortBy('title')
+            ->map(fn (Category $category) => [
+                'label' => $category->title,
+                'value' => $category->slug,
+            ])
+            ->values()
+            ->toArray();
+
+        array_unshift($filters, [
+            'label' => 'All',
+            'value' => 'all',
+        ]);
+
+        $this->projectFilters = $filters;
     }
 };

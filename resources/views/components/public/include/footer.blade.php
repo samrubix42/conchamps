@@ -29,7 +29,7 @@ new class extends Component
             </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
             <div class="sm:col-span-2 lg:col-span-1">
                 <a href="{{ url('/') }}" class="inline-flex items-center mb-5">
                     <img src="{{ $site['footer_logo_url'] }}" alt="{{ $site['project_name'] }}" class="h-11 md:h-12" />
@@ -63,26 +63,17 @@ new class extends Component
                     <li class="inline-flex items-center gap-2"><i class="ri-mail-line text-secondary"></i><span>{{ $site['email'] }}</span></li>
                 </ul>
             </div>
-
-            <div>
-                <h6 class="font-headline text-lg uppercase tracking-[0.1em] text-slate-900 mb-4">Newsletter</h6>
-                <p class="text-sm text-slate-600 leading-6 mb-4">Get monthly updates on new projects and capabilities.</p>
-                <div class="rounded-xl border border-slate-200 bg-slate-50 p-1.5 flex items-center">
-                    <input type="email" placeholder="Your email" class="w-full px-3 py-2 bg-transparent text-sm text-slate-900 placeholder:text-slate-500 focus:outline-none" />
-                    <button class="h-10 w-10 rounded-lg bg-secondary text-white inline-flex items-center justify-center">
-                        <i class="ri-send-plane-line"></i>
-                    </button>
-                </div>
-            </div>
         </div>
     </div>
 
     <div class="border-t border-slate-200 bg-white">
         <div class="container-custom py-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm">
             <p class="text-slate-500">&copy; {{ date('Y') }} Concrete Champs. All rights reserved.</p>
-            <div class="flex items-center gap-5">
-                <a href="#" class="text-slate-500 hover:text-secondary transition-colors">Privacy Policy</a>
-                <a href="#" class="text-slate-500 hover:text-secondary transition-colors">Terms of Service</a>
+            <div class="flex flex-col items-center gap-2 sm:flex-row sm:gap-5">
+                <a href="https://techonika.com" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-secondary transition-colors">
+                    Powered by Techonika
+                </a>
+               
             </div>
         </div>
     </div>

@@ -41,6 +41,7 @@
                             <th class="px-4 py-3">Project Type</th>
                             <th class="px-4 py-3">Message</th>
                             <th class="px-4 py-3">Status</th>
+                            <th class="px-4 py-3 text-right">Action</th>
                         </tr>
                     </thead>
 
@@ -69,10 +70,21 @@
                                         </span>
                                     @endif
                                 </td>
+                                <td class="px-4 py-3 text-right">
+                                    <button
+                                        wire:click="updateStatus({{ $contact->id }}, {{ $contact->status ? 'false' : 'true' }})"
+                                        wire:loading.attr="disabled"
+                                        wire:target="updateStatus({{ $contact->id }}, {{ $contact->status ? 'false' : 'true' }})"
+                                        class="inline-flex items-center gap-2 rounded-md border px-3 py-1.5 text-xs font-medium transition-colors disabled:opacity-60 {{ $contact->status ? 'border-amber-200 text-amber-700 hover:bg-amber-50' : 'border-emerald-200 text-emerald-700 hover:bg-emerald-50' }}"
+                                    >
+                                        <i class="{{ $contact->status ? 'ri-mail-unread-line' : 'ri-mail-check-line' }}"></i>
+                                        <span>{{ $contact->status ? 'Mark Unread' : 'Mark Read' }}</span>
+                                    </button>
+                                </td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="7" class="px-4 py-8 text-center text-sm text-slate-500">No contacts found.</td>
+                                <td colspan="9" class="px-4 py-8 text-center text-sm text-slate-500">No contacts found.</td>
                             </tr>
                         @endforelse
                     </tbody>
@@ -99,6 +111,17 @@
 
                     <p class="mt-2 text-xs text-slate-600">{{ $contact->project_type ?: '-' }}</p>
                     <p class="mt-2 text-xs text-slate-600 wrap-break-word">{{ $contact->message }}</p>
+                    <div class="mt-3">
+                        <button
+                            wire:click="updateStatus({{ $contact->id }}, {{ $contact->status ? 'false' : 'true' }})"
+                            wire:loading.attr="disabled"
+                            wire:target="updateStatus({{ $contact->id }}, {{ $contact->status ? 'false' : 'true' }})"
+                            class="inline-flex items-center gap-2 rounded-md border px-3 py-2 text-xs font-medium transition-colors disabled:opacity-60 {{ $contact->status ? 'border-amber-200 text-amber-700 hover:bg-amber-50' : 'border-emerald-200 text-emerald-700 hover:bg-emerald-50' }}"
+                        >
+                            <i class="{{ $contact->status ? 'ri-mail-unread-line' : 'ri-mail-check-line' }}"></i>
+                            <span>{{ $contact->status ? 'Mark Unread' : 'Mark Read' }}</span>
+                        </button>
+                    </div>
                 </div>
             @empty
                 <div class="rounded-xl border border-dashed border-slate-200 bg-slate-50 px-4 py-6 text-center text-sm text-slate-500">No contacts found.</div>

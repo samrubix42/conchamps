@@ -243,21 +243,8 @@
         class="section bg-[#f3f4f6] border-y border-[#e6e9ef]"
         x-data="{
             activeFilter: 'all',
-            filters: [
-                { label: 'Show All', value: 'all' },
-                { label: 'Interior', value: 'interior' },
-                { label: 'Recent', value: 'recent' },
-                { label: 'Big Building', value: 'big-building' },
-                { label: 'Park', value: 'park' }
-            ],
-            projects: [
-                { title: 'Floride Chemicals', category: 'Factory', filter: 'big-building', image: '{{ asset('images/project1.png') }}' },
-                { title: 'Floride Chemicals', category: 'Factory', filter: 'interior', image: '{{ asset('images/project2.png') }}' },
-                { title: 'Floride Chemicals', category: 'Factory', filter: 'recent', image: '{{ asset('images/project3.png') }}' },
-                { title: 'Floride Chemicals', category: 'Factory', filter: 'park', image: '{{ asset('images/project1.png') }}' },
-                { title: 'Floride Chemicals', category: 'Factory', filter: 'interior', image: '{{ asset('images/project2.png') }}' },
-                { title: 'Floride Chemicals', category: 'Factory', filter: 'big-building', image: '{{ asset('images/project3.png') }}' }
-            ],
+            filters: @js($projectFilters),
+            projects: @js($projects),
             filteredProjects() {
                 if (this.activeFilter === 'all') return this.projects;
                 return this.projects.filter((item) => item.filter === this.activeFilter);
@@ -300,9 +287,24 @@
                         <div class="px-2.5 py-2.5">
                             <h3 class="text-[22px] leading-6 text-primary font-headline" x-text="project.title"></h3>
                             <p class="text-[22px] leading-6 text-primary font-headline" x-text="project.category"></p>
+                            <p class="mt-2 text-sm text-primary/65 inline-flex items-center gap-2">
+                                <i class="ri-map-pin-2-line text-secondary"></i>
+                                <span x-text="project.location"></span>
+                            </p>
                         </div>
                     </article>
                 </template>
+            </div>
+
+            <div x-show="filteredProjects().length === 0" class="mt-4 rounded-xl border border-dashed border-[#d6dae2] bg-white px-5 py-8 text-center text-sm text-slate-500">
+                No active projects available right now.
+            </div>
+
+            <div class="mt-8 flex justify-center">
+                <a href="{{ route('projects') }}" wire:navigate class="inline-flex items-center justify-center gap-2 rounded-xl border border-primary/15 bg-white px-6 py-3 text-sm font-semibold text-primary transition-colors hover:border-secondary hover:text-secondary">
+                    <i class="ri-layout-grid-line"></i>
+                    <span>View All Projects</span>
+                </a>
             </div>
         </div>
     </section>

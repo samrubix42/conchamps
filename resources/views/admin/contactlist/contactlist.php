@@ -26,4 +26,18 @@ new #[Layout('layouts::admin')] class extends Component
 
         return $query->orderBy('id', 'desc')->paginate(10);
     }
+
+    public function updateStatus(int $contactId, bool $status): void
+    {
+        $contact = Contact::findOrFail($contactId);
+        $contact->update([
+            'status' => $status,
+        ]);
+
+        $this->dispatch('toast-show', [
+            'message' => $status ? 'Contact marked as read.' : 'Contact marked as unread.',
+            'type' => 'success',
+            'position' => 'top-right',
+        ]);
+    }
 };
