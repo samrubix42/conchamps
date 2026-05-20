@@ -22,10 +22,10 @@ new class extends Component
                 <p class="mt-1 text-xl sm:text-2xl font-headline uppercase text-slate-900">Let's Discuss Your Project</p>
             </div>
             <div class="flex flex-col sm:flex-row gap-3 sm:items-center">
-                <a href="tel:{{ $site['phone_tel'] }}" class="inline-flex items-center gap-2 rounded-lg border border-slate-200 px-4 py-2.5 text-sm text-slate-700 hover:text-secondary hover:border-secondary transition-colors">
+                {{-- <a href="tel:{{ $site['phone_tel'] }}" class="inline-flex items-center gap-2 rounded-lg border border-slate-200 px-4 py-2.5 text-sm text-slate-700 hover:text-secondary hover:border-secondary transition-colors">
                     <i class="ri-phone-line"></i> {{ $site['phone_number'] }}
-                </a>
-                <button class="btn-primary !rounded-lg !px-5 !py-2.5 !text-xs uppercase tracking-[0.08em]">Get A Quote</button>
+                </a> --}}
+                <a wire:navigate href="{{ route('contact') }}" class="btn-primary !rounded-lg !px-5 !py-2.5 !text-xs uppercase tracking-[0.08em]">Get A Quote</a>
             </div>
         </div>
 
@@ -59,7 +59,7 @@ new class extends Component
                 <h6 class="font-headline text-lg uppercase tracking-[0.1em] text-slate-900 mb-4">Contact</h6>
                 <ul class="space-y-3 text-sm text-slate-600">
                     <li class="inline-flex items-start gap-2"><i class="ri-map-pin-2-line mt-0.5 text-secondary"></i><span>{{ $site['address'] }}</span></li>
-                    <li class="inline-flex items-center gap-2"><i class="ri-phone-line text-secondary"></i><span>{{ $site['phone_number'] }}</span></li>
+                    {{-- <li class="inline-flex items-center gap-2"><i class="ri-phone-line text-secondary"></i><span>{{ $site['phone_number'] }}</span></li> --}}
                     <li class="inline-flex items-center gap-2"><i class="ri-mail-line text-secondary"></i><span>{{ $site['email'] }}</span></li>
                 </ul>
             </div>

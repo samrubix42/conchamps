@@ -19,12 +19,12 @@
 
     <section class="section bg-white border-y border-border">
         <div class="container-custom">
-            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5">
-                <div class="rounded-2xl border border-border bg-surface p-5 sm:p-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+                {{-- <div class="rounded-2xl border border-border bg-surface p-5 sm:p-6">
                     <i class="ri-phone-line text-2xl text-secondary"></i>
                     <h3 class="mt-3 text-xl sm:text-2xl uppercase text-primary">Call</h3>
                     <p class="mt-2 text-sm text-muted">{{ $site['phone_number'] }}</p>
-                </div>
+                </div> --}}
                 <div class="rounded-2xl border border-border bg-surface p-5 sm:p-6">
                     <i class="ri-mail-line text-2xl text-secondary"></i>
                     <h3 class="mt-3 text-xl sm:text-2xl uppercase text-primary">Email</h3>
@@ -122,13 +122,13 @@
                         </div>
                     </div>
 
-                    <div class="rounded-3xl border border-border bg-white p-6 shadow-[0_16px_40px_rgba(15,23,42,0.06)]">
+                    {{-- <div class="rounded-3xl border border-border bg-white p-6 shadow-[0_16px_40px_rgba(15,23,42,0.06)]">
                         <h3 class="text-xl sm:text-2xl uppercase text-primary">Emergency Site Support</h3>
                         <p class="mt-3 text-sm text-muted leading-7">Need urgent site coordination? Our rapid-response team is available for critical project interventions.</p>
                         <a href="tel:{{ $site['phone_tel'] }}" class="mt-5 inline-flex items-center gap-2 text-secondary font-semibold">
                             <i class="ri-phone-line"></i> Call Priority Line
                         </a>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

@@ -62,12 +62,12 @@ class SettingHelper
 
         return [
             'project_name' => self::get('project_name', 'Concrete Champs'),
-            'email' => self::get('email', 'info@domain.com'),
+            'email' => self::get('email', 'info@concretechamps.co.in'),
             'phone_number' => $phone,
             'phone_tel' => self::tel($phone),
             'whatsapp_number' => self::get('whatsapp_number', ''),
             'office_timing' => self::get('office_timing', 'Mon - Sat 8:00 - 17:30'),
-            'address' => self::get('address', '1200 Industrial Way, New York, NY'),
+            'address' => self::get('address', 'E-110, Sarswati Kunj, Chipiyana Khurd, Tigri, Greater Noida, G. B. Nagar, U.P-201301'),
             'logo_url' => $headerLogo ? asset($headerLogo) : self::asset('logo_path', 'Concrete-Champs-dark.png'),
             'header_logo_url' => $headerLogo ? asset($headerLogo) : self::asset('logo_path', 'Concrete-Champs-dark.png'),
             'footer_logo_url' => $footerLogo ? asset($footerLogo) : self::asset('logo_path', 'Concrete-Champs-white.png'),

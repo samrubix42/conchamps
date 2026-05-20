@@ -29,9 +29,9 @@ new class extends Component
             class="container-custom h-10 flex items-center justify-between text-[13px] text-slate-600 transition-all duration-300"
             :class="scrolled ? 'opacity-0 -translate-y-2 pointer-events-none' : 'opacity-100 translate-y-0'">
             <div class="flex items-center gap-6">
-                <a href="tel:{{ $site['phone_tel'] }}" class="inline-flex text-white items-center gap-1.5 hover:text-white transition-colors">
+                {{-- <a href="tel:{{ $site['phone_tel'] }}" class="inline-flex text-white items-center gap-1.5 hover:text-white transition-colors">
                     <i class="ri-phone-line text-white"></i> {{ $site['phone_number'] }}
-                </a>
+                </a> --}}
                 <a href="mailto:{{ $site['email'] }}" class="inline-flex text-white items-center gap-1.5 hover:text-white transition-colors">
                     <i class="ri-mail-line text-white"></i> {{ $site['email'] }}
                 </a>
@@ -108,9 +108,9 @@ new class extends Component
 
             <!-- Contact -->
             <div class="text-sm text-gray-500 space-y-1">
-                <p class="flex items-center gap-2">
+                {{-- <p class="flex items-center gap-2">
                     <i class="ri-phone-line text-white"></i> {{ $site['phone_number'] }}
-                </p>
+                </p> --}}
                 <p class="flex items-center gap-2">
                     <i class="ri-mail-line text-white"></i> {{ $site['email'] }}
                 </p>

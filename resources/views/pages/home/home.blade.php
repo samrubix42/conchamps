@@ -123,6 +123,56 @@
         </div>
     </section>
 
+    <!-- Trusted Partners / Clients Section -->
+    <section class="py-16 bg-[#f8fafc] border-b border-border blueprint-grid relative">
+        <div class="container-custom relative z-10">
+            <div class="text-center mb-10">
+                <span class="inline-flex items-center gap-2 text-secondary text-xs sm:text-sm font-semibold uppercase tracking-[0.2em]">
+                    <i class="ri-shield-user-line text-secondary"></i> Trusted Partners
+                </span>
+                <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl uppercase text-primary">
+                    Trusted By Industry Leaders & Government Bodies
+                </h2>
+                <div class="mt-4 h-1 w-20 bg-secondary/80 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch max-w-6xl mx-auto">
+                <!-- Client 1: CPWD -->
+                <div class="group relative flex flex-col justify-between items-center text-center p-8 bg-white border border-border rounded-2xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_45px_rgba(15,23,42,0.08)]">
+                    <div class="h-28 flex items-center justify-center mb-6 w-full">
+                        <img src="{{ asset('images/clients/images-removebg-preview.png') }}" alt="Central Public Work Department" class="max-h-full max-w-[85%] object-contain transition-all duration-300 group-hover:scale-105" />
+                    </div>
+                    <div class="flex-grow flex flex-col justify-end">
+                        <h3 class="font-headline text-2xl uppercase text-primary leading-tight">Central Public Work Department</h3>
+                        <p class="text-xs text-muted font-medium mt-1 uppercase tracking-wider">Government of India</p>
+                    </div>
+                </div>
+
+                <!-- Client 2: M.P. Police Housing -->
+                <div class="group relative flex flex-col justify-between items-center text-center p-8 bg-white border border-border rounded-2xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_45px_rgba(15,23,42,0.08)]">
+                    <div class="h-28 flex items-center justify-center mb-6 w-full">
+                        <img src="{{ asset('images/clients/Screenshot_2026-04-27_190915-removebg-preview.png') }}" alt="M.P. Police Housing & Infrastructure Development Corporation" class="max-h-full max-w-[85%] object-contain transition-all duration-300 group-hover:scale-105" />
+                    </div>
+                    <div class="flex-grow flex flex-col justify-end">
+                        <h3 class="font-headline text-2xl uppercase text-primary leading-tight text-balance">M.P. Police Housing & Infrastructure Development Corporation</h3>
+                        <p class="text-xs text-muted font-medium mt-1 uppercase tracking-wider">Govt. of Madhya Pradesh</p>
+                    </div>
+                </div>
+
+                <!-- Client 3: Bennett University -->
+                <div class="group relative flex flex-col justify-between items-center text-center p-8 bg-white border border-border rounded-2xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_45px_rgba(15,23,42,0.08)]">
+                    <div class="h-28 flex items-center justify-center mb-6 w-full">
+                        <img src="{{ asset('images/clients/Bennett_University-removebg-preview.png') }}" alt="Bennett University" class="max-h-full max-w-[85%] object-contain transition-all duration-300 group-hover:scale-105" />
+                    </div>
+                    <div class="flex-grow flex flex-col justify-end">
+                        <h3 class="font-headline text-2xl uppercase text-primary leading-tight">Bennett University</h3>
+                        <p class="text-xs text-muted font-medium mt-1 uppercase tracking-wider">Greater Noida</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="section bg-white border-y border-slate-200 relative">
         <div class="absolute inset-0 pointer-events-none logo-bg" style="background-image: url('{{ $brandLogoUrl }}');"></div>
         <div class="container-custom">
@@ -236,6 +286,215 @@
                         <i class="ri-timer-line text-2xl text-secondary"></i>
                         <h3 class="mt-3 text-xl uppercase text-primary">On-Time Culture</h3>
                         <p class="mt-2 text-sm text-muted leading-6">Planning discipline that keeps milestones on schedule.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment & Accessories Section -->
+    <section class="section bg-[#f8fafc] border-b border-border relative overflow-hidden">
+        <!-- Subtle blueprint grid overlay -->
+        <div class="absolute inset-0 pointer-events-none opacity-[0.03]" style="background-image: radial-gradient(circle at 100% 100%, #2A2872 1px, transparent 1px); background-size: 24px 24px;"></div>
+        
+        <div class="container-custom relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+                <span class="inline-flex items-center gap-2 text-secondary text-xs sm:text-sm font-semibold uppercase tracking-[0.2em]">
+                    <i class="ri-settings-3-line"></i> Machinery & Fleet
+                </span>
+                <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl uppercase text-primary">
+                    Equipment & Accessories
+                </h2>
+                <div class="mt-4 h-1 w-20 bg-secondary/80 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-6 max-w-6xl mx-auto">
+                <!-- Col 1 -->
+                <div class="space-y-6">
+                    <!-- Item 1: Anti-Smog Gun -->
+                    <div class="group flex flex-col py-1">
+                        <div class="flex items-end justify-between">
+                            <span class="font-headline text-lg uppercase tracking-wide text-slate-800 transition-colors duration-300 group-hover:text-secondary">Anti-Smog Gun</span>
+                            <span class="font-headline text-xl text-primary font-bold">3</span>
+                        </div>
+                        <div class="w-full h-[2px] bg-slate-200 mt-2 relative">
+                            <div class="absolute inset-y-0 left-0 bg-secondary transition-all duration-500 w-0 group-hover:w-full"></div>
+                            <span class="absolute -right-1 -top-[5px] h-3.5 w-3.5 rounded-full bg-secondary border-2 border-white shadow shadow-sm transition-transform duration-300 group-hover:scale-125"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: Baby Roller -->
+                    <div class="group flex flex-col py-1">
+                        <div class="flex items-end justify-between">
+                            <span class="font-headline text-lg uppercase tracking-wide text-slate-800 transition-colors duration-300 group-hover:text-secondary">Baby Roller</span>
+                            <span class="font-headline text-xl text-primary font-bold">5</span>
+                        </div>
+                        <div class="w-full h-[2px] bg-slate-200 mt-2 relative">
+                            <div class="absolute inset-y-0 left-0 bg-secondary transition-all duration-500 w-0 group-hover:w-full"></div>
+                            <span class="absolute -right-1 -top-[5px] h-3.5 w-3.5 rounded-full bg-secondary border-2 border-white shadow shadow-sm transition-transform duration-300 group-hover:scale-125"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 3: Bar Cutting Machine -->
+                    <div class="group flex flex-col py-1">
+                        <div class="flex items-end justify-between">
+                            <span class="font-headline text-lg uppercase tracking-wide text-slate-800 transition-colors duration-300 group-hover:text-secondary">Bar Cutting Machine</span>
+                            <span class="font-headline text-xl text-primary font-bold">7</span>
+                        </div>
+                        <div class="w-full h-[2px] bg-slate-200 mt-2 relative">
+                            <div class="absolute inset-y-0 left-0 bg-secondary transition-all duration-500 w-0 group-hover:w-full"></div>
+                            <span class="absolute -right-1 -top-[5px] h-3.5 w-3.5 rounded-full bg-secondary border-2 border-white shadow shadow-sm transition-transform duration-300 group-hover:scale-125"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 4: Batching Plant -->
+                    <div class="group flex flex-col py-1">
+                        <div class="flex items-end justify-between">
+                            <span class="font-headline text-lg uppercase tracking-wide text-slate-800 transition-colors duration-300 group-hover:text-secondary">Batching Plant</span>
+                            <span class="font-headline text-xl text-primary font-bold">3</span>
+                        </div>
+                        <div class="w-full h-[2px] bg-slate-200 mt-2 relative">
+                            <div class="absolute inset-y-0 left-0 bg-secondary transition-all duration-500 w-0 group-hover:w-full"></div>
+                            <span class="absolute -right-1 -top-[5px] h-3.5 w-3.5 rounded-full bg-secondary border-2 border-white shadow shadow-sm transition-transform duration-300 group-hover:scale-125"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 5: Breaker Hilti -->
+                    <div class="group flex flex-col py-1">
+                        <div class="flex items-end justify-between">
+                            <span class="font-headline text-lg uppercase tracking-wide text-slate-800 transition-colors duration-300 group-hover:text-secondary">Breaker Hilti</span>
+                            <span class="font-headline text-xl text-primary font-bold">8</span>
+                        </div>
+                        <div class="w-full h-[2px] bg-slate-200 mt-2 relative">
+                            <div class="absolute inset-y-0 left-0 bg-secondary transition-all duration-500 w-0 group-hover:w-full"></div>
+                            <span class="absolute -right-1 -top-[5px] h-3.5 w-3.5 rounded-full bg-secondary border-2 border-white shadow shadow-sm transition-transform duration-300 group-hover:scale-125"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Col 2 -->
+                <div class="space-y-6">
+                    <!-- Item 6: Concrete Pump -->
+                    <div class="group flex flex-col py-1">
+                        <div class="flex items-end justify-between">
+                            <span class="font-headline text-lg uppercase tracking-wide text-slate-800 transition-colors duration-300 group-hover:text-secondary">Concrete Pump</span>
+                            <span class="font-headline text-xl text-primary font-bold">4</span>
+                        </div>
+                        <div class="w-full h-[2px] bg-slate-200 mt-2 relative">
+                            <div class="absolute inset-y-0 left-0 bg-secondary transition-all duration-500 w-0 group-hover:w-full"></div>
+                            <span class="absolute -right-1 -top-[5px] h-3.5 w-3.5 rounded-full bg-secondary border-2 border-white shadow shadow-sm transition-transform duration-300 group-hover:scale-125"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 7: DG Set -->
+                    <div class="group flex flex-col py-1">
+                        <div class="flex items-end justify-between">
+                            <span class="font-headline text-lg uppercase tracking-wide text-slate-800 transition-colors duration-300 group-hover:text-secondary">DG Set</span>
+                            <span class="font-headline text-xl text-primary font-bold">2</span>
+                        </div>
+                        <div class="w-full h-[2px] bg-slate-200 mt-2 relative">
+                            <div class="absolute inset-y-0 left-0 bg-secondary transition-all duration-500 w-0 group-hover:w-full"></div>
+                            <span class="absolute -right-1 -top-[5px] h-3.5 w-3.5 rounded-full bg-secondary border-2 border-white shadow shadow-sm transition-transform duration-300 group-hover:scale-125"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 8: Electric Panel -->
+                    <div class="group flex flex-col py-1">
+                        <div class="flex items-end justify-between">
+                            <span class="font-headline text-lg uppercase tracking-wide text-slate-800 transition-colors duration-300 group-hover:text-secondary">Electric Panel</span>
+                            <span class="font-headline text-xl text-primary font-bold">4</span>
+                        </div>
+                        <div class="w-full h-[2px] bg-slate-200 mt-2 relative">
+                            <div class="absolute inset-y-0 left-0 bg-secondary transition-all duration-500 w-0 group-hover:w-full"></div>
+                            <span class="absolute -right-1 -top-[5px] h-3.5 w-3.5 rounded-full bg-secondary border-2 border-white shadow shadow-sm transition-transform duration-300 group-hover:scale-125"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 9: JCB -->
+                    <div class="group flex flex-col py-1">
+                        <div class="flex items-end justify-between">
+                            <span class="font-headline text-lg uppercase tracking-wide text-slate-800 transition-colors duration-300 group-hover:text-secondary">JCB</span>
+                            <span class="font-headline text-xl text-primary font-bold">1</span>
+                        </div>
+                        <div class="w-full h-[2px] bg-slate-200 mt-2 relative">
+                            <div class="absolute inset-y-0 left-0 bg-secondary transition-all duration-500 w-0 group-hover:w-full"></div>
+                            <span class="absolute -right-1 -top-[5px] h-3.5 w-3.5 rounded-full bg-secondary border-2 border-white shadow shadow-sm transition-transform duration-300 group-hover:scale-125"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 10: Loader Tractor -->
+                    <div class="group flex flex-col py-1">
+                        <div class="flex items-end justify-between">
+                            <span class="font-headline text-lg uppercase tracking-wide text-slate-800 transition-colors duration-300 group-hover:text-secondary">Loader Tractor</span>
+                            <span class="font-headline text-xl text-primary font-bold">3</span>
+                        </div>
+                        <div class="w-full h-[2px] bg-slate-200 mt-2 relative">
+                            <div class="absolute inset-y-0 left-0 bg-secondary transition-all duration-500 w-0 group-hover:w-full"></div>
+                            <span class="absolute -right-1 -top-[5px] h-3.5 w-3.5 rounded-full bg-secondary border-2 border-white shadow shadow-sm transition-transform duration-300 group-hover:scale-125"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Col 3 -->
+                <div class="space-y-6">
+                    <!-- Item 11: Stone Cutting Machine -->
+                    <div class="group flex flex-col py-1">
+                        <div class="flex items-end justify-between">
+                            <span class="font-headline text-lg uppercase tracking-wide text-slate-800 transition-colors duration-300 group-hover:text-secondary">Stone Cutting Machine</span>
+                            <span class="font-headline text-xl text-primary font-bold">4</span>
+                        </div>
+                        <div class="w-full h-[2px] bg-slate-200 mt-2 relative">
+                            <div class="absolute inset-y-0 left-0 bg-secondary transition-all duration-500 w-0 group-hover:w-full"></div>
+                            <span class="absolute -right-1 -top-[5px] h-3.5 w-3.5 rounded-full bg-secondary border-2 border-white shadow shadow-sm transition-transform duration-300 group-hover:scale-125"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 12: Tower Crane -->
+                    <div class="group flex flex-col py-1">
+                        <div class="flex items-end justify-between">
+                            <span class="font-headline text-lg uppercase tracking-wide text-slate-800 transition-colors duration-300 group-hover:text-secondary">Tower Crane</span>
+                            <span class="font-headline text-xl text-primary font-bold">5</span>
+                        </div>
+                        <div class="w-full h-[2px] bg-slate-200 mt-2 relative">
+                            <div class="absolute inset-y-0 left-0 bg-secondary transition-all duration-500 w-0 group-hover:w-full"></div>
+                            <span class="absolute -right-1 -top-[5px] h-3.5 w-3.5 rounded-full bg-secondary border-2 border-white shadow shadow-sm transition-transform duration-300 group-hover:scale-125"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 13: Water Tanker -->
+                    <div class="group flex flex-col py-1">
+                        <div class="flex items-end justify-between">
+                            <span class="font-headline text-lg uppercase tracking-wide text-slate-800 transition-colors duration-300 group-hover:text-secondary">Water Tanker</span>
+                            <span class="font-headline text-xl text-primary font-bold">10</span>
+                        </div>
+                        <div class="w-full h-[2px] bg-slate-200 mt-2 relative">
+                            <div class="absolute inset-y-0 left-0 bg-secondary transition-all duration-500 w-0 group-hover:w-full"></div>
+                            <span class="absolute -right-1 -top-[5px] h-3.5 w-3.5 rounded-full bg-secondary border-2 border-white shadow shadow-sm transition-transform duration-300 group-hover:scale-125"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 14: Weight Bridge -->
+                    <div class="group flex flex-col py-1">
+                        <div class="flex items-end justify-between">
+                            <span class="font-headline text-lg uppercase tracking-wide text-slate-800 transition-colors duration-300 group-hover:text-secondary">Weight Bridge</span>
+                            <span class="font-headline text-xl text-primary font-bold">2</span>
+                        </div>
+                        <div class="w-full h-[2px] bg-slate-200 mt-2 relative">
+                            <div class="absolute inset-y-0 left-0 bg-secondary transition-all duration-500 w-0 group-hover:w-full"></div>
+                            <span class="absolute -right-1 -top-[5px] h-3.5 w-3.5 rounded-full bg-secondary border-2 border-white shadow shadow-sm transition-transform duration-300 group-hover:scale-125"></span>
+                        </div>
+                    </div>
+
+                    <!-- Item 15: Welding Machine -->
+                    <div class="group flex flex-col py-1">
+                        <div class="flex items-end justify-between">
+                            <span class="font-headline text-lg uppercase tracking-wide text-slate-800 transition-colors duration-300 group-hover:text-secondary">Welding Machine</span>
+                            <span class="font-headline text-xl text-primary font-bold">8</span>
+                        </div>
+                        <div class="w-full h-[2px] bg-slate-200 mt-2 relative">
+                            <div class="absolute inset-y-0 left-0 bg-secondary transition-all duration-500 w-0 group-hover:w-full"></div>
+                            <span class="absolute -right-1 -top-[5px] h-3.5 w-3.5 rounded-full bg-secondary border-2 border-white shadow shadow-sm transition-transform duration-300 group-hover:scale-125"></span>
+                        </div>
                     </div>
                 </div>
             </div>
