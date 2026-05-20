@@ -224,21 +224,21 @@
                     <div class="card-icon"><i class="ri-building-4-line"></i></div>
                     <h3 class="text-2xl uppercase text-primary">Structural Engineering</h3>
                     <p class="text-muted mt-3 leading-7 text-sm">Performance-first designs for towers, bridges, campuses, and mission-critical facilities.</p>
-                    <a href="#" class="inline-flex items-center gap-2 text-secondary font-semibold mt-5">Learn More <i class="ri-arrow-right-line"></i></a>
+                    <a href="{{ route('services') }}" wire:navigate class="inline-flex items-center gap-2 text-secondary font-semibold mt-5">Learn More <i class="ri-arrow-right-line"></i></a>
                 </article>
 
                 <article class="card">
                     <div class="card-icon"><i class="ri-tools-line"></i></div>
                     <h3 class="text-2xl uppercase text-primary">Concrete Execution</h3>
                     <p class="text-muted mt-3 leading-7 text-sm">Advanced mixes and precision pouring workflows that reduce risk and increase lifespan.</p>
-                    <a href="#" class="inline-flex items-center gap-2 text-secondary font-semibold mt-5">Learn More <i class="ri-arrow-right-line"></i></a>
+                    <a href="{{ route('services') }}" wire:navigate class="inline-flex items-center gap-2 text-secondary font-semibold mt-5">Learn More <i class="ri-arrow-right-line"></i></a>
                 </article>
 
                 <article class="card md:col-span-2 xl:col-span-1">
                     <div class="card-icon"><i class="ri-ruler-2-line"></i></div>
                     <h3 class="text-2xl uppercase text-primary">Architectural Modeling</h3>
                     <p class="text-muted mt-3 leading-7 text-sm">Detailed BIM and feasibility plans that keep design intent aligned with site realities.</p>
-                    <a href="#" class="inline-flex items-center gap-2 text-secondary font-semibold mt-5">Learn More <i class="ri-arrow-right-line"></i></a>
+                    <a href="{{ route('services') }}" wire:navigate class="inline-flex items-center gap-2 text-secondary font-semibold mt-5">Learn More <i class="ri-arrow-right-line"></i></a>
                 </article>
             </div>
         </div>
@@ -649,8 +649,8 @@
                         </p>
 
                         <div class="mt-7 flex flex-col sm:flex-row gap-3 sm:gap-4">
-                            <button class="btn-primary w-full sm:w-auto !bg-white !text-zinc-800 !border-0 hover:!bg-zinc-100"><i class="ri-file-list-3-line !text-zinc-800"></i> Request a Bid</button>
-                            <button class="btn-secondary w-full sm:w-auto !bg-white !text-zinc-800 !border-white hover:!bg-zinc-100"><i class="ri-customer-service-2-line !text-zinc-800"></i> Talk to Expert</button>
+                            <a href="{{ route('contact') }}" wire:navigate class="btn-primary w-full sm:w-auto !bg-white !text-zinc-800 !border-0 hover:!bg-zinc-100 inline-flex items-center justify-center gap-2"><i class="ri-file-list-3-line !text-zinc-800"></i> Request a Bid</a>
+                            <a href="{{ route('contact') }}" wire:navigate class="btn-secondary w-full sm:w-auto !bg-white !text-zinc-800 !border-white hover:!bg-zinc-100 inline-flex items-center justify-center gap-2"><i class="ri-customer-service-2-line !text-zinc-800"></i> Talk to Expert</a>
                         </div>
                     </div>
 

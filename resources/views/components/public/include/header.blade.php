@@ -153,10 +153,10 @@ new class extends Component
             </div>
 
             <!-- CTA -->
-            <button class="btn-primary w-full mt-4 !py-3.5">
+            <a href="{{ route('contact') }}" wire:navigate @click="mobileMenuOpen = false" class="btn-primary w-full mt-4 !py-3.5 inline-flex justify-center items-center gap-2">
                 <i class="ri-send-plane-line"></i>
                 Contact Now
-            </button>
+            </a>
 
         </div>
 

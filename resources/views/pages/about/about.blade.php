@@ -4,7 +4,7 @@
 <div class="bg-background text-on-surface font-body overflow-x-hidden">
     <!-- Hero Section -->
     <section class="relative overflow-hidden min-h-[46vh] sm:min-h-[52vh] flex items-center">
-        <img src="{{ asset('building/construction-site-sunset.webp') }}" alt="About Concrete Champs" class="absolute inset-0 h-full w-full object-cover" />
+        <img src="{{ asset('images/DJI_0033.webp') }}" alt="About Concrete Champs" class="absolute inset-0 h-full w-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/60 to-slate-950/35"></div>
 
         <div class="container-custom relative z-10 py-20 md:py-24">

@@ -3,7 +3,7 @@
 
 <div class="bg-background text-on-surface font-body overflow-x-hidden">
     <section class="relative overflow-hidden min-h-[46vh] sm:min-h-[52vh] flex items-center">
-        <img src="{{ asset('building/illustration-construction-site.webp') }}" alt="Concrete Champs Projects" class="absolute inset-0 h-full w-full object-cover" />
+        <img src="{{ asset('images/bu2.webp') }}" alt="Concrete Champs Projects" class="absolute inset-0 h-full w-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/58 to-slate-950/30"></div>
 
         <div class="container-custom relative z-10 py-20 md:py-24">
@@ -103,7 +103,7 @@
         <div class="container-custom">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
                 <div class="lg:col-span-6 rounded-3xl overflow-hidden border border-border shadow-[0_20px_45px_rgba(15,23,42,0.12)]">
-                    <img src="{{ $featuredProject['image'] ?? 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1974&auto=format&fit=crop' }}" alt="Featured project" class="w-full h-72 md:h-[440px] object-cover" />
+                    <img src="{{ asset('images/DJI_0038.webp') }}" alt="Featured project" class="w-full h-72 md:h-[440px] object-cover" />
                 </div>
 
                 <div class="lg:col-span-6">

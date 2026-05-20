@@ -3,7 +3,7 @@
 
 <div class="bg-background text-on-surface font-body overflow-x-hidden">
     <section class="relative overflow-hidden min-h-[46vh] sm:min-h-[56vh] flex items-center">
-        <img src="{{ asset('building/beautiful-view-construction-site-city-sunset.webp') }}" alt="Concrete Champs Services" class="absolute inset-0 h-full w-full object-cover" />
+        <img src="{{ asset('images/DJI_0038.webp') }}" alt="Concrete Champs Services" class="absolute inset-0 h-full w-full object-cover" />
         <div class="absolute inset-0 bg-linear-to-r from-slate-950/82 via-slate-950/64 to-slate-950/38"></div>
 
         <div class="container-custom relative z-10 py-20 md:py-24">
@@ -128,11 +128,11 @@
                     </div>
 
                     <div class="flex flex-col sm:flex-row gap-3">
-                        <a href="/contact" class="btn-primary inline-flex justify-center">
+                        <a href="{{ route('contact') }}" wire:navigate class="btn-primary inline-flex justify-center">
                             <i class="ri-customer-service-2-line"></i>
                             <span>Contact Us</span>
                         </a>
-                        <a href="/projects" class="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-surface px-6 py-3.5 font-semibold text-primary hover:bg-slate-100 transition-colors">
+                        <a href="{{ route('projects') }}" wire:navigate class="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-surface px-6 py-3.5 font-semibold text-primary hover:bg-slate-100 transition-colors">
                             <i class="ri-building-3-line"></i>
                             <span>View Projects</span>
                         </a>
