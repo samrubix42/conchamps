@@ -20,116 +20,115 @@
     <section
         class="section bg-surface border-y border-border"
         x-data="{
-            activeFilter: 'all',
-            isSwitching: false,
-            filters: @js($filters),
             projects: @js($projects),
-            switchFilter(nextFilter) {
-                if (this.isSwitching || this.activeFilter === nextFilter) return;
-
-                this.isSwitching = true;
-
-                setTimeout(() => {
-                    this.activeFilter = nextFilter;
-
-                    this.$nextTick(() => {
-                        setTimeout(() => {
-                            this.isSwitching = false;
-                        }, 70);
-                    });
-                }, 180);
-            },
-            filteredProjects() {
-                if (this.activeFilter === 'all') return this.projects;
-                return this.projects.filter((item) => item.filter === this.activeFilter);
-            }
         }"
     >
         <div class="container-custom">
-            <div class="relative mb-8 sm:mb-10 lg:mb-12 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 lg:gap-8">
-                <div>
-                    <span class="inline-flex items-center gap-2 text-secondary text-xs sm:text-sm uppercase tracking-[0.2em] font-semibold">
-                        <i class="ri-layout-grid-line"></i> Selected Work
-                    </span>
-                    <h2 class="mt-3 text-4xl sm:text-5xl lg:text-6xl uppercase text-primary relative z-10">Built Environments</h2>
-                </div>
-
-                <div class="flex flex-nowrap lg:flex-wrap overflow-x-auto pb-1 no-scrollbar items-center gap-3 sm:gap-4 text-[11px] sm:text-xs font-medium text-primary/90">
-                    <template x-for="item in filters" :key="item.value">
-                        <button
-                            @click="switchFilter(item.value)"
-                            class="rounded-full border px-4 py-2 transition-all"
-                            :class="activeFilter === item.value ? 'border-secondary bg-secondary text-white' : 'border-border bg-white hover:border-secondary hover:text-secondary'"
-                            x-text="item.label"
-                        ></button>
-                    </template>
-                </div>
-            </div>
-
-            <div
-                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5 transition-all duration-300"
-                :class="isSwitching ? 'opacity-0 translate-y-3 scale-[0.985]' : 'opacity-100 translate-y-0 scale-100'"
-            >
-                <template x-for="(project, index) in filteredProjects()" :key="`${activeFilter}-${index}-${project.title}`">
+            <div class="space-y-8 lg:space-y-10">
+                <template x-for="(project, index) in projects" :key="`${index}-${project.title}`">
                     <article
-                        x-transition:enter="transition ease-out duration-400"
-                        x-transition:enter-start="opacity-0 translate-y-4 scale-[0.98]"
-                        x-transition:enter-end="opacity-100 translate-y-0 scale-100"
-                        x-transition:leave="transition ease-in duration-250"
-                        x-transition:leave-start="opacity-100 scale-100"
-                        x-transition:leave-end="opacity-0 scale-[0.98]"
-                        :style="`transition-delay: ${Math.min(index * 60, 220)}ms`"
-                        class="group rounded-2xl border border-border overflow-hidden bg-white shadow-[0_12px_32px_rgba(15,23,42,0.06)]"
+                        x-data="{
+                            activeImage: 0,
+                            sliderTimer: null,
+                            nextImage() {
+                                if (project.images.length < 2) return;
+                                this.activeImage = this.activeImage === project.images.length - 1 ? 0 : this.activeImage + 1;
+                            },
+                            previousImage() {
+                                if (project.images.length < 2) return;
+                                this.activeImage = this.activeImage === 0 ? project.images.length - 1 : this.activeImage - 1;
+                            },
+                            goToImage(imageIndex) {
+                                this.activeImage = imageIndex;
+                                this.restartSlider();
+                            },
+                            startSlider() {
+                                if (project.images.length < 2 || this.sliderTimer) return;
+                                this.sliderTimer = setInterval(() => this.nextImage(), 3500);
+                            },
+                            stopSlider() {
+                                if (! this.sliderTimer) return;
+                                clearInterval(this.sliderTimer);
+                                this.sliderTimer = null;
+                            },
+                            restartSlider() {
+                                this.stopSlider();
+                                this.startSlider();
+                            },
+                        }"
+                        x-init="startSlider()"
+                        @mouseenter="stopSlider()"
+                        @mouseleave="startSlider()"
+                        class="grid grid-cols-1 lg:grid-cols-12 gap-0 overflow-hidden rounded-3xl border border-border bg-white shadow-[0_18px_44px_rgba(15,23,42,0.08)]"
                     >
-                        <div class="overflow-hidden">
-                            <img :src="project.image" :alt="project.title" class="w-full h-56 sm:h-60 lg:h-[220px] object-cover transition-transform duration-500 group-hover:scale-[1.04]" />
+                        <div class="relative lg:col-span-6 min-h-[280px] sm:min-h-[360px] lg:min-h-[430px] overflow-hidden bg-slate-100" :class="index % 2 === 1 ? 'lg:order-2' : 'lg:order-1'">
+                            <template x-for="(image, imageIndex) in project.images" :key="`${project.title}-${imageIndex}`">
+                                <img
+                                    x-show="activeImage === imageIndex"
+                                    x-transition.opacity.duration.300ms
+                                    :src="image"
+                                    :alt="`${project.title} image ${imageIndex + 1}`"
+                                    class="absolute inset-0 h-full w-full object-cover"
+                                />
+                            </template>
+
+                            <template x-if="project.images.length > 1">
+                                <div class="absolute inset-x-0 bottom-4 flex items-center justify-center gap-2">
+                                    <template x-for="(image, imageIndex) in project.images" :key="`dot-${project.title}-${imageIndex}`">
+                                        <button
+                                            type="button"
+                                            @click="goToImage(imageIndex)"
+                                            class="h-2.5 rounded-full border border-white/70 transition-all"
+                                            :class="activeImage === imageIndex ? 'w-8 bg-white' : 'w-2.5 bg-white/45 hover:bg-white/75'"
+                                            aria-label="View project image"
+                                        ></button>
+                                    </template>
+                                </div>
+                            </template>
+
+                            <template x-if="project.images.length > 1">
+                                <div class="absolute inset-y-0 left-0 right-0 flex items-center justify-between px-3">
+                                    <button
+                                        type="button"
+                                        @click="previousImage(); restartSlider()"
+                                        class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-primary shadow-lg transition hover:bg-white"
+                                        aria-label="Previous image"
+                                    >
+                                        <i class="ri-arrow-left-s-line text-2xl"></i>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        @click="nextImage(); restartSlider()"
+                                        class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-primary shadow-lg transition hover:bg-white"
+                                        aria-label="Next image"
+                                    >
+                                        <i class="ri-arrow-right-s-line text-2xl"></i>
+                                    </button>
+                                </div>
+                            </template>
                         </div>
-                        <div class="p-5">
-                            <span class="project-category-chip" x-text="project.category"></span>
-                            <h3 class="mt-3 text-2xl leading-7 text-primary font-headline" x-text="project.title"></h3>
-                            <p class="mt-2 text-sm text-muted inline-flex items-center gap-2"><i class="ri-map-pin-2-line text-secondary"></i><span x-text="project.location"></span></p>
+
+                        <div class="lg:col-span-6 p-6 sm:p-8 lg:p-10 flex flex-col justify-center" :class="index % 2 === 1 ? 'lg:order-1' : 'lg:order-2'">
+                            <span class="inline-flex w-fit items-center gap-2 rounded-full border border-secondary/20 bg-secondary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-secondary">
+                                <i class="ri-building-2-line"></i>
+                                <span x-text="project.category"></span>
+                            </span>
+                            <h2 class="mt-4 text-3xl sm:text-4xl lg:text-5xl uppercase text-primary" x-text="project.title"></h2>
+                            <p class="mt-3 inline-flex items-center gap-2 text-sm font-medium text-primary">
+                                <i class="ri-map-pin-2-line text-secondary"></i>
+                                <span x-text="project.location"></span>
+                            </p>
+                            <div
+                                class="mt-5 text-sm sm:text-base text-muted leading-7 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_a]:text-secondary [&_a]:font-semibold"
+                                x-html="project.description"
+                            ></div>
                         </div>
                     </article>
                 </template>
             </div>
 
-            <div x-show="filteredProjects().length === 0" class="mt-4 rounded-xl border border-dashed border-border bg-white px-5 py-8 text-center text-sm text-muted">
+            <div x-show="projects.length === 0" class="mt-4 rounded-xl border border-dashed border-border bg-white px-5 py-8 text-center text-sm text-muted">
                 No active projects available right now.
-            </div>
-        </div>
-    </section>
-
-    <section class="section bg-surface-2 border-y border-border">
-        <div class="container-custom">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-                <div class="lg:col-span-6 rounded-3xl overflow-hidden border border-border shadow-[0_20px_45px_rgba(15,23,42,0.12)]">
-                    <img src="{{ asset('images/DJI_0038.webp') }}" alt="Featured project" class="w-full h-72 md:h-[440px] object-cover" />
-                </div>
-
-                <div class="lg:col-span-6">
-                    <span class="inline-flex items-center gap-2 text-secondary text-xs sm:text-sm uppercase tracking-[0.2em] font-semibold">
-                        <i class="ri-star-line"></i> Featured Case Study
-                    </span>
-                    <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl uppercase text-primary">{{ $featuredProject['title'] ?? 'Metrolink Operations Center' }}</h2>
-                    <div class="mt-5 text-sm sm:text-base text-muted leading-7 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_a]:text-secondary [&_a]:font-semibold">
-                        {!! $featuredProject['description'] ?? 'A phased delivery involving structural retrofitting, concrete reinforcement, and high-traffic operational constraints. Completed with zero safety incidents and ahead of milestone schedule.' !!}
-                    </div>
-
-                    <div class="mt-7 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div class="rounded-2xl border border-border bg-white p-4">
-                            <p class="text-2xl font-headline text-primary">210K</p>
-                            <p class="mt-1 text-xs uppercase tracking-[0.16em] text-muted">SQ FT Upgraded</p>
-                        </div>
-                        <div class="rounded-2xl border border-border bg-white p-4">
-                            <p class="text-2xl font-headline text-primary">11 Mo</p>
-                            <p class="mt-1 text-xs uppercase tracking-[0.16em] text-muted">Delivery Window</p>
-                        </div>
-                        <div class="rounded-2xl border border-border bg-white p-4">
-                            <p class="text-2xl font-headline text-primary">0</p>
-                            <p class="mt-1 text-xs uppercase tracking-[0.16em] text-muted">Safety Incidents</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

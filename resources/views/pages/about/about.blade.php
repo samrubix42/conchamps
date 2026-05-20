@@ -107,10 +107,8 @@
         <div class="absolute inset-0 pointer-events-none opacity-[0.03]" style="background-image: radial-gradient(circle at 100% 100%, #2A2872 1px, transparent 1px); background-size: 24px 24px;"></div>
         <div class="container-custom relative z-10 max-w-5xl">
             <div class="text-center mb-8 md:mb-10">
-                <span class="inline-flex items-center gap-2 text-secondary text-xs sm:text-sm uppercase tracking-[0.2em] font-semibold">
-                    <i class="ri-message-3-line"></i> Director's Message
-                </span>
-                <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl uppercase text-primary">Welcome Message</h2>
+        
+                <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl uppercase text-primary">Director's Message</h2>
                 <div class="mt-4 h-1 w-20 bg-secondary/80 mx-auto rounded-full"></div>
             </div>
 

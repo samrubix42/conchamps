@@ -252,40 +252,43 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 <div>
                     <span class="inline-flex items-center gap-2 text-secondary text-xs sm:text-sm font-semibold uppercase tracking-[0.2em]">
-                        <i class="ri-team-line"></i> Who Are We
+                        <i class="ri-team-line"></i> Who We Are
                     </span>
                     <h2 class="mt-3 text-3xl sm:text-4xl lg:text-6xl uppercase text-primary leading-[0.95]">
-                        Built By Engineers, Trusted By Builders
+                        Concrete Champs Consortium LLP
                     </h2>
                     <p class="mt-6 text-muted text-sm sm:text-base leading-7 max-w-xl">
-                        We are a multidisciplinary construction and structural engineering team focused on predictable delivery, design clarity, and field-ready execution. From planning to pour day, we operate as one accountable partner.
+                        We are a Greater Noida-based infrastructure and construction firm with more than a decade of project delivery experience across India. Led by Director Sachin Sharma and a management team with deep industry expertise, Concrete Champs specializes in civil, structural, and MEP services for public, institutional, and private sector projects.
+                    </p>
+                    <p class="mt-4 text-muted text-sm sm:text-base leading-7 max-w-xl">
+                        Our work is built on disciplined engineering, reliable site execution, modern equipment, and a commitment to quality that meets demanding client and government standards.
                     </p>
 
                     <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div class="bg-white rounded-2xl border border-border p-4 sm:p-5">
-                            <p class="text-3xl font-headline text-primary">18+ Years</p>
-                            <p class="mt-1 text-xs uppercase tracking-[0.16em] text-muted">Industry Experience</p>
+                            <p class="text-3xl font-headline text-primary">10+ Years</p>
+                            <p class="mt-1 text-xs uppercase tracking-[0.16em] text-muted">Company Experience</p>
                         </div>
                         <div class="bg-white rounded-2xl border border-border p-4 sm:p-5">
-                            <p class="text-3xl font-headline text-primary">450+ Sites</p>
-                            <p class="mt-1 text-xs uppercase tracking-[0.16em] text-muted">Successfully Delivered</p>
+                            <p class="text-3xl font-headline text-primary">20+ Years</p>
+                            <p class="mt-1 text-xs uppercase tracking-[0.16em] text-muted">Management Expertise</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-2 gap-4 sm:gap-5">
                     <div class="col-span-2 rounded-3xl overflow-hidden border border-border shadow-[0_20px_45px_rgba(15,23,42,0.12)]">
-                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop" alt="Construction team discussion" class="w-full h-56 sm:h-72 object-cover" />
+                        <img src="{{ asset('images/DJI_0033.webp') }}" alt="Concrete Champs project site" class="w-full h-56 sm:h-72 object-cover" />
+                    </div>
+                    <div class="rounded-2xl bg-white border border-border p-5">
+                        <i class="ri-building-4-line text-2xl text-secondary"></i>
+                        <h3 class="mt-3 text-xl uppercase text-primary">Turnkey Delivery</h3>
+                        <p class="mt-2 text-sm text-muted leading-6">Civil, structural, and MEP execution handled with one accountable workflow.</p>
                     </div>
                     <div class="rounded-2xl bg-white border border-border p-5">
                         <i class="ri-shield-check-line text-2xl text-secondary"></i>
-                        <h3 class="mt-3 text-xl uppercase text-primary">Safety First</h3>
-                        <p class="mt-2 text-sm text-muted leading-6">Clear site standards and proactive quality checks in every phase.</p>
-                    </div>
-                    <div class="rounded-2xl bg-white border border-border p-5">
-                        <i class="ri-timer-line text-2xl text-secondary"></i>
-                        <h3 class="mt-3 text-xl uppercase text-primary">On-Time Culture</h3>
-                        <p class="mt-2 text-sm text-muted leading-6">Planning discipline that keeps milestones on schedule.</p>
+                        <h3 class="mt-3 text-xl uppercase text-primary">Quality Focus</h3>
+                        <p class="mt-2 text-sm text-muted leading-6">Structured site controls, modern equipment, and consistent engineering standards.</p>
                     </div>
                 </div>
             </div>
