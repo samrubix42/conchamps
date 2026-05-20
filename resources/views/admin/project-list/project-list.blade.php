@@ -2,7 +2,7 @@
 
     <div class="mb-6">
         <h1 class="text-xl font-semibold text-slate-900">Project List</h1>
-        <p class="mt-1 text-sm text-slate-500">Manage projects with category, image, and status.</p>
+        <p class="mt-1 text-sm text-slate-500">Manage projects with category, gallery images, and status.</p>
     </div>
 
     <div class="space-y-4">
@@ -39,7 +39,6 @@
                     <thead class="bg-slate-50">
                         <tr class="text-left text-xs font-semibold uppercase tracking-wider text-slate-500">
                             <th class="px-4 py-3 w-12">#</th>
-                            <th class="px-4 py-3">Image</th>
                             <th class="px-4 py-3">Title</th>
                             <th class="px-4 py-3">Category</th>
                             <th class="px-4 py-3">Address</th>
@@ -52,13 +51,6 @@
                         @forelse($this->getProjectsProperty() as $project)
                             <tr wire:key="project-{{ $project->id }}" class="hover:bg-slate-50/80">
                                 <td class="px-4 py-3 text-slate-500">{{ $loop->iteration }}</td>
-                                <td class="px-4 py-3">
-                                    @if($project->image_path)
-                                        <img src="{{ asset($project->image_path) }}" alt="{{ $project->title }}" class="h-12 w-20 rounded object-cover">
-                                    @else
-                                        <span class="text-slate-400">-</span>
-                                    @endif
-                                </td>
                                 <td class="px-4 py-3">
                                     <p class="font-medium text-slate-800">{{ $project->title }}</p>
                                     <p class="text-xs text-slate-500">{{ $project->slug }}</p>
@@ -100,7 +92,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="7" class="px-4 py-8 text-center text-sm text-slate-500">No projects found.</td>
+                                <td colspan="6" class="px-4 py-8 text-center text-sm text-slate-500">No projects found.</td>
                             </tr>
                         @endforelse
                     </tbody>
@@ -122,10 +114,6 @@
                             <span class="inline-flex rounded-full bg-rose-100 px-2 py-0.5 text-[11px] font-semibold text-rose-700">Inactive</span>
                         @endif
                     </div>
-
-                    @if($project->image_path)
-                        <img src="{{ asset($project->image_path) }}" alt="{{ $project->title }}" class="mt-3 h-32 w-full rounded object-cover">
-                    @endif
 
                     <p class="mt-2 text-xs text-slate-600">{{ $project->address ?: '-' }}</p>
 

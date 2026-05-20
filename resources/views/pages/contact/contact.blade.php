@@ -34,6 +34,10 @@
                     <i class="ri-map-pin-2-line text-2xl text-secondary"></i>
                     <h3 class="mt-3 text-xl sm:text-2xl uppercase text-primary">Office</h3>
                     <p class="mt-2 text-sm text-muted">{{ $site['address'] }}</p>
+                    <a href="{{ $mapUrl }}" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-secondary transition-colors hover:text-primary">
+                        <i class="ri-route-line"></i>
+                        Open in Google Maps
+                    </a>
                 </div>
                 <div class="rounded-2xl border border-border bg-surface p-5 sm:p-6">
                     <i class="ri-time-line text-2xl text-secondary"></i>
@@ -119,6 +123,10 @@
                             <h3 class="text-xl sm:text-2xl uppercase text-primary">Visit Our Office</h3>
                             <p class="mt-3 text-sm text-muted leading-7">Meet our estimators and engineering leads for an in-depth scope conversation.</p>
                             <p class="mt-4 inline-flex items-center gap-2 text-sm text-primary"><i class="ri-map-pin-2-line text-secondary"></i> {{ $site['address'] }}</p>
+                            <a href="{{ $mapUrl }}" target="_blank" rel="noopener noreferrer" class="mt-5 inline-flex items-center gap-2 font-semibold text-secondary transition-colors hover:text-primary">
+                                <i class="ri-map-2-line"></i>
+                                Get Directions
+                            </a>
                         </div>
                     </div>
 
@@ -130,6 +138,35 @@
                         </a>
                     </div> --}}
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-white border-y border-border">
+        <div class="container-custom">
+            <div class="mb-7 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                    <span class="inline-flex items-center gap-2 text-secondary text-xs sm:text-sm uppercase tracking-[0.2em] font-semibold">
+                        <i class="ri-map-2-line"></i> Location
+                    </span>
+                    <h2 class="mt-3 text-3xl sm:text-4xl uppercase text-primary">Find Us On The Map</h2>
+                </div>
+                <a href="{{ $mapUrl }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 font-semibold text-secondary transition-colors hover:text-primary">
+                    <i class="ri-route-line"></i>
+                    Get Directions
+                </a>
+            </div>
+
+            <div class="overflow-hidden rounded-3xl border border-border bg-surface shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
+                <iframe
+                    src="{{ $mapEmbedUrl }}"
+                    title="Concrete Champs Consortium LLP location map"
+                    class="h-[360px] w-full sm:h-[440px]"
+                    style="border:0;"
+                    loading="lazy"
+                    allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
             </div>
         </div>
     </section>

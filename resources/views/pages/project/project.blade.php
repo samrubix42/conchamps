@@ -111,9 +111,9 @@
                         <i class="ri-star-line"></i> Featured Case Study
                     </span>
                     <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl uppercase text-primary">{{ $featuredProject['title'] ?? 'Metrolink Operations Center' }}</h2>
-                    <p class="mt-5 text-sm sm:text-base text-muted leading-7">
-                        {{ $featuredProject['description'] ?? 'A phased delivery involving structural retrofitting, concrete reinforcement, and high-traffic operational constraints. Completed with zero safety incidents and ahead of milestone schedule.' }}
-                    </p>
+                    <div class="mt-5 text-sm sm:text-base text-muted leading-7 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_a]:text-secondary [&_a]:font-semibold">
+                        {!! $featuredProject['description'] ?? 'A phased delivery involving structural retrofitting, concrete reinforcement, and high-traffic operational constraints. Completed with zero safety incidents and ahead of milestone schedule.' !!}
+                    </div>
 
                     <div class="mt-7 grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <div class="rounded-2xl border border-border bg-white p-4">

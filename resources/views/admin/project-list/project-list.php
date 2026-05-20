@@ -7,6 +7,7 @@ use Livewire\Attributes\Layout;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Project;
+use App\Models\ProjectImage;
 use App\Models\Category;
 
 new #[Layout('layouts::admin')] class extends Component
@@ -20,8 +21,9 @@ new #[Layout('layouts::admin')] class extends Component
     public $address = '';
     public $status = true;
     public $category_id = '';
-    public $image;
+    public $images = [];
     public $image_path = '';
+    public array $existingImages = [];
     public $projectId = null;
     public $deleteId = null;
 
@@ -33,10 +35,11 @@ new #[Layout('layouts::admin')] class extends Component
             'category_id' => 'required|exists:categories,id',
             'title' => 'required|string|max:255',
             'slug' => 'nullable|string|max:255',
-            'description' => 'nullable|string|max:3000',
+            'description' => 'nullable|string|max:10000',
             'address' => 'nullable|string|max:500',
             'status' => 'boolean',
-            'image' => $this->projectId ? 'nullable|image|max:3072' : 'required|image|max:3072',
+            'images' => $this->projectId ? 'nullable|array' : 'required|array|min:1',
+            'images.*' => 'image|max:3072',
         ];
     }
 
@@ -57,7 +60,7 @@ new #[Layout('layouts::admin')] class extends Component
 
     public function getProjectsProperty()
     {
-        return Project::with('category')
+        return Project::with(['category', 'images'])
             ->when($this->search, function ($query) {
                 $query->where(function ($q) {
                     $q->where('title', 'like', "%{$this->search}%")
@@ -81,18 +84,20 @@ new #[Layout('layouts::admin')] class extends Component
             'address',
             'status',
             'category_id',
-            'image',
+            'images',
             'image_path',
+            'existingImages',
             'projectId',
         ]);
 
         $this->status = true;
         $this->resetValidation();
+        $this->dispatch('project-description-editor-content', content: '');
     }
 
     public function openEditModal(int $id): void
     {
-        $project = Project::findOrFail($id);
+        $project = Project::with('images')->findOrFail($id);
 
         $this->projectId = $project->id;
         $this->category_id = (string) $project->category_id;
@@ -102,9 +107,17 @@ new #[Layout('layouts::admin')] class extends Component
         $this->address = $project->address ?? '';
         $this->status = (bool) $project->status;
         $this->image_path = $project->image_path ?? '';
-        $this->image = null;
+        $this->images = [];
+        $this->existingImages = $project->images
+            ->map(fn (ProjectImage $image) => [
+                'id' => $image->id,
+                'image_path' => $image->image_path,
+            ])
+            ->values()
+            ->toArray();
 
         $this->dispatch('open-modal');
+        $this->dispatch('project-description-editor-content', content: $this->description);
     }
 
     public function save(): void
@@ -124,23 +137,34 @@ new #[Layout('layouts::admin')] class extends Component
 
         $data['slug'] = $slug;
         $data['status'] = $this->status ? 1 : 0;
-        unset($data['image']);
-
-        if ($this->image) {
-            $newPath = $this->image->store('projects', 'public');
-            $data['image_path'] = 'storage/' . $newPath;
-        }
+        unset($data['images']);
 
         if ($this->projectId) {
-            $project = Project::find($this->projectId);
+            $project = Project::with('images')->find($this->projectId);
             if ($project) {
-                if ($this->image && str_starts_with($project->image_path ?? '', 'storage/')) {
-                    Storage::disk('public')->delete(substr($project->image_path, 8));
-                }
                 $project->update($data);
             }
         } else {
-            Project::create($data);
+            $project = Project::create($data);
+        }
+
+        if (isset($project) && $project) {
+            $nextSortOrder = (int) $project->images()->max('sort_order') + 1;
+            $firstNewPath = null;
+
+            foreach ($this->images as $index => $image) {
+                $newPath = 'storage/' . $image->store('projects', 'public');
+                $firstNewPath ??= $newPath;
+
+                $project->images()->create([
+                    'image_path' => $newPath,
+                    'sort_order' => $nextSortOrder + $index,
+                ]);
+            }
+
+            if ($firstNewPath && blank($project->image_path)) {
+                $project->update(['image_path' => $firstNewPath]);
+            }
         }
 
         $this->dispatch('close-modal');
@@ -158,14 +182,66 @@ new #[Layout('layouts::admin')] class extends Component
         $this->deleteId = $id;
     }
 
+    public function deleteProjectImage(int $imageId): void
+    {
+        if (! $this->projectId) {
+            return;
+        }
+
+        $image = ProjectImage::query()
+            ->where('project_id', $this->projectId)
+            ->find($imageId);
+
+        if (! $image) {
+            return;
+        }
+
+        $project = Project::with('images')->find($this->projectId);
+        $deletedPath = $image->image_path;
+
+        $this->deleteStoredImage($deletedPath);
+        $image->delete();
+
+        if ($project && $project->image_path === $deletedPath) {
+            $project->update([
+                'image_path' => $project->images()->value('image_path'),
+            ]);
+        }
+
+        $this->existingImages = ProjectImage::query()
+            ->where('project_id', $this->projectId)
+            ->orderBy('sort_order')
+            ->orderBy('id')
+            ->get(['id', 'image_path'])
+            ->map(fn (ProjectImage $image) => [
+                'id' => $image->id,
+                'image_path' => $image->image_path,
+            ])
+            ->toArray();
+    }
+
+    public function removePendingImage(int $index): void
+    {
+        if (! array_key_exists($index, $this->images)) {
+            return;
+        }
+
+        unset($this->images[$index]);
+        $this->images = array_values($this->images);
+    }
+
     public function deleteConfirmed(): void
     {
         if ($this->deleteId) {
-            $project = Project::find($this->deleteId);
+            $project = Project::with('images')->find($this->deleteId);
             if ($project) {
-                if (str_starts_with($project->image_path ?? '', 'storage/')) {
-                    Storage::disk('public')->delete(substr($project->image_path, 8));
-                }
+                $project->images
+                    ->pluck('image_path')
+                    ->push($project->image_path)
+                    ->filter()
+                    ->unique()
+                    ->each(fn (string $path) => $this->deleteStoredImage($path));
+
                 $project->delete();
             }
 
@@ -177,6 +253,13 @@ new #[Layout('layouts::admin')] class extends Component
                 'type' => 'success',
                 'position' => 'top-right',
             ]);
+        }
+    }
+
+    private function deleteStoredImage(?string $path): void
+    {
+        if ($path && str_starts_with($path, 'storage/')) {
+            Storage::disk('public')->delete(substr($path, 8));
         }
     }
 };

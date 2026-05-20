@@ -59,7 +59,7 @@
                             class="mt-1 space-y-1 pl-10">
 
                             @foreach ($item['children'] as $child)
-                                <a wire:navigate href="{{ $child['uri'] }}"
+                                <a @if($child['uri'] !== '/admin/projects') wire:navigate @endif href="{{ $child['uri'] }}"
                                     class="block px-3 py-2.5 rounded-lg text-[14px] transition
                                     {{ $child['active']
                                         ? 'bg-blue-500/15 text-blue-300'
@@ -74,7 +74,7 @@
 
                     @else
                         <!-- Single Item -->
-                        <a wire:navigate href="{{ $item['uri'] }}"
+                        <a @if($item['uri'] !== '/admin/projects') wire:navigate @endif href="{{ $item['uri'] }}"
                             class="flex items-center gap-3 px-4 py-3 rounded-lg text-[15px] font-medium transition-all duration-200
                             {{ $itemActive
                                 ? 'bg-blue-500/20 text-blue-300'

@@ -16,6 +16,8 @@ new class extends Component
     public $project_type = '';
     public $message = '';
     public array $site = [];
+    public string $mapUrl = 'https://www.google.com/maps/place/Concrete+Champs+Consortium+Llp/@28.6258157,77.4152187,17z/data=!3m1!4b1!4m6!3m5!1s0x390cef0ccc6e484d:0x651c9c80854e2c5d!8m2!3d28.6258157!4d77.4152187!16s%2Fg%2F11kjh3xdxn?entry=tts&g_ep=EgoyMDI2MDUxMy4wIPu8ASoASAFQAw%3D%3D&skid=98e9f09d-d313-4eae-90f2-0de079560d15';
+    public string $mapEmbedUrl = 'https://www.google.com/maps?q=28.6258157,77.4152187&z=17&output=embed';
 
     public function mount(): void
     {

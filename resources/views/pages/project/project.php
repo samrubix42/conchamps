@@ -21,19 +21,21 @@ new class extends Component
             ->all();
 
         $rows = Project::query()
-            ->with('category')
+            ->with(['category', 'images'])
             ->where('status', 1)
             ->whereIn('category_id', $activeCategoryIds)
             ->orderByDesc('id')
             ->get();
 
         $this->projects = $rows->map(function (Project $project) {
+            $imagePath = $project->displayImagePath();
+
             return [
                 'title' => $project->title,
                 'category' => $project->category?->title ?? 'General',
                 'location' => $project->address ?: 'Location not specified',
                 'filter' => $project->category?->slug ?? 'general',
-                'image' => $project->image_path ? asset($project->image_path) : asset('images/project1.png'),
+                'image' => $imagePath ? asset($imagePath) : asset('images/project1.png'),
                 'description' => $project->description ?: 'Detailed project information is available on request.',
             ];
         })->toArray();
