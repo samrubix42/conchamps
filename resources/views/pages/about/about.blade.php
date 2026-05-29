@@ -3,18 +3,26 @@
 
 <div class="bg-background text-on-surface font-body overflow-x-hidden">
     <!-- Hero Section -->
-    <section class="relative overflow-hidden min-h-[46vh] sm:min-h-[52vh] flex items-center">
-        <img src="{{ asset('images/about_hero.webp') }}" alt="About Concrete Champs" class="absolute inset-0 h-full w-full object-cover" />
-        <div class="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/60 to-slate-950/35"></div>
-
-        <div class="container-custom relative z-10 py-20 md:py-24">
-            <p class="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs uppercase tracking-[0.16em] font-semibold text-white">
-                <i class="ri-team-line"></i> About Us
-            </p>
-            <h1 class="mt-4 text-white text-3xl sm:text-5xl lg:text-7xl leading-[0.95] uppercase max-w-4xl">About Concrete Champs</h1>
-            <p class="mt-5 max-w-2xl text-white/85 text-sm sm:text-base lg:text-lg leading-7">
-                Concrete Champs Consortium LLP is a Greater Noida-based infrastructure and construction firm with over a decade of experience, delivering quality and world-class engineering across India.
-            </p>
+    <section class="relative bg-slate-50 border-b border-border py-12 overflow-hidden blueprint-grid">
+        <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(circle at 80% 50%, rgba(42, 40, 114, 0.06), transparent 50%);"></div>
+        
+        <div class="container-custom relative z-10">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-headline uppercase text-primary font-bold tracking-tight">About</h1>
+                    <p class="mt-2 text-xs sm:text-sm text-muted font-medium inline-flex items-center gap-1.5">
+                        <a href="{{ route('home') }}" wire:navigate class="hover:text-secondary transition-colors">Home</a>
+                        <span class="text-slate-400">/</span>
+                        <span class="text-secondary font-semibold">About</span>
+                    </p>
+                </div>
+                
+                <div class="hidden md:block">
+                    <span class="inline-flex items-center gap-2 rounded-full border border-secondary/12 bg-secondary/6 px-4 py-1.5 text-[11px] uppercase tracking-[0.16em] font-semibold text-secondary">
+                        <i class="ri-team-line"></i> Concrete Champs
+                    </span>
+                </div>
+            </div>
         </div>
     </section>
 
