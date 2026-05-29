@@ -3,7 +3,7 @@
 
 <div class="bg-background text-on-surface font-body overflow-x-hidden">
     <section class="relative overflow-hidden min-h-[46vh] sm:min-h-[56vh] flex items-center">
-        <img src="{{ asset('images/DJI_0038.webp') }}" alt="Concrete Champs Services" class="absolute inset-0 h-full w-full object-cover" />
+        <img src="{{ asset('images/services_hero.png') }}" alt="Concrete Champs Services" class="absolute inset-0 h-full w-full object-cover" />
         <div class="absolute inset-0 bg-linear-to-r from-slate-950/82 via-slate-950/64 to-slate-950/38"></div>
 
         <div class="container-custom relative z-10 py-20 md:py-24">
@@ -85,17 +85,6 @@
                     <p class="mt-5 text-sm sm:text-base text-muted leading-7">
                         Our teams regularly coordinate across consultants, site teams, and stakeholders in technically demanding environments.
                     </p>
-
-                    <div class="mt-7 grid grid-cols-2 gap-3">
-                        <div class="rounded-xl border border-border bg-surface p-4">
-                            <p class="text-3xl sm:text-4xl font-headline text-primary">450+</p>
-                            <p class="mt-1 text-xs uppercase tracking-[0.16em] text-muted">Projects Delivered</p>
-                        </div>
-                        <div class="rounded-xl border border-border bg-surface p-4">
-                            <p class="text-3xl sm:text-4xl font-headline text-primary">18+</p>
-                            <p class="mt-1 text-xs uppercase tracking-[0.16em] text-muted">Years Experience</p>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
