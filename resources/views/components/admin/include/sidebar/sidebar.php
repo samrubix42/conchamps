@@ -40,6 +40,10 @@ new class extends Component
                 'title' => 'Careers',
                 'icon' => 'ri-briefcase-line',
                 'uri' => '/admin/careers',
+                'children' => [
+                    ['title' => 'Job Openings', 'uri' => '/admin/careers'],
+                    ['title' => 'Applied Jobs', 'uri' => '/admin/careers/applied'],
+                ],
             ],
             [
                 'title' => 'Contacts',

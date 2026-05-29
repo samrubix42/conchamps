@@ -21,6 +21,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::livewire('/careers', 'admin::careerlist')->name('admin.careers');
     Route::livewire('/careers/create', 'admin::careerlist.careerlisform')->name('admin.careers.create');
     Route::livewire('/careers/edit/{id}', 'admin::careerlist.careerlisform')->name('admin.careers.edit');
+    Route::livewire('/careers/applied', 'admin::applied-job')->name('admin.careers.applied');
 });
 
 Route::post('/logout', function (\Illuminate\Http\Request $request) {
