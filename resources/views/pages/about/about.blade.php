@@ -30,7 +30,7 @@
                         A Decade of Engineering Excellence
                     </h2>
                     <p class="mt-6 text-muted text-sm sm:text-base leading-7 max-w-2xl">
-                        Concrete Champs Consortium LLP is a Greater Noida-based infrastructure and construction firm with over a decade of experience. Led by Director Sachin Sharma and a management team with 20 years of industry expertise, the company specializes in civil, structural, and MEP services across India.
+                        Concrete Champs Consortium LLP is a Greater Noida-based infrastructure and construction firm with over a decade of experience. Led by Director Sachin Sharma and a management team with more than 25+ years of experience, the company specializes in civil, structural, and MEP services across India.
                     </p>
                     <p class="mt-4 text-muted text-sm sm:text-base leading-7 max-w-2xl">
                         The company delivers turnkey projects for major clients like CPWD, MPPHIDC, and The Time Research Foundation, maintaining a diverse and modern equipment fleet. The firm has demonstrated rapid financial growth, with turnover reaching ₹7,706.13 Lakh in FY 2025-26. Our mission focuses on delivering quality, world-class engineering while maintaining integrity and safety.
@@ -63,8 +63,8 @@
                                     <i class="ri-user-star-line"></i>
                                 </div>
                                 <div>
-                                    <p class="font-headline text-lg uppercase text-primary">20 Years</p>
-                                    <p class="text-xs text-muted">Management Team Expertise</p>
+                                    <p class="font-headline text-lg uppercase text-primary">25+ Years</p>
+                                    <p class="text-xs text-muted">Management Team Experience</p>
                                 </div>
                             </div>
                             <div class="flex items-center gap-4 p-3 bg-white rounded-xl border border-border">

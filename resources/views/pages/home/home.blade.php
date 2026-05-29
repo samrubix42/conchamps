@@ -136,7 +136,7 @@
                 <div class="mt-4 h-1 w-20 bg-secondary/80 mx-auto rounded-full"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 items-stretch max-w-7xl mx-auto">
                 <!-- Client 1: CPWD -->
                 <div class="group relative flex flex-col justify-between items-center text-center p-8 bg-white border border-border rounded-2xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_45px_rgba(15,23,42,0.08)]">
                     <div class="h-28 flex items-center justify-center mb-6 w-full">
@@ -169,6 +169,17 @@
                         <p class="text-xs text-muted font-medium mt-1 uppercase tracking-wider">Greater Noida</p>
                     </div>
                 </div>
+
+                <!-- Client 4: Universal Contractors and Engineers Limited -->
+                <div class="group relative flex flex-col justify-between items-center text-center p-8 bg-white border border-border rounded-2xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_45px_rgba(15,23,42,0.08)]">
+                    <div class="h-28 flex items-center justify-center mb-6 w-full">
+                        <img src="{{ asset('images/clients/universal_logo.png') }}" alt="Universal Contractors and Engineers Limited" class="max-h-full max-w-[85%] object-contain transition-all duration-300 group-hover:scale-105" />
+                    </div>
+                    <div class="flex-grow flex flex-col justify-end">
+                        <h3 class="font-headline text-2xl uppercase text-primary leading-tight">Universal Contractors & Engineers Ltd</h3>
+                        <p class="text-xs text-muted font-medium mt-1 uppercase tracking-wider">Infrastructure Partner</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -181,17 +192,11 @@
                 <h2 class="mt-2 text-3xl sm:text-4xl lg:text-5xl uppercase text-slate-900">Our Impact</h2>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
                 <div class="rounded-2xl shadow shadow-md  border border-slate-300 bg-indigo-200 p-5 sm:p-6">
                     <p class="text-3xl sm:text-4xl md:text-5xl font-headline font-semibold text-slate-900">1.2M</p>
                     <p class="mt-1 text-lg font-headline text-[#5347BB]">SQ FT</p>
                     <p class="mt-4 text-xs uppercase tracking-[0.2em] text-slate-500">Built With Quality</p>
-                </div>
-
-                <div class="rounded-2xl shadow shadow-md border border-slate-300 bg-indigo-200 p-5 sm:p-6">
-                    <p class="text-3xl sm:text-4xl md:text-5xl font-headline font-semibold text-slate-900">450+</p>
-                    <p class="mt-1 text-lg font-headline text-[#5347BB]">Projects</p>
-                    <p class="mt-4 text-xs uppercase tracking-[0.2em] text-slate-500">Delivered On Time</p>
                 </div>
 
                 <div class="rounded-2xl shadow shadow-md border border-slate-300 bg-indigo-200 p-5 sm:p-6">
@@ -270,8 +275,8 @@
                             <p class="mt-1 text-xs uppercase tracking-[0.16em] text-muted">Company Experience</p>
                         </div>
                         <div class="bg-white rounded-2xl border border-border p-4 sm:p-5">
-                            <p class="text-3xl font-headline text-primary">20+ Years</p>
-                            <p class="mt-1 text-xs uppercase tracking-[0.16em] text-muted">Management Expertise</p>
+                            <p class="text-3xl font-headline text-primary">25+ Years</p>
+                            <p class="mt-1 text-xs uppercase tracking-[0.16em] text-muted">Management Experience</p>
                         </div>
                     </div>
                 </div>

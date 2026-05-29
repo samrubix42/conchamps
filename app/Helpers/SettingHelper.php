@@ -66,7 +66,7 @@ class SettingHelper
             'phone_number' => $phone,
             'phone_tel' => self::tel($phone),
             'whatsapp_number' => self::get('whatsapp_number', ''),
-            'office_timing' => self::get('office_timing', 'Mon - Sat 8:00 - 17:30'),
+            'office_timing' => self::get('office_timing', 'Monday- Saturday, 10:00 A.M- 06:00 P.M'),
             'address' => self::get('address', 'E-110, Sarswati Kunj, Chipiyana Khurd, Tigri, Greater Noida, G. B. Nagar, U.P-201301'),
             'logo_url' => $headerLogo ? asset($headerLogo) : self::asset('logo_path', 'Concrete-Champs-dark.png'),
             'header_logo_url' => $headerLogo ? asset($headerLogo) : self::asset('logo_path', 'Concrete-Champs-dark.png'),
