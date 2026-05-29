@@ -45,7 +45,7 @@
                     class="h-full w-full object-cover transition-transform duration-[7000ms] ease-out"
                     :class="activeSlide === index ? 'scale-105' : 'scale-100'"
                 />
-                <div class="absolute inset-0 bg-gradient-to-r from-slate-950/75 via-slate-950/45 to-slate-950/20"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-slate-950/40 via-slate-950/20 to-slate-950/5"></div>
             </div>
         </template>
 
@@ -59,11 +59,6 @@
                         x-transition:enter-end="opacity-100 translate-y-0"
                         class="space-y-6"
                     >
-                        <span class="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-[11px] sm:text-xs uppercase tracking-[0.16em] font-semibold text-white">
-                            <i class="ri-compasses-2-line"></i>
-                            <span x-text="slide.subtitle"></span>
-                        </span>
-
                         <h1 class="text-white text-3xl sm:text-5xl lg:text-7xl leading-[0.95] uppercase">
                             <span x-text="slide.title"></span>
                         </h1>
@@ -74,10 +69,6 @@
                             <a href="{{ route('services') }}" class="btn-primary w-full sm:w-auto inline-flex justify-center">
                                 <i class="ri-hammer-line"></i>
                                 <span>Explore Services</span>
-                            </a>
-                            <a href="{{ route('projects') }}" class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-white/45 bg-white/10 px-6 sm:px-7 py-3.5 font-semibold tracking-wide text-white transition-all duration-300 hover:bg-white/20">
-                                <i class="ri-building-3-line"></i>
-                                <span>View Projects</span>
                             </a>
                         </div>
                     </div>
