@@ -37,6 +37,11 @@ new class extends Component
                 'uri' => '/admin/testimonials',
             ],
             [
+                'title' => 'Careers',
+                'icon' => 'ri-briefcase-line',
+                'uri' => '/admin/careers',
+            ],
+            [
                 'title' => 'Contacts',
                 'icon' => 'ri-contacts-book-2-line',
                 'uri' => '/admin/contacts',

@@ -7,6 +7,7 @@ Route::livewire('/about', 'pages::about')->name('about');
 Route::livewire('/services', 'pages::service')->name('services');
 Route::livewire('/projects', 'pages::project')->name('projects');
 Route::livewire('/contact', 'pages::contact')->name('contact');
+Route::livewire('/careers', 'pages::career')->name('careers');
 Route::livewire('/login', 'auth.login')->middleware('guest')->name('login');
 
 Route::prefix('admin')->middleware('auth')->group(function () {
@@ -17,6 +18,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::livewire('/sliders', 'admin::slider-list')->name('admin.sliders');
     Route::livewire('/testimonials', 'admin::testimonial-list')->name('admin.testimonials');
     Route::livewire('/contacts', 'admin::contactlist')->name('admin.contacts');
+    Route::livewire('/careers', 'admin::careerlist')->name('admin.careers');
+    Route::livewire('/careers/create', 'admin::careerlist.careerlisform')->name('admin.careers.create');
+    Route::livewire('/careers/edit/{id}', 'admin::careerlist.careerlisform')->name('admin.careers.edit');
 });
 
 Route::post('/logout', function (\Illuminate\Http\Request $request) {

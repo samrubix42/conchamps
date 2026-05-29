@@ -51,6 +51,7 @@ new class extends Component
                     <li><a wire:navigate class="text-slate-600 hover:text-secondary transition-colors inline-flex items-center gap-2" href="{{ route('about') }}"><i class="ri-arrow-right-s-line"></i>About</a></li>
                     <li><a wire:navigate class="text-slate-600 hover:text-secondary transition-colors inline-flex items-center gap-2" href="{{ route('projects') }}"><i class="ri-arrow-right-s-line"></i>Projects</a></li>
                     <li><a wire:navigate class="text-slate-600 hover:text-secondary transition-colors inline-flex items-center gap-2" href="{{ route('services') }}"><i class="ri-arrow-right-s-line"></i>Services</a></li>
+                    <li><a wire:navigate class="text-slate-600 hover:text-secondary transition-colors inline-flex items-center gap-2" href="{{ route('careers') }}"><i class="ri-arrow-right-s-line"></i>Careers</a></li>
                     <li><a wire:navigate class="text-slate-600 hover:text-secondary transition-colors inline-flex items-center gap-2" href="{{ route('contact') }}"><i class="ri-arrow-right-s-line"></i>Contact</a></li>
                 </ul>
             </div>

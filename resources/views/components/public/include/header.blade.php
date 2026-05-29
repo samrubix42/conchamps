@@ -59,6 +59,7 @@ new class extends Component
                 <a href="{{ route('about') }}" wire:navigate class="px-4 py-2 rounded-lg text-[15px] font-medium text-white hover:text-slate-900 hover:bg-white/20 transition-colors">About</a>
                 <a href="{{ route('projects') }}" wire:navigate class="px-4 py-2 rounded-lg text-[15px] font-medium text-white hover:text-slate-900 hover:bg-white/20 transition-colors">Projects</a>
                 <a href="{{ route('services') }}" wire:navigate class="px-4 py-2 rounded-lg text-[15px] font-medium text-white hover:text-slate-900 hover:bg-white/20 transition-colors">Services</a>
+                <a href="{{ route('careers') }}" wire:navigate class="px-4 py-2 rounded-lg text-[15px] font-medium text-white hover:text-slate-900 hover:bg-white/20 transition-colors">Careers</a>
                 <a href="{{ route('contact') }}" wire:navigate class="px-4 py-2 rounded-lg text-[15px] font-medium text-white hover:text-slate-900 hover:bg-white/20 transition-colors">Contact</a>
             </div>
 
@@ -147,6 +148,12 @@ new class extends Component
                 <a href="{{ route('contact') }}" wire:navigate @click="mobileMenuOpen = false"
                     class="flex justify-between items-center px-4 py-4 rounded-xl text-xl font-headline uppercase tracking-wide hover:bg-gray-100 transition">
                     Contact
+                    <i class="ri-arrow-right-up-line text-white"></i>
+                </a>
+
+                <a href="{{ route('careers') }}" wire:navigate @click="mobileMenuOpen = false"
+                    class="flex justify-between items-center px-4 py-4 rounded-xl text-xl font-headline uppercase tracking-wide hover:bg-gray-100 transition">
+                    Careers
                     <i class="ri-arrow-right-up-line text-white"></i>
                 </a>
 
