@@ -3,7 +3,7 @@
 
 <div class="bg-background text-on-surface font-body overflow-x-hidden">
     <section class="relative overflow-hidden min-h-[46vh] sm:min-h-[56vh] flex items-center">
-        <img src="{{ asset('images/services_hero.png') }}" alt="Concrete Champs Services" class="absolute inset-0 h-full w-full object-cover" />
+        <img src="{{ asset('images/services_hero.webp') }}" alt="Concrete Champs Services" class="absolute inset-0 h-full w-full object-cover" />
         <div class="absolute inset-0 bg-linear-to-r from-slate-950/82 via-slate-950/64 to-slate-950/38"></div>
 
         <div class="container-custom relative z-10 py-20 md:py-24">
