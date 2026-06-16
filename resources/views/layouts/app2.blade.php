@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@hasSection('meta_title')@yield('meta_title')@elseif(isset($meta_title)){{ $meta_title }}@elseif(isset($title)){{ $title }}@else Concrete Champs @endif | Architectural Precision</title>
     <meta name="description" content="@hasSection('meta_description')@yield('meta_description')@elseif(isset($meta_description)){{ $meta_description }}@else Concrete Champs delivers structural engineering and construction services with practical execution, quality, and client-focused delivery. @endif">
+    <link rel="icon" type="image/png" href="{{ \App\Helpers\SettingHelper::asset('favicon_path', 'images/favicon.png') }}">
 
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,4 +29,3 @@
     @livewireScripts
 </body>
 </html>
-

@@ -71,7 +71,7 @@ class SettingHelper
             'logo_url' => $headerLogo ? asset($headerLogo) : self::asset('logo_path', 'Concrete-Champs-dark.png'),
             'header_logo_url' => $headerLogo ? asset($headerLogo) : self::asset('logo_path', 'Concrete-Champs-dark.png'),
             'footer_logo_url' => $footerLogo ? asset($footerLogo) : self::asset('logo_path', 'Concrete-Champs-white.png'),
-            'favicon_url' => self::asset('favicon_path', 'favicon.ico'),
+            'favicon_url' => self::asset('favicon_path', 'images/favicon.png'),
             'instagram' => self::get('instagram', '#'),
             'x' => self::get('x', '#'),
             'linkedin' => self::get('linkedin', '#'),
