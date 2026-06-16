@@ -325,6 +325,7 @@
         </div>
     </section>
 
+    {{--
     <section
         class="section bg-surface"
         x-data="{
@@ -406,6 +407,7 @@
             </div>
         </div>
     </section>
+    --}}
 
     <section class="section bg-surface-2 border-t border-border">
         <div class="container-custom">

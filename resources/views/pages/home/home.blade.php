@@ -164,7 +164,7 @@
                 <!-- Client 4: Universal Contractors and Engineers Limited -->
                 <div class="group relative flex flex-col justify-between items-center text-center p-8 bg-white border border-border rounded-2xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_45px_rgba(15,23,42,0.08)]">
                     <div class="h-28 flex items-center justify-center mb-6 w-full">
-                        <img src="{{ asset('images/clients/universal_logo.png') }}" alt="Universal Contractors and Engineers Limited" class="max-h-full max-w-[85%] object-contain transition-all duration-300 group-hover:scale-105" />
+                        <img src="{{ asset('images/IMG-20260616-WA0002.jpg') }}" alt="Universal Contractors and Engineers Limited" class="max-h-full max-w-[85%] object-contain transition-all duration-300 group-hover:scale-105" />
                     </div>
                     <div class="flex-grow flex flex-col justify-end">
                         <h3 class="font-headline text-2xl uppercase text-primary leading-tight">Universal Contractors & Engineers Ltd</h3>
@@ -570,6 +570,7 @@
         </div>
     </section>
 
+    {{--
     <section
         class="section bg-surface"
         x-data="{
@@ -632,6 +633,7 @@
             </div>
         </div>
     </section>
+    --}}
 
     <section class="section bg-surface-2 border-t border-border">
         <div class="container-custom">

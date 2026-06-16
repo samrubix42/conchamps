@@ -4,7 +4,7 @@ use Livewire\Component;
 use App\Models\Project;
 use App\Models\Category;
 use App\Models\Slider;
-use App\Models\Testimonial;
+// use App\Models\Testimonial;
 use App\Helpers\SettingHelper;
 
 new class extends Component
@@ -35,24 +35,24 @@ new class extends Component
             })
             ->toArray();
 
-        $this->testimonials = Testimonial::query()
-            ->where('status', 1)
-            ->orderBy('id')
-            ->get()
-            ->map(function (Testimonial $item) {
-                $nameParts = preg_split('/\s+/', trim((string) $item->name));
-                $first = $nameParts[0] ?? '';
-                $last = $nameParts[count($nameParts) - 1] ?? '';
+        // $this->testimonials = Testimonial::query()
+        //     ->where('status', 1)
+        //     ->orderBy('id')
+        //     ->get()
+        //     ->map(function (Testimonial $item) {
+        //         $nameParts = preg_split('/\s+/', trim((string) $item->name));
+        //         $first = $nameParts[0] ?? '';
+        //         $last = $nameParts[count($nameParts) - 1] ?? '';
 
-                return [
-                    'quote' => $item->quote,
-                    'name' => $item->name,
-                    'role' => $item->role,
-                    'company' => $item->company,
-                    'initials' => strtoupper(substr($first, 0, 1) . substr($last, 0, 1)),
-                ];
-            })
-            ->toArray();
+        //         return [
+        //             'quote' => $item->quote,
+        //             'name' => $item->name,
+        //             'role' => $item->role,
+        //             'company' => $item->company,
+        //             'initials' => strtoupper(substr($first, 0, 1) . substr($last, 0, 1)),
+        //         ];
+        //     })
+        //     ->toArray();
 
         $activeCategories = Category::query()
             ->where('status', 1)
