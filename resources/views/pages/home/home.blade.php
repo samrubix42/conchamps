@@ -274,7 +274,7 @@
 
                 <div class="grid grid-cols-2 gap-4 sm:gap-5">
                     <div class="col-span-2 rounded-3xl overflow-hidden border border-border shadow-[0_20px_45px_rgba(15,23,42,0.12)]">
-                        <img src="{{ asset('images/team-engineers-architects-discussing-construction-project_1134-132746.jpg') }}" alt="Concrete Champs project site" class="w-full h-56 sm:h-72 object-cover" />
+                        <img src="{{ asset('images/W6AaJ11.jpg') }}" alt="Concrete Champs project site" class="w-full h-56 sm:h-72 object-cover" />
                     </div>
                     <div class="rounded-2xl bg-white border border-border p-5">
                         <i class="ri-building-4-line text-2xl text-secondary"></i>
